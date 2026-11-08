@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GymTrack · Proyecto Integrador</title>
+  <meta name="description" content="Presentación del Proyecto Integrador GymTrack: comercio electrónico, app móvil y control de acceso IoT para gimnasios.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f45124' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 7v10M3 9.5v5M18 7v10M21 9.5v5M6 12h12'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="escenario" aria-live="polite"></main>
+  <div id="progreso"></div>
+
+  <nav id="controles" aria-label="Controles de la presentación">
+    <span id="contador">1 / 1</span>
+    <button id="btn-ant" type="button" aria-label="Anterior (←)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button>
+    <button id="btn-sig" type="button" aria-label="Siguiente (→)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
+    <button id="btn-notas" type="button" aria-label="Notas del orador (N)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg></button>
+    <button id="btn-general" type="button" aria-label="Vista general (G)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.2"/><rect x="13" y="4" width="7" height="7" rx="1.2"/><rect x="4" y="13" width="7" height="7" rx="1.2"/><rect x="13" y="13" width="7" height="7" rx="1.2"/></svg></button>
+    <button id="btn-completa" type="button" aria-label="Pantalla completa (F)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+  </nav>
+
+  <aside id="notas" aria-label="Notas del orador">
+    <header><span id="nota-titulo"></span><span><b id="nota-tiempo"></b> · <span id="reloj">0:00</span></span></header>
+    <p></p>
+  </aside>
+
+  <div id="general" aria-label="Vista general de diapositivas"></div>
+
+  <div id="ayuda"><kbd>←</kbd><kbd>→</kbd> navegar · <kbd>N</kbd> notas · <kbd>G</kbd> vista general · <kbd>F</kbd> pantalla completa</div>
+
+  <!-- El contenido de cada diapositiva está en slides.js -->
+  <script src="slides.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
