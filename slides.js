@@ -284,7 +284,7 @@ window.PRESENTACION = {
       cadena: [
         { titulo: 'GymTrack', texto: 'Plataforma SaaS que le da la tienda en línea a cada gimnasio' },
         { titulo: 'Gimnasio', texto: 'Su eShop: vende planes y productos de su propio inventario', destacado: true },
-        { titulo: 'Socio', texto: 'Compra en la tienda de su gimnasio, en la web o la app' }
+        { titulo: 'Socio', texto: 'Compra en la web, en la app o en el mostrador' }
       ],
       ingresos: [
         { valor: '$499', unidad: 'al mes', texto: 'Suscripción SaaS por gimnasio (ingreso recurrente)' },
@@ -305,7 +305,7 @@ window.PRESENTACION = {
         ]
       },
       duracion: '0:55',
-      notas: 'PLAN DE NEGOCIO ELECTRÓNICO con modelo eSHOP. El MVP ya funciona: tienda con carrito de compras y monitoreo con Google Analytics 4 (ve productos, agrega al carrito, inicia pago y compra) más el panel de ventas del dueño. Cada gimnasio tiene su propia tienda en línea y vende SUS planes y productos a sus socios, desde la web o la app. Por qué es eShop y no otro modelo: NO es dropshipping, porque el gimnasio tiene inventario propio (el sistema lleva existencias y apartados) y entrega en su mostrador; NO es marketplace, porque el socio compra solo a su gimnasio y no compara vendedores. GymTrack es quien da la plataforma: cobra una suscripción SaaS de $499 al mes (precio estimado) más el hardware. La suscripción es nuestro ingreso recurrente: 10 gimnasios = $4,990 al mes, casi $60,000 al año. Hardware (pago único): lector de acceso $3,500 y credencial RFID $50, que baja a $45, $40 y $35 por volumen (gráfica de la derecha). Un gimnasio de 50 socios ya paga $35 por credencial. Una cadena compra mucho más volumen, así que siempre obtiene el mejor precio y reparte la plataforma entre todas sus sucursales. Costos: nube Render y MongoDB Atlas, comisiones de pasarela y hardware.'
+      notas: 'PLAN DE NEGOCIO ELECTRÓNICO con modelo eSHOP. El MVP ya funciona: tienda con carrito de compras y monitoreo con Google Analytics 4 (ve productos, agrega al carrito, inicia pago y compra) más el panel de ventas del dueño. Cada gimnasio tiene su propia tienda en línea y vende SUS planes y productos a sus socios, desde la web o la app. Por qué es eShop y no otro modelo: NO es dropshipping, porque el gimnasio tiene inventario propio (el sistema lleva existencias y apartados) y entrega en su mostrador; NO es marketplace, porque el socio compra solo a su gimnasio y no compara vendedores. El socio puede comprar en la tienda web o en la app con su cuenta, y en el gimnasio el encargado le vende en el mostrador desde el panel web. GymTrack es quien da la plataforma: cobra una suscripción SaaS de $499 al mes (precio estimado) más el hardware. La suscripción es nuestro ingreso recurrente: 10 gimnasios = $4,990 al mes, casi $60,000 al año. Hardware (pago único): lector de acceso $3,500 y credencial RFID $50, que baja a $45, $40 y $35 por volumen (gráfica de la derecha). Un gimnasio de 50 socios ya paga $35 por credencial. Una cadena compra mucho más volumen, así que siempre obtiene el mejor precio y reparte la plataforma entre todas sus sucursales. Costos: nube Render y MongoDB Atlas, comisiones de pasarela y hardware.'
     },
 
     // 12 · Demostración técnica en vivo ────────────────────────────
