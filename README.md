@@ -12,7 +12,7 @@ También funciona sin internet: descarga el repositorio (Code → Download ZIP) 
 |---|---|
 | `→` · `Espacio` · clic | Siguiente |
 | `←` | Anterior |
-| `N` | Notas del orador y cronómetro (meta: 15:00; se pone amarillo cuando faltan 2 minutos) |
+| `N` | Guion del orador en un panel lateral (la diapositiva se recorre a la izquierda), con quién presenta, quién sigue y el cronómetro (meta: 15:00; se pone amarillo cuando faltan 2 minutos) |
 | `G` | Vista general de todas las diapositivas |
 | `F` | Pantalla completa |
 | `R` | Reiniciar el cronómetro |
@@ -26,22 +26,22 @@ Algunas diapositivas tienen pasos internos antes de pasar a la siguiente:
 
 Sigue el hilo que pide la rúbrica: introducción, desarrollo, demostración técnica y conclusiones.
 
-| # | Diapositiva | Tema de la rúbrica |
-|---|---|---|
-| 1 | Portada | Introducción |
-| 2 | El dato ($30,000 al año) | Introducción |
-| 3 | Problema | Introducción |
-| 4 | Solución | Introducción |
-| 5 | Fases del proyecto | Desarrollo |
-| 6 | Arquitectura · Comercio electrónico | Negocios Electrónicos (MVP) |
-| 7 | Arquitectura · App móvil | Desarrollo de Aplicaciones Móviles |
-| 8 | Recorrido principal del usuario en la app | Desarrollo de Aplicaciones Móviles |
-| 9 | Arquitectura · IoT (sensores y parámetros monitoreados) | Internet de las Cosas |
-| 10 | Seguridad · NMX-I-27001-NYCE-2015 | Administración y Seguridad de Redes |
-| 11 | Plan de negocio electrónico (eShop + MVP con carrito y monitoreo) | Negocios Electrónicos |
-| 12 | Demostración técnica en vivo (5 min) | Funcionamiento del proyecto |
-| 13 | Conclusiones | Conclusiones |
-| 14 | Repositorios | Cierre |
+| # | Diapositiva | Tema de la rúbrica | Presenta |
+|---|---|---|---|
+| 1 | Portada | Introducción | José María |
+| 2 | El dato ($30,000 al año) | Introducción | José María |
+| 3 | Problema | Introducción | José María |
+| 4 | Solución | Introducción | Yael |
+| 5 | Fases del proyecto | Desarrollo | Yael |
+| 6 | Arquitectura · Comercio electrónico | Negocios Electrónicos (MVP) | Valeria |
+| 7 | Arquitectura · App móvil | Desarrollo de Aplicaciones Móviles | Valeria |
+| 8 | Recorrido principal del usuario en la app | Desarrollo de Aplicaciones Móviles | Valeria |
+| 9 | Arquitectura · IoT (sensores y parámetros monitoreados) | Internet de las Cosas | Edwin |
+| 10 | Seguridad · NMX-I-27001-NYCE-2015 | Administración y Seguridad de Redes | Edwin |
+| 11 | Plan de negocio electrónico (eShop + MVP con carrito y monitoreo) | Negocios Electrónicos | Eduardo |
+| 12 | Demostración técnica en vivo (5 min) | Funcionamiento del proyecto | Edwin (web y app) · Valeria (IoT) |
+| 13 | Conclusiones | Conclusiones | Eduardo |
+| 14 | Repositorios | Cierre | Eduardo |
 
 ## Cómo editarla
 
@@ -49,7 +49,8 @@ Todo el texto, las cifras y las notas están en **`slides.js`**; no hace falta t
 
 - Texto entre `*asteriscos*` sale en naranja.
 - `duracion` es el tiempo sugerido de cada diapositiva.
-- `notas` son las notas del orador (tecla `N`).
+- `presenta` es quién expone la diapositiva; se ve arriba a la derecha.
+- `guion` es lo que puede decir, párrafo por párrafo (tecla `N`). Lo que va entre [corchetes] son indicaciones, no se dice en voz alta.
 
 | Archivo | Qué tiene |
 |---|---|

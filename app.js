@@ -4,7 +4,7 @@
  * textos o cifras.
  *
  * Teclas: → / Espacio / Re Pág = siguiente · ← / Av Pág = anterior
- *         N = notas del orador · G = vista general · F = pantalla completa
+ *         N = guion del orador (panel lateral) · G = vista general · F = pantalla completa
  *         R = reiniciar el cronómetro · Inicio / Fin = primera / última
  */
 (function () {
@@ -366,7 +366,7 @@
       <div class="demo">
         ${d.bloques.map((b, i) => `
           <div class="demo-col rev" style="--i:${i + 2}">
-            <div class="demo-cab"><div class="ic">${ico(b.icono)}</div><div><h4>${esc(b.titulo)}</h4><span>${esc(b.donde)}</span></div></div>
+            <div class="demo-cab"><div class="ic">${ico(b.icono)}</div><div><h4>${esc(b.titulo)}</h4><span>${esc(b.donde)}</span></div></div>${b.presenta ? `<div class="demo-quien">${ico('usuario')}Presenta ${esc(b.presenta)}</div>` : ''}
             <ol>${b.pasos.map(p => `<li>${rico(p)}</li>`).join('')}</ol>
           </div>`).join('')}
       </div>
@@ -407,24 +407,30 @@
     return `${i ? '<i></i>' : ''}<span class="${estado}"><b>${f.numero < n ? '✓' : f.numero}</b>${esc(f.nombre)}</span>`;
   }).join('')}</span>`;
 
+  // "Edwin" o ["Edwin", "Valeria"] → "Edwin y Valeria"
+  const nombres = p => [].concat(p || []).join(' y ');
+
   // ─── Construcción del DOM ───────────────────────────────────────
   const escenario = document.getElementById('escenario');
   const total = diapositivas.length;
 
   escenario.innerHTML = diapositivas.map((d, i) => `
     <section class="slide ${esc(d.tema)} ${d.recorrido ? 'recorrido' : ''}" data-id="${esc(d.id)}" aria-roledescription="diapositiva" aria-label="${i + 1} de ${total}">
-      <div class="cabecera">${marcaGT()}${d.fase ? indicadorFase(d.fase) : ''}<span class="seccion"><b>${String(i + 1).padStart(2, '0')}</b>${esc(d.seccion)}</span></div>
+      <div class="cabecera">${marcaGT()}${d.fase ? indicadorFase(d.fase) : ''}<span class="seccion"><b>${String(i + 1).padStart(2, '0')}</b>${esc(d.seccion)}${d.presenta ? `<span class="presenta">${ico('usuario')}${esc(nombres(d.presenta))}</span>` : ''}</span></div>
       ${(tipos[d.tipo] || (() => `<h2 class="titulo">${rico(d.titulo || d.id)}</h2>`))(d)}
     </section>`).join('');
 
   const slides = [...escenario.querySelectorAll('.slide')];
   document.title = P.titulo;
 
-  // Escala el escenario de 1920×1080 a la ventana sin deformarlo
+  // Escala el escenario de 1920×1080 a la ventana sin deformarlo.
+  // Con el guion abierto usa solo el espacio que queda a la izquierda del panel.
   function ajustar() {
-    const s = Math.min(innerWidth / 1920, innerHeight / 1080);
+    const panel = document.body.classList.contains('con-guion') ? document.getElementById('notas').offsetWidth : 0;
+    const ancho = innerWidth - panel;
+    const s = Math.min(ancho / 1920, innerHeight / 1080);
     escenario.style.transform = `scale(${s})`;
-    escenario.style.left = (innerWidth - 1920 * s) / 2 + 'px';
+    escenario.style.left = (ancho - 1920 * s) / 2 + 'px';
     escenario.style.top = (innerHeight - 1080 * s) / 2 + 'px';
   }
   addEventListener('resize', ajustar);
@@ -582,11 +588,34 @@
   const aTexto = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
   let inicio = Date.now();
 
+  // [texto] = indicación de escena; se pinta distinto y no se lee en voz alta
+  const escena = t => esc(t).replace(/\[([^\]]+)\]/g, '<span class="escena">$1</span>');
+
   function pintarNotas() {
     const d = diapositivas[actual];
-    notas.querySelector('#nota-titulo').textContent = `${actual + 1} · ${d.seccion}`;
-    notas.querySelector('#nota-tiempo').textContent = `sugerido ${d.duracion}`;
-    notas.querySelector('p').textContent = d.notas || '';
+    notas.querySelector('#nota-titulo').textContent = `${actual + 1} / ${total} · ${d.seccion}`;
+    notas.querySelector('#nota-presenta').textContent = nombres(d.presenta) || '—';
+    notas.querySelector('#nota-tiempo').textContent = d.duracion;
+    // Guion: párrafos; en la demo, cada bloque dice quién habla
+    let previo = null;
+    notas.querySelector('#nota-guion').innerHTML = (d.guion || [d.notas || '']).map(x => {
+      const quien = typeof x === 'object' ? x.quien : null, texto = typeof x === 'object' ? x.texto : x;
+      const etiqueta = quien && quien !== previo ? `<h4>${esc(quien)}</h4>` : '';
+      previo = quien;
+      return `${etiqueta}<p>${escena(texto)}</p>`;
+    }).join('');
+    notas.querySelector('#nota-guion').scrollTop = 0;
+    // Quién sigue, para preparar el cambio de turno
+    const sig = diapositivas[actual + 1];
+    notas.querySelector('#nota-sigue').innerHTML = sig
+      ? `Sigue <b>${actual + 2}. ${esc(sig.seccion)}</b> · ${esc(nombres(sig.presenta))}${nombres(sig.presenta) !== nombres(d.presenta) ? ' <span class="turno">cambio de turno</span>' : ''}`
+      : 'Última diapositiva';
+  }
+  function alternarGuion(forzar) {
+    const abierto = notas.classList.toggle('visible', forzar);
+    document.body.classList.toggle('con-guion', abierto);
+    ajustar();
+    medirIntros();
   }
   setInterval(() => {
     const seg = (Date.now() - inicio) / 1000;
@@ -618,7 +647,7 @@
     else if (['ArrowLeft', 'PageUp', 'Backspace'].includes(k)) { e.preventDefault(); anterior(); }
     else if (k === 'Home') ir(0);
     else if (k === 'End') ir(total - 1);
-    else if (k === 'n' || k === 'N') notas.classList.toggle('visible');
+    else if (k === 'n' || k === 'N') alternarGuion();
     else if (k === 'g' || k === 'G' || (k === 'Escape' && document.body.classList.contains('general'))) alternarGeneral();
     else if (k === 'f' || k === 'F') pantallaCompleta();
     else if (k === 'r' || k === 'R') inicio = Date.now();
@@ -638,7 +667,8 @@
 
   document.getElementById('btn-ant').addEventListener('click', anterior);
   document.getElementById('btn-sig').addEventListener('click', siguiente);
-  document.getElementById('btn-notas').addEventListener('click', () => notas.classList.toggle('visible'));
+  document.getElementById('btn-notas').addEventListener('click', () => alternarGuion());
+  document.getElementById('g-cerrar').addEventListener('click', () => alternarGuion(false));
   document.getElementById('btn-general').addEventListener('click', () => alternarGeneral());
   document.getElementById('btn-completa').addEventListener('click', pantallaCompleta);
 

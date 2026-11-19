@@ -16,19 +16,24 @@
     <span id="contador">1 / 1</span>
     <button id="btn-ant" type="button" aria-label="Anterior (←)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button>
     <button id="btn-sig" type="button" aria-label="Siguiente (→)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
-    <button id="btn-notas" type="button" aria-label="Notas del orador (N)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg></button>
+    <button id="btn-notas" type="button" aria-label="Guion del orador (N)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></svg></button>
     <button id="btn-general" type="button" aria-label="Vista general (G)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1.2"/><rect x="13" y="4" width="7" height="7" rx="1.2"/><rect x="4" y="13" width="7" height="7" rx="1.2"/><rect x="13" y="13" width="7" height="7" rx="1.2"/></svg></button>
     <button id="btn-completa" type="button" aria-label="Pantalla completa (F)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
   </nav>
 
-  <aside id="notas" aria-label="Notas del orador">
-    <header><span id="nota-titulo"></span><span><b id="nota-tiempo"></b> · <span id="reloj">0:00</span></span></header>
-    <p></p>
+  <aside id="notas" aria-label="Guion del orador">
+    <header>
+      <div class="g-fila"><span id="nota-titulo"></span><button id="g-cerrar" type="button" aria-label="Cerrar guion (N)">×</button></div>
+      <div class="g-presenta"><small>Presenta</small><b id="nota-presenta"></b></div>
+      <div class="g-tiempos"><span>Esta diapositiva <b id="nota-tiempo"></b></span><span>Total <b id="reloj">0:00</b></span></div>
+    </header>
+    <div id="nota-guion" class="g-cuerpo"></div>
+    <footer id="nota-sigue"></footer>
   </aside>
 
   <div id="general" aria-label="Vista general de diapositivas"></div>
 
-  <div id="ayuda"><kbd>←</kbd><kbd>→</kbd> navegar · <kbd>N</kbd> notas · <kbd>G</kbd> vista general · <kbd>F</kbd> pantalla completa</div>
+  <div id="ayuda"><kbd>←</kbd><kbd>→</kbd> navegar · <kbd>N</kbd> guion · <kbd>G</kbd> vista general · <kbd>F</kbd> pantalla completa</div>
 
   <!-- El contenido de cada diapositiva está en slides.js -->
   <script src="slides.js"></script>
