@@ -246,12 +246,12 @@ window.PRESENTACION = {
       actuadores: [
         { icono: 'ledok', titulo: 'Entradas', texto: 'LED verde · se guarda al instante' },
         { icono: 'ledazul', titulo: 'Salidas', texto: 'LED azul · cierra la visita' },
-        { icono: 'usuario', titulo: 'Ocupación', texto: 'sensor "Gimnasio ocupado"' },
+        { icono: 'usuario', titulo: 'Quién y cuándo', texto: 'socio, hora y lector de cada pase' },
         { icono: 'ledno', titulo: 'Denegados', texto: 'LED rojo, buzzer y alerta' }
       ],
-      offline: { titulo: 'Voz y Alexa', texto: 'Entrada o salida por voz (XIAO ESP32-S3) y Alexa por Matter. Sin internet decide con su lista local.' },
+      offline: { titulo: 'Modo sin conexión', texto: 'Si se cae la red, el lector decide con la lista de credenciales que guarda en su memoria.' },
       duracion: '0:55',
-      notas: 'Arquitectura HORIZONTAL = sensores IoT para monitorear el acceso, un problema real del gimnasio. De izquierda a derecha, como viaja el dato: el socio acerca su credencial UHF; el lector YRM1004 la lee y la pasa por UART al LILYGO T-SIM7070G (ESP32 con módem), que pregunta por HTTPS a la API de GTWeb (WiFi, LTE-M o 2G) y lo guarda en MongoDB Atlas. PARÁMETROS QUE MONITOREA en tiempo real: ENTRADAS (LED verde), SALIDAS (LED azul), OCUPACIÓN del gimnasio (sensor Matter "Gimnasio ocupado") y ACCESOS DENEGADOS (LED rojo, buzzer y alerta en el panel "Accesos RFID", desde donde el dueño puede dar acceso). Extras: entrada o salida por voz con una XIAO ESP32-S3 y una Alexa por Matter que saluda al socio y prende la lámpara. Sin internet decide con su lista local. Por qué HTTPS y no MQTT: el lector siempre pregunta, así que HTTPS con una llave por lector (guardada como hash SHA-256) basta. El servo de la puerta es el siguiente paso.'
+      notas: 'Arquitectura HORIZONTAL = sensores IoT para monitorear el acceso, un problema real del gimnasio. De izquierda a derecha, como viaja el dato: el socio acerca su credencial UHF; el lector YRM1004 la lee y la pasa por UART al LILYGO T-SIM7070G (ESP32 con módem), que pregunta por HTTPS a la API de GTWeb (WiFi, LTE-M o 2G) y lo guarda en MongoDB Atlas. PARÁMETROS QUE MONITOREA en tiempo real: ENTRADAS (LED verde), SALIDAS (LED azul), QUIÉN Y CUÁNDO (socio, hora y lector de cada pase) y ACCESOS DENEGADOS (LED rojo, buzzer y alerta en el panel "Accesos RFID", desde donde el dueño puede dar acceso). Sin internet decide con su lista local. Por qué HTTPS y no MQTT: el lector siempre pregunta, así que HTTPS con una llave por lector (guardada como hash SHA-256) basta. El servo de la puerta es el siguiente paso.'
     },
 
     // 10 · Seguridad: norma mexicana NMX-I-27001-NYCE-2015 ──────────
