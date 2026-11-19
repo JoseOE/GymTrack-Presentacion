@@ -34,6 +34,8 @@
     lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/>',
     cloud: '<path d="M7 18.5a4.5 4.5 0 1 1 .8-8.9A6 6 0 0 1 19.2 11 3.8 3.8 0 0 1 18 18.5z"/>',
     ledok: '<circle cx="12" cy="9.5" r="5" fill="#2f8f5b" stroke="#2f8f5b"/><path d="M10 14.5v6.5M14 14.5v6.5"/>',
+    ledazul: '<circle cx="12" cy="9.5" r="5" fill="#2f6fd6" stroke="#2f6fd6"/><path d="M10 14.5v6.5M14 14.5v6.5"/>',
+    escudo: '<path d="M12 3 5 6v5.5c0 4.4 3 7.9 7 9.5 4-1.6 7-5.1 7-9.5V6z"/><path d="m9 12 2.2 2.2L15.5 10"/>',
     ledno: '<circle cx="12" cy="9.5" r="5" fill="#e0412a" stroke="#e0412a"/><path d="M10 14.5v6.5M14 14.5v6.5"/>',
     buzzer: '<path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9.5a3.5 3.5 0 0 1 0 5M18 7a7 7 0 0 1 0 10"/>',
     servo: '<rect x="3" y="10" width="13" height="9" rx="2"/><circle cx="12" cy="14.5" r="1.8"/><path d="M12 12.7V5.5h7.5"/>',
@@ -251,7 +253,7 @@
       </div>
       <div class="hw-abajo">
         <div class="actuadores rev" style="--i:8">
-          <h4>Actuadores que controla el ESP32</h4>
+          <h4>${esc(d.tituloActuadores || 'Actuadores que controla el ESP32')}</h4>
           <div class="fila">${d.actuadores.map(a => `<div class="act"><div class="ic">${ico(a.icono)}</div><div><b>${esc(a.titulo)}</b><span>${esc(a.texto)}</span></div></div>`).join('')}</div>
         </div>
         <div class="offline rev" style="--i:9">${ico('sincroniza', 'ic')}<h4>${esc(d.offline.titulo)}</h4><p>${esc(d.offline.texto)}</p></div>
@@ -312,6 +314,7 @@
           </div>
           <div class="recurrente rev" style="--i:9">${ico('tendencia')}<span>${rico(d.recurrente)}</span></div>
           <div class="costos rev" style="--i:10"><b>Costos</b>${d.costos.map(c => `<span>${esc(c)}</span>`).join('')}</div>
+          ${d.mvp ? `<div class="mvp rev" style="--i:11">${ico('check')}<span>${rico(d.mvp)}</span></div>` : ''}
         </div>
         <div class="grafica-caja rev" style="--i:4">
           <h3>${esc(d.grafica.titulo)}</h3>
@@ -324,6 +327,60 @@
           })}
         </div>
       </div>`,
+
+    // Mapa del recorrido principal del usuario en la app
+    recorrido: d => `
+      ${titulo(d.titulo)}
+      <p class="subtitulo rev" style="--i:1">${rico(d.subtitulo)}</p>
+      <div class="recorrido-grid">
+        <div class="telefono-mapa rev" style="--i:2"><img src="${esc(d.imagen.src)}" alt="${esc(d.imagen.alt)}"></div>
+        <ol class="mapa">
+          ${d.pasos.map((p, i) => `<li class="rev" style="--i:${i + 3}"><b>${i + 1}</b><div class="ic">${ico(p.icono)}</div><div><h5>${esc(p.titulo)}</h5><span>${esc(p.pantalla)}</span></div></li>`).join('')}
+        </ol>
+      </div>`,
+
+    // Norma mexicana de seguridad y cómo se aplica
+    seguridad: d => {
+      const c = d.cifras, pct = Math.round(c.aplican / c.total * 100);
+      return `
+      ${titulo(d.titulo)}
+      <p class="subtitulo rev" style="--i:1">${rico(d.subtitulo)}</p>
+      <div class="seguridad">
+        <div class="seg-cifra rev" style="--i:2">
+          ${ico('escudo')}
+          <div class="v"><span class="cuenta" data-valor="${c.aplican}">${c.aplican}</span><small>/${c.total}</small></div>
+          <div class="t">controles del Anexo A aplican (${pct}%)</div>
+          <div class="barra-seg"><i style="--w:${c.implementados / c.aplican * 100}%"></i></div>
+          <div class="leyenda-seg"><span><i></i>${c.implementados} implementados</span><span><i class="p"></i>${c.enProceso} en proceso</span></div>
+        </div>
+        <ul class="controles">
+          ${d.controles.map((x, i) => `<li class="rev" style="--i:${i + 3}"><b>${esc(x.clave)}</b><div><h5>${esc(x.nombre)}</h5><p>${rico(x.texto)}</p></div></li>`).join('')}
+        </ul>
+      </div>`;
+    },
+
+    // Guion de la demostración técnica en vivo
+    demo: d => `
+      ${titulo(d.titulo)}
+      <p class="subtitulo rev" style="--i:1">${rico(d.subtitulo)}</p>
+      <div class="demo">
+        ${d.bloques.map((b, i) => `
+          <div class="demo-col rev" style="--i:${i + 2}">
+            <div class="demo-cab"><div class="ic">${ico(b.icono)}</div><div><h4>${esc(b.titulo)}</h4><span>${esc(b.donde)}</span></div></div>
+            <ol>${b.pasos.map(p => `<li>${rico(p)}</li>`).join('')}</ol>
+          </div>`).join('')}
+      </div>
+      <div class="demo-pie rev" style="--i:6">
+        <div class="qr"><img src="${esc(P.sitio.qr)}" alt="Código QR a ${esc(P.sitio.texto)}"></div>
+        <span>Síguela en tu celular: <b>${esc(P.sitio.texto)}</b></span>
+      </div>`,
+
+    conclusiones: d => `
+      ${titulo(d.titulo)}
+      <div class="conclusiones">
+        ${d.puntos.map((p, i) => `<div class="conclusion rev" style="--i:${i + 1}"><div class="v">${esc(p.valor)}</div><p>${rico(p.texto)}</p></div>`).join('')}
+      </div>
+      <div class="siguientes rev" style="--i:6"><b>Siguientes pasos</b>${d.siguientes.map(x => `<span>${ico('flecha')}${esc(x)}</span>`).join('')}</div>`,
 
     repos: d => `
       ${titulo(d.titulo)}
@@ -535,6 +592,8 @@
     const seg = (Date.now() - inicio) / 1000;
     const reloj = document.getElementById('reloj');
     reloj.textContent = `${aTexto(seg)} / ${P.duracionTotal}`;
+    // Alerta preventiva cuando faltan 2 minutos (lo pide la rúbrica)
+    reloj.classList.toggle('aviso', seg >= aSeg(P.duracionTotal) - 120 && seg <= aSeg(P.duracionTotal));
     reloj.classList.toggle('tarde', seg > aSeg(P.duracionTotal));
   }, 500);
 

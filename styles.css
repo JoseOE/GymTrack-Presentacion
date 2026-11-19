@@ -438,6 +438,7 @@ svg .num { font-family: var(--display); font-weight: 700; }
 .pasos-f .flecha { color: var(--brand); display: grid; place-items: center; }
 .pasos-f .flecha svg { width: 28px; height: 28px; }
 .subtitulo em { color: var(--brand-dark); font-weight: 700; }
+.slide.oscuro .subtitulo { color: var(--muted-dark); }
 
 /* App móvil sobre fondo claro (como las otras arquitecturas) */
 .slide.claro .app-card { background: #fff; border-color: var(--line); color: var(--ink); }
@@ -457,8 +458,8 @@ svg .num { font-family: var(--display); font-weight: 700; }
 .eslabon.destacado p { color: var(--ink); font-weight: 600; }
 .b2b2c .flecha svg { width: 32px; height: 32px; }
 .ingresos { margin-top: 22px; display: grid; gap: 0; }
-.ingreso { display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
-.ingreso .v { font: 800 60px/1 var(--display); color: var(--ink); }
+.ingreso { display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--line); }
+.ingreso .v { font: 800 54px/1 var(--display); color: var(--ink); }
 .ingreso .v small { display: block; font: 700 19px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--brand); margin-top: 6px; }
 .ingreso p { font: 500 26px/1.35 var(--body); }
 .recurrente { margin-top: 20px; background: var(--ink); color: var(--paper); border-radius: 18px; padding: 22px 30px; font: 600 28px/1.3 var(--body); display: flex; gap: 16px; align-items: center; }
@@ -499,7 +500,70 @@ svg .num { font-family: var(--display); font-weight: 700; }
 .repo .boton:hover { background: var(--brand); color: var(--ink); }
 .despedida { font: 800 76px/1 var(--display); text-transform: uppercase; color: var(--paper); }
 
-/* ─── Controles ──────────────────────────────────────────────── */
+/* MVP en el plan de negocio */
+.mvp { margin-top: 14px; display: flex; gap: 14px; align-items: center; font: 600 24px/1.3 var(--body); background: var(--paper-2); border-left: 5px solid var(--brand); border-radius: 12px; padding: 14px 20px; }
+.mvp svg { width: 30px; height: 30px; color: var(--ok); flex: none; }
+.mvp em { color: var(--brand-dark); }
+
+/* ─── Recorrido del usuario en la app ────────────────────────── */
+.recorrido-grid { display: grid; grid-template-columns: 300px 1fr; gap: 70px; margin-top: 36px; flex: 1; align-items: center; }
+.telefono-mapa { background: #121311; border-radius: 40px; padding: 11px; box-shadow: 0 24px 60px rgba(32,34,31,.3); }
+.telefono-mapa img { display: block; width: 100%; border-radius: 30px; }
+.mapa { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px 22px; position: relative; }
+.mapa li { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 14px; min-height: 230px; }
+.mapa li > b { position: absolute; top: -16px; left: 20px; width: 40px; height: 40px; border-radius: 50%; background: var(--brand); color: var(--ink); font: 800 24px/40px var(--display); text-align: center; }
+.mapa li .ic { width: 60px; height: 60px; border-radius: 16px; background: var(--ink); color: var(--brand); display: grid; place-items: center; margin-top: 8px; }
+.mapa li .ic svg { width: 32px; height: 32px; }
+.mapa li h5 { font: 700 27px/1.15 var(--body); }
+.mapa li span { display: inline-block; margin-top: 8px; font: 600 19px/1.2 var(--body); color: var(--brand-dark); background: var(--paper-2); border-radius: 999px; padding: 7px 12px; }
+.mapa li:not(:nth-child(4n)):not(:last-child)::after { content: '→'; position: absolute; right: -19px; top: 50%; transform: translateY(-50%); font: 700 26px/1 var(--body); color: var(--brand); }
+
+/* ─── Seguridad NMX ──────────────────────────────────────────── */
+.seguridad { display: grid; grid-template-columns: 560px 1fr; gap: 60px; margin-top: 40px; flex: 1; align-items: start; }
+.seg-cifra { background: var(--ink-2); border-radius: 26px; padding: 38px 40px 40px; border-top: 4px solid var(--brand); }
+.seg-cifra > svg { width: 64px; height: 64px; color: var(--brand); }
+.seg-cifra .v { font: 800 170px/.9 var(--display); color: var(--brand); margin-top: 16px; }
+.seg-cifra .v small { font-size: 80px; color: var(--muted-dark); }
+.seg-cifra .t { font: 700 29px/1.25 var(--body); margin-top: 10px; }
+.barra-seg { margin-top: 30px; height: 18px; border-radius: 999px; background: #8a6a2a; overflow: hidden; }
+.barra-seg i { display: block; height: 100%; width: var(--w); background: var(--ok); border-radius: 999px; }
+.leyenda-seg { display: flex; gap: 24px; margin-top: 14px; font: 600 22px/1 var(--body); color: #e4e2da; }
+.leyenda-seg i { display: inline-block; width: 14px; height: 14px; border-radius: 4px; background: var(--ok); margin-right: 8px; vertical-align: -1px; }
+.leyenda-seg i.p { background: #8a6a2a; }
+.controles { list-style: none; display: grid; gap: 14px; }
+.controles li { display: grid; grid-template-columns: 96px 1fr; gap: 22px; align-items: center; background: var(--ink-2); border-radius: 18px; padding: 18px 24px; }
+.controles b { font: 800 40px/1 var(--display); color: var(--brand); }
+.controles h5 { font: 700 27px/1.1 var(--body); }
+.controles p { font: 500 22px/1.35 var(--body); color: #d9d7cf; margin-top: 4px; }
+
+/* ─── Demostración técnica ───────────────────────────────────── */
+.demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px; }
+.demo-col { background: var(--ink-2); border-radius: 24px; padding: 30px 32px 34px; border-top: 4px solid var(--brand); }
+.demo-cab { display: flex; gap: 18px; align-items: center; margin-bottom: 22px; }
+.demo-cab .ic { width: 66px; height: 66px; border-radius: 18px; background: var(--brand); color: var(--ink); display: grid; place-items: center; flex: none; }
+.demo-cab .ic svg { width: 36px; height: 36px; }
+.demo-cab h4 { font: 800 36px/1.05 var(--display); text-transform: uppercase; }
+.demo-cab span { font: 600 20px/1 var(--body); color: var(--muted-dark); }
+.demo-col ol { list-style: none; counter-reset: paso; display: grid; gap: 16px; }
+.demo-col li { counter-increment: paso; display: flex; gap: 14px; align-items: baseline; font: 500 25px/1.35 var(--body); }
+.demo-col li::before { content: counter(paso); flex: none; width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--brand); color: var(--brand); font: 800 20px/30px var(--display); text-align: center; transform: translateY(4px); }
+.demo-pie { margin-top: auto; display: flex; gap: 24px; align-items: center; font: 500 26px/1.3 var(--body); color: #e4e2da; }
+.demo-pie .qr { width: 130px; height: 130px; padding: 10px; border-radius: 16px; }
+.demo-pie b { color: var(--brand); }
+
+/* ─── Conclusiones ───────────────────────────────────────────── */
+.conclusiones { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; margin-top: 44px; }
+.conclusion { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 48px 40px; display: grid; grid-template-columns: 230px 1fr; gap: 24px; align-items: center; }
+.conclusion .v { font: 800 76px/1 var(--display); color: var(--brand); }
+.conclusion p { font: 500 27px/1.35 var(--body); }
+.siguientes { margin-top: auto; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; background: var(--ink); color: var(--paper); border-radius: 20px; padding: 22px 30px; }
+.siguientes b { font: 700 20px/1 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--brand); margin-right: 8px; }
+.siguientes span { display: inline-flex; gap: 10px; align-items: center; font: 600 25px/1 var(--body); padding: 10px 16px; border-radius: 999px; background: var(--ink-3); }
+.siguientes svg { width: 22px; height: 22px; color: var(--brand); }
+
+#reloj.aviso { color: #ffcc4d; font-weight: 800; }
+
+/* ─── Controles──────────────────────────────────────────────── */
 #progreso { position: fixed; left: 0; bottom: 0; height: 5px; background: var(--brand); width: 0; transition: width .5s var(--ease); z-index: 20; }
 #controles {
   position: fixed; right: 22px; bottom: 20px; z-index: 30; display: flex; gap: 8px; align-items: center;
