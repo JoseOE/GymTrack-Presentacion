@@ -261,17 +261,17 @@ window.PRESENTACION = {
       tema: 'oscuro',
       seccion: 'Desarrollo · Seguridad',
       titulo: 'Seguridad · *NMX-I-27001-NYCE-2015*',
-      subtitulo: 'Norma mexicana equivalente a ISO/IEC 27001:2013, aplicada como sistema de gestión de seguridad a la web, la app y el IoT.',
+      subtitulo: 'Norma mexicana equivalente a ISO/IEC 27001:2013, aplicada como sistema de gestión de seguridad a la web, la app y sus servicios (API, base de datos, pagos y correo).',
       cifras: { aplican: 95, total: 114, implementados: 82, enProceso: 13 },
       controles: [
         { clave: 'A.9', nombre: 'Control de acceso', texto: 'Sesiones con token Bearer; en la base solo queda su huella SHA-256. Cada dueño ve solo su gimnasio.' },
-        { clave: 'A.10', nombre: 'Criptografía', texto: 'HTTPS en web, app y lector; cada lector tiene su llave guardada como hash.' },
+        { clave: 'A.10', nombre: 'Criptografía', texto: 'HTTPS en toda la comunicación y contraseñas guardadas con BCrypt.' },
         { clave: 'A.12', nombre: 'Operación', texto: 'Bitácora de inicios de sesión, accesos negados y acciones del panel (180 días).' },
         { clave: 'A.13', nombre: 'Comunicaciones', texto: 'Cabeceras de seguridad: CSP, HSTS, X-Frame-Options y nosniff.' },
         { clave: 'A.16', nombre: 'Incidentes', texto: 'Procedimiento documentado, con análisis de riesgos y declaración de aplicabilidad.' }
       ],
       duracion: '0:45',
-      notas: 'ADMINISTRACIÓN Y SEGURIDAD DE REDES: asociamos la norma mexicana NMX-I-27001-NYCE-2015 (equivalente a ISO/IEC 27001:2013) con su aplicación en GymTrack. De los 114 controles del Anexo A, 95 aplican a nuestro alcance: 82 ya están implementados y 13 en proceso. Ejemplos: A.9 control de acceso (token Bearer y huella SHA-256, cada dueño solo ve lo suyo); A.10 criptografía (HTTPS en web, app y lector, llave por lector como hash); A.12 operación (bitácora de seguridad); A.13 comunicaciones (cabeceras CSP, HSTS…); A.16 incidentes (procedimiento documentado). Todo está documentado en GTWeb/docs/iso27001.'
+      notas: 'ADMINISTRACIÓN Y SEGURIDAD DE REDES. Alcance del SGSI: la web, la app, la API, la base de datos y las integraciones de pago y correo (el IoT todavía no está dentro del alcance documentado). Asociamos la norma mexicana NMX-I-27001-NYCE-2015 (equivalente a ISO/IEC 27001:2013) con su aplicación en GymTrack. De los 114 controles del Anexo A, 95 aplican a nuestro alcance: 82 ya están implementados y 13 en proceso. Ejemplos: A.9 control de acceso (token Bearer y huella SHA-256, cada dueño solo ve lo suyo); A.10 criptografía (HTTPS en toda la comunicación y contraseñas con BCrypt); A.12 operación (bitácora de seguridad); A.13 comunicaciones (cabeceras CSP, HSTS…); A.16 incidentes (procedimiento documentado). Todo está documentado en GTWeb/docs/iso27001.'
     },
 
     // 11 · Plan de negocio electrónico ─────────────────────────────────────────
