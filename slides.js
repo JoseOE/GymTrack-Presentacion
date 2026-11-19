@@ -90,9 +90,9 @@ window.PRESENTACION = {
           { etiqueta: 'Mes 12', valor: 30000 }
         ]
       },
-      escala: 'Gimnasio local de 50 socios. En una cadena de 10 sucursales (300 socios c/u) la pérdida sube a *$1,800,000 al año*.',
+      escala: 'Gimnasio local de 50 socios. En una cadena de 10 sucursales de 40 a 60 socios cada una, la pérdida sube a *$240,000 – $360,000 al año*.',
       duracion: '0:45',
-      notas: 'STORYTELLING: Pensemos en un gimnasio local típico de 50 socios. Solo el 10% tiene la membresía vencida, pero sigue entrando porque nadie lo revisa en la puerta: 5 personas. A $500 por mes son $2,500 que no se cobran cada mes; la gráfica muestra cómo se acumulan hasta $30,000 al año. Para un gimnasio pequeño eso es casi la renta de un mes o un equipo nuevo. (Pausa.) Y escala: en una cadena de 10 sucursales con 300 socios cada una, la misma fuga son $150,000 al mes y $1,800,000 al año. Aclarar que es una estimación con cifras típicas.'
+      notas: 'STORYTELLING: Pensemos en un gimnasio local típico de 50 socios. Solo el 10% tiene la membresía vencida, pero sigue entrando porque nadie lo revisa en la puerta: 5 personas. A $500 por mes son $2,500 que no se cobran cada mes; la gráfica muestra cómo se acumulan hasta $30,000 al año. Para un gimnasio pequeño eso es casi la renta de un mes o un equipo nuevo. (Pausa.) Y escala: en una cadena de 10 sucursales de 40 a 60 socios cada una (4 a 6 vencidos por sucursal), la misma fuga son $20,000 a $30,000 al mes, es decir $240,000 a $360,000 al año. Aclarar que es una estimación con cifras típicas.'
     },
 
     // 3 · Problema ───────────────────────────────────────────────────
