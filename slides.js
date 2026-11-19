@@ -333,14 +333,14 @@ window.PRESENTACION = {
       seccion: 'Conclusiones',
       titulo: '*Conclusiones*',
       puntos: [
-        { valor: '$30,000', texto: 'al año pierde un gimnasio de 50 socios por accesos sin validar: el problema es real y medible.' },
-        { valor: '2 de 3', texto: 'fases en producción: tienda con carrito y pagos en sandbox, y app móvil, con 553 pruebas automatizadas.' },
-        { valor: 'IoT', texto: 'cierra el ciclo: solo entra quien pagó y cada acceso queda registrado en tiempo real.' },
-        { valor: '95/114', texto: 'controles de la NMX-I-27001 aplican; 82 ya están implementados.' }
+        { valor: 'Integración', texto: 'Web, app e IoT trabajan sobre la misma API: lo que el socio paga en una se refleja en las otras y en la puerta.' },
+        { valor: 'Procesos', texto: 'Cobrar, renovar y controlar el acceso ya no dependen del papel ni de que alguien revise a mano.' },
+        { valor: 'Negocio', texto: 'El modelo eShop con suscripción es viable para un gimnasio local y crece con las cadenas.' },
+        { valor: 'Seguridad', texto: 'La protegimos desde el diseño con la NMX-I-27001, no como un parche al final.' }
       ],
       siguientes: ['Piloto con un gimnasio local', 'Servo en la puerta', 'Publicar la app en Google Play'],
       duracion: '0:30',
-      notas: 'CONCLUSIONES. El problema es real y medible: $30,000 al año en un gimnasio de 50 socios. Construimos un ecosistema: tienda en línea con carrito y pagos, app para el socio y control de acceso IoT, con 553 pruebas automatizadas y la norma NMX-I-27001 aplicada (82 de 95 controles ya implementados). Siguientes pasos: un piloto con un gimnasio local, el servo de la puerta y publicar la app en Google Play.'
+      notas: 'CONCLUSIONES (responden al objetivo del proyecto). 1) INTEGRACIÓN: web, app e IoT comparten la misma API; si el socio paga en la app, su membresía se activa y la puerta lo deja pasar. 2) PROCESOS: el cobro, la renovación y el acceso dejan de depender del papel y de la revisión manual. 3) NEGOCIO: el modelo eShop con suscripción SaaS es viable para un gimnasio local y escala a cadenas. 4) SEGURIDAD: aplicamos la NMX-I-27001 desde el diseño. Siguientes pasos: un piloto con un gimnasio local, el servo de la puerta y publicar la app en Google Play.'
     },
 
     // 14 · Repositorios ──────────────────────────────────────────────
