@@ -140,7 +140,6 @@
           <div class="telefono ${d.intro ? 'intro-visual' : ''}" data-objetivo="1645,575,420,840,2.4">
             <img src="${esc(d.app.src)}" alt="${esc(d.app.alt)}" loading="eager">
           </div>` : ''}
-          <div class="sello ${d.intro ? 'rev2' : ''}" style="--i:5">${ico('check')}En producción</div>
         </div>
       </div>`;
     },
