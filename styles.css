@@ -637,16 +637,16 @@ body.con-guion #progreso { max-width: calc(100vw - clamp(320px, 32vw, 520px)); }
 /* Vista general (tecla G) */
 body.general #escenario { display: none; }
 #general { display: none; position: fixed; inset: 0; overflow: auto; padding: 40px; background: #111210; z-index: 25; }
-body.general #general { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; align-content: start; }
-#general button { border: 2px solid transparent; background: #1c1d1a; border-radius: 14px; padding: 0; cursor: pointer; overflow: hidden; text-align: left; color: var(--paper); }
+body.general #general { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); grid-auto-rows: max-content; gap: clamp(12px, 2vw, 24px); align-content: start; padding: clamp(16px, 3vw, 40px); }
+#general button { display: flex; flex-direction: column; min-width: 0; border: 2px solid transparent; background: #1c1d1a; border-radius: 14px; padding: 0; cursor: pointer; overflow: hidden; text-align: left; color: var(--paper); }
 #general button.actual { border-color: var(--brand); }
-#general .mini { aspect-ratio: 16/9; position: relative; overflow: hidden; }
+#general .mini { aspect-ratio: 16/9; position: relative; overflow: hidden; flex: none; width: 100%; }
 #general .mini > div { position: absolute; top: 0; left: 0; width: 1920px; height: 1080px; transform-origin: 0 0; pointer-events: none; }
 #general .mini .slide { opacity: 1; visibility: visible; transition: none; }
 #general .mini .rev, #general .mini .crece, #general .mini .crece-abajo { opacity: 1; transform: none; animation: none; }
 #general .mini-num {
-  position: absolute; left: 10px; bottom: 10px; z-index: 2; min-width: 64px; height: 64px; padding: 0 12px; border-radius: 14px;
-  display: grid; place-items: center; font: 800 46px/1 var(--display); color: var(--paper);
+  position: absolute; left: 10px; bottom: 10px; z-index: 2; min-width: clamp(44px, 22%, 72px); height: clamp(44px, 32%, 72px); padding: 0 10px; border-radius: 12px;
+  display: grid; place-items: center; font: 800 clamp(30px, 3.2vw, 50px)/1 var(--display); color: var(--paper);
   background: rgba(20,21,19,.82); border: 2px solid var(--brand); box-shadow: 0 6px 18px rgba(0,0,0,.45); pointer-events: none;
 }
 #general button.actual .mini-num { background: var(--brand); color: var(--ink); }
@@ -675,3 +675,5 @@ body.general #general { display: grid; grid-template-columns: repeat(auto-fill, 
 .cierre-pie { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; }
 .eslogan-cierre { display: flex; gap: 14px; align-items: center; font: 800 40px/1 var(--display); text-transform: uppercase; color: var(--ink); }
 .eslogan-cierre svg { width: 40px; height: 40px; color: var(--paper); }
+
+body.general #ayuda { display: none; }

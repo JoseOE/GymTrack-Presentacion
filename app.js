@@ -637,10 +637,13 @@
   // ─── Vista general ──────────────────────────────────────────────
   const general = document.getElementById('general');
   general.innerHTML = slides.map((s, i) => `<button type="button" data-n="${i}"><div class="mini"><div>${s.outerHTML.replace('slide ', 'slide activa completa ')}</div><b class="mini-num">${i + 1}</b></div><span>${i + 1}. ${esc(diapositivas[i].seccion)}${diapositivas[i].presenta ? ` · ${esc(nombres(diapositivas[i].presenta))}` : ''}</span></button>`).join('');
+  // Escala cada miniatura al ancho de su tarjeta (también al cambiar el tamaño de la ventana)
+  const escalarMinis = () => general.querySelectorAll('.mini').forEach(m => { m.firstElementChild.style.transform = `scale(${m.clientWidth / 1920})`; });
   function alternarGeneral(forzar) {
     const on = document.body.classList.toggle('general', forzar);
-    if (on) general.querySelectorAll('.mini').forEach(m => { m.firstElementChild.style.transform = `scale(${m.clientWidth / 1920})`; });
+    if (on) escalarMinis();
   }
+  addEventListener('resize', () => { if (document.body.classList.contains('general')) escalarMinis(); });
   general.addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
     alternarGeneral(false); ir(Number(b.dataset.n));
