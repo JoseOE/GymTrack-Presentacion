@@ -29,7 +29,7 @@ const FASES = {
   fases: [
     { numero: 1, nombre: 'Comercio electrónico', estado: 'En producción', avance: 100 },
     { numero: 2, nombre: 'Aplicación móvil', estado: 'En producción (APK Android)', avance: 100 },
-    { numero: 3, nombre: 'IoT', estado: 'Prototipo en desarrollo, demo a finales de noviembre', avance: null, etiqueta: 'En curso' }
+    { numero: 3, nombre: 'IoT', estado: 'Terminado: lector RFID con puerta (servo)', avance: 100 }
   ],
   metricas: [
     { valor: 6, texto: 'gimnasios' },
@@ -41,6 +41,7 @@ const FASES = {
 
 window.PRESENTACION = {
   titulo: 'GymTrack · Proyecto Integrador',
+  eslogan: 'Tu gimnasio. Tu visión. Otro nivel.',
   sitio: { url: 'https://gtweb.onrender.com', texto: 'gtweb.onrender.com', qr: 'img/qr-gtweb.svg' },
   duracionTotal: '15:00',
 
@@ -56,7 +57,7 @@ window.PRESENTACION = {
       titulo: 'Ecosistema digital para la gestión, venta y *control de acceso* de gimnasios.',
       puntos: [
         { etiqueta: 'Qué', texto: 'Plataforma de comercio electrónico + app móvil + control de acceso IoT' },
-        { etiqueta: 'Para quién', texto: 'Dueños de gimnasios locales y medianos (30 a 60 socios) y sus socios' },
+        { etiqueta: 'Para quién', texto: 'Dueños de gimnasios locales y medianos (de 30 a 60 socios) y las personas que entrenan en ellos' },
         { etiqueta: 'Propósito', texto: 'Que solo entre quien pagó y que el gimnasio *venda más*' }
       ],
       integrantes: [
@@ -76,7 +77,7 @@ window.PRESENTACION = {
         "Buenos días. Somos el equipo GymTrack: Eduardo, Edwin, Valeria, Yael y yo, José María.",
         "[→ se acomoda la portada]",
         "GymTrack es un ecosistema digital para gimnasios: une una plataforma de comercio electrónico, una aplicación móvil y un control de acceso IoT.",
-        "Está pensado para dueños de gimnasios locales, de 30 a 60 socios, y para sus socios. Nuestro propósito es simple: que solo entre quien pagó y que el gimnasio venda más."
+        "Está pensado para dueños de gimnasios locales y medianos, de 30 a 60 socios, y para las personas que entrenan en ellos. Nuestro propósito es simple: que solo entre quien pagó y que el gimnasio venda más. Por eso nuestro eslogan es: Tu gimnasio. Tu visión. Otro nivel."
       ]
     },
 
@@ -149,7 +150,7 @@ window.PRESENTACION = {
       pilares: [
         { icono: 'laptop', titulo: 'Plataforma de comercio electrónico', items: ['Panel del dueño', 'Tienda', 'Mostrador', 'Pagos reales'] },
         { icono: 'phone', titulo: 'Aplicación móvil', items: ['Membresía', 'Rutinas', 'Progreso', 'Compras'] },
-        { icono: 'chip', titulo: 'Prototipo IoT', items: ['Lector RFID UHF', 'Valida el pago', 'Registra entrada y salida'] }
+        { icono: 'chip', titulo: 'Control de acceso IoT', items: ['Lector RFID UHF', 'Valida el pago y abre la puerta', 'Registra entrada y salida'] }
       ],
       centro: 'Ecosistema GymTrack',
       flujo: [
@@ -161,7 +162,7 @@ window.PRESENTACION = {
       presenta: "Yael",
       guion: [
         "Gracias, José María. Nuestra solución son tres piezas conectadas a una sola nube.",
-        "Una plataforma de comercio electrónico para el dueño: panel, tienda, mostrador y pagos reales. Una aplicación móvil para el socio: su membresía, rutinas, progreso y compras. Y un prototipo IoT: un lector RFID que valida el pago y registra entradas y salidas.",
+        "Una plataforma de comercio electrónico para el dueño: panel, tienda, mostrador y pagos reales. Una aplicación móvil para el socio: su membresía, rutinas, progreso y compras. Y un control de acceso IoT: un lector RFID que valida el pago, abre la puerta y registra entradas y salidas.",
         "Abajo ven cómo resuelve el problema: el socio paga, su membresía se activa sola y el lector le abre la puerta. Sin papel y sin que nadie revise a mano."
       ]
     },
@@ -180,7 +181,7 @@ window.PRESENTACION = {
         "[→ entra la Fase 2]",
         "La segunda es la aplicación móvil para el socio, también en producción como APK de Android.",
         "[→ entra la Fase 3]",
-        "La tercera es el control de acceso IoT, que todavía es un prototipo en desarrollo.",
+        "La tercera es el control de acceso IoT, que ya terminamos: el lector RFID valida al socio y abre la puerta con un servo.",
         "[→ aparecen las cifras]",
         "Abajo ven 6 gimnasios, 42 socios y 196 ventas en 90 días. Son datos de demostración que cargamos en producción para probar el sistema completo; no son clientes reales. Valeria les explica cómo está construida la primera fase."
       ]
@@ -236,7 +237,7 @@ window.PRESENTACION = {
       },
       compartida: 'API compartida con la web',
       kpis: [
-        { valor: 553, texto: 'pruebas automatizadas en CI', detalle: 'de punta a punta sobre la API' },
+        { valor: 553, texto: 'pruebas automatizadas en CI', detalle: 'revisan compras, pagos, permisos y el lector en cada cambio' },
         { valor: 3, texto: 'pasarelas de pago', detalle: 'Stripe · PayPal · Paynet' }
       ],
       duracion: '0:45',
@@ -245,7 +246,7 @@ window.PRESENTACION = {
         "[→ entra deslizándose]",
         "La app móvil la hicimos con React Native, Expo y TypeScript, y se instala como APK de Android.",
         "No duplicamos servidor: usa la misma API de Spring Boot que la web, con autenticación por token y notificaciones push.",
-        "Cada cambio pasa por 553 pruebas automatizadas, y los pagos se abren en un navegador seguro, así la app nunca toca los datos de la tarjeta."
+        "Para asegurar la calidad tenemos 553 pruebas automatizadas que corren en GitHub Actions, nuestro CI, cada vez que alguien sube un cambio. Son pruebas de punta a punta: un programa hace lo mismo que haría un usuario contra la API real, como registrarse, unirse a un gimnasio, comprar con tarjeta, PayPal o Paynet, recibir su recibo, entrar con el lector o intentar ver datos de otro gimnasio, y revisa que el resultado sea el correcto.", "Si una sola de esas pruebas falla, el cambio no se publica. Así la web y la app, que usan la misma API, no se rompen sin que nos demos cuenta.", "[Si preguntan: están en GTWeb/pruebas; cada una imprime ✔ o ✘ por comprobación]", "Además, los pagos se abren en un navegador seguro, así la app nunca toca los datos de la tarjeta."
       ]
     },
 
@@ -299,7 +300,7 @@ window.PRESENTACION = {
       ],
       tituloActuadores: 'Parámetros que monitorea en tiempo real',
       actuadores: [
-        { icono: 'ledok', titulo: 'Entradas', texto: 'LED verde · se guarda al instante' },
+        { icono: 'ledok', titulo: 'Entradas', texto: 'LED verde y el servo abre la puerta' },
         { icono: 'ledazul', titulo: 'Salidas', texto: 'LED azul · cierra la visita' },
         { icono: 'usuario', titulo: 'Quién y cuándo', texto: 'socio, hora y lector de cada pase' },
         { icono: 'ledno', titulo: 'Denegados', texto: 'LED rojo, buzzer y alerta' }
@@ -311,7 +312,7 @@ window.PRESENTACION = {
         "[→]",
         "Gracias, Valeria. La tercera fase es una arquitectura de sensores para controlar el acceso, y se lee de izquierda a derecha, igual que viaja el dato.",
         "El socio acerca su credencial UHF; el lector YRM1004 la lee y la pasa por UART a la placa LILYGO, un ESP32 con módem, que le pregunta por HTTPS a nuestra API, por WiFi, LTE-M o 2G. Cada acceso se guarda en MongoDB.",
-        "Monitoreamos en tiempo real las entradas, con LED verde; las salidas, con LED azul; quién entra y a qué hora; y los accesos denegados, con LED rojo, buzzer y una alerta en el panel.",
+        "Monitoreamos en tiempo real las entradas: LED verde y el servo abre la puerta 3 segundos; las salidas, con LED azul; quién entra y a qué hora; y los accesos denegados, con LED rojo, buzzer y una alerta en el panel.",
         "Y si se cae la red, el lector decide con la lista de credenciales que guarda en su memoria.",
         "[Si preguntan por qué HTTPS y no MQTT: el lector siempre pregunta, así que basta HTTPS con una llave por lector]"
       ]
@@ -351,16 +352,16 @@ window.PRESENTACION = {
       seccion: 'Desarrollo · Negocio',
       titulo: 'Plan de negocio electrónico · *eShop*',
       cadena: [
-        { titulo: 'GymTrack', texto: 'Plataforma SaaS que le da la tienda en línea a cada gimnasio' },
+        { titulo: 'GymTrack', texto: 'Plataforma SaaS de $899 al mes que le da la tienda en línea a cada gimnasio' },
         { titulo: 'Gimnasio', texto: 'Su eShop: vende planes y productos de su propio inventario', destacado: true },
         { titulo: 'Socio', texto: 'Compra en la web, en la app o en el mostrador' }
       ],
       ingresos: [
-        { valor: '$499', unidad: 'al mes', texto: 'Suscripción SaaS por gimnasio (ingreso recurrente)' },
+        { valor: '$899', unidad: 'al mes', texto: 'Suscripción con los 9 módulos; el mercado cobra de $500 a $2,000' },
         { valor: '$3,500', unidad: 'pago único', texto: 'Lector de acceso IoT' },
         { valor: '$50', unidad: 'por pieza', texto: 'Credencial RFID, con 10%, 20% y 30% de descuento por volumen' }
       ],
-      recurrente: '10 gimnasios = *$4,990 al mes*, casi $60,000 al año',
+      recurrente: '10 gimnasios = *$8,990 al mes*, casi $108,000 al año',
       costos: ['Render y MongoDB Atlas', 'Comisiones de pago', 'Hardware'],
       mvp: 'MVP funcional: *carrito de compras* + monitoreo con *Google Analytics 4* y panel de ventas',
       grafica: {
@@ -377,7 +378,7 @@ window.PRESENTACION = {
       presenta: "Eduardo",
       guion: [
         "Gracias, Edwin. Nuestro plan de negocio electrónico sigue el modelo eShop: cada gimnasio tiene su propia tienda en línea y vende sus planes y productos de su propio inventario.",
-        "GymTrack cobra una suscripción de 499 pesos al mes por gimnasio, que es nuestro ingreso recurrente: con 10 gimnasios son casi 60 mil pesos al año. Además vendemos el hardware: el lector a 3,500 pesos y la credencial a 50, que baja hasta 35 por volumen.",
+        "GymTrack cobra una suscripción de 899 pesos al mes por gimnasio, que es nuestro ingreso recurrente: con 10 gimnasios son casi 108 mil pesos al año. Es un precio justificado: el software para gimnasios en México cuesta de 500 a 2,000 pesos al mes, nosotros incluimos 9 módulos en un solo plan, y un gimnasio de 50 socios recupera unos 2,500 pesos al mes que antes perdía, así que la suscripción se paga sola. Además vendemos el hardware: el lector a 3,500 pesos y la credencial a 50, que baja hasta 35 por volumen.",
         "El socio puede comprar en la web, en la app o en el mostrador, donde le vende el encargado desde el panel. El MVP ya funciona con carrito de compras y monitoreo con Google Analytics 4. Ahora, la demostración.",
         "[Si preguntan: no es dropshipping porque el gimnasio tiene inventario propio, y no es marketplace porque el socio solo le compra a su gimnasio]"
       ]
@@ -423,14 +424,14 @@ window.PRESENTACION = {
         { valor: 'Negocio', texto: 'El modelo eShop con suscripción es viable para un gimnasio local y crece con las cadenas.' },
         { valor: 'Seguridad', texto: 'La protegimos desde el diseño con la NMX-I-27001, no como un parche al final.' }
       ],
-      siguientes: ['Piloto con un gimnasio local', 'Servo en la puerta', 'Publicar la app en Google Play'],
+      siguientes: ['Piloto con un gimnasio local', 'Publicar la app en Google Play', 'Sumar el IoT al alcance de la NMX-I-27001'],
       duracion: '0:30',
       presenta: "Eduardo",
       guion: [
         "Para cerrar, cuatro conclusiones.",
         "Integración: la web, la app y el IoT comparten la misma API, así que lo que el socio paga se refleja en todas partes, hasta en la puerta. Procesos: cobrar, renovar y controlar el acceso ya no depende del papel.",
         "Negocio: el modelo es viable para un gimnasio local y crece con las cadenas. Seguridad: la aplicamos desde el diseño con la NMX-I-27001.",
-        "Lo que sigue: un piloto con un gimnasio local, instalar el servo en la puerta y publicar la app en Google Play."
+        "Lo que sigue: un piloto con un gimnasio local, publicar la app en Google Play y sumar el IoT al alcance de la norma de seguridad."
       ]
     },
 

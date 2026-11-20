@@ -210,7 +210,7 @@ em { font-style: normal; color: var(--brand); }
 .portada .logo { font: 800 132px/1 var(--identity); letter-spacing: -.045em; display: flex; align-items: center; gap: 18px; white-space: nowrap; }
 .portada .logo svg { width: 112px; height: 112px; color: var(--brand); flex: none; stroke-width: 2.2; }
 .portada .logo em { font-style: normal; color: var(--brand); }
-.portada h1 { font: 600 44px/1.18 var(--body); letter-spacing: -.01em; margin: 26px 0 34px; color: var(--paper); }
+.portada h1 { font: 600 44px/1.18 var(--body); letter-spacing: -.01em; margin: 22px 0 30px; color: var(--paper); }
 .portada h1 em { font-style: normal; color: var(--brand); }
 .portada .puntos { display: grid; gap: 18px; border-top: 1px solid var(--ink-3); padding-top: 28px; }
 .portada .punto { display: grid; grid-template-columns: 190px 1fr; gap: 20px; align-items: baseline; }
@@ -649,3 +649,9 @@ body.general #general { display: grid; grid-template-columns: repeat(auto-fill, 
   .avance .lleno { width: var(--w) !important; animation: none !important; }
   @page { size: 1920px 1080px; margin: 0; }
 }
+
+/* Eslogan */
+.portada .eslogan { font: 700 30px/1 var(--display); letter-spacing: .14em; text-transform: uppercase; color: var(--brand); margin-top: 34px; }
+.cierre-pie { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; }
+.eslogan-cierre { display: flex; gap: 14px; align-items: center; font: 800 40px/1 var(--display); text-transform: uppercase; color: var(--ink); }
+.eslogan-cierre svg { width: 40px; height: 40px; color: var(--paper); }

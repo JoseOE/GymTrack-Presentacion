@@ -126,6 +126,7 @@
       <div class="portada">
         <div>
           <div class="logo ${r}" style="--i:0">${ico('pesa')}Gym<em>Track</em></div>
+          ${P.eslogan ? `<p class="eslogan ${r}" style="--i:0">${esc(P.eslogan)}</p>` : ''}
           <h1 class="${r}" style="--i:1">${rico(d.titulo)}</h1>
           <div class="puntos">
             ${d.puntos.map((p, i) => `<div class="punto ${r}" style="--i:${i + 2}"><b>${esc(p.etiqueta)}</b><span>${rico(p.texto)}</span></div>`).join('')}
@@ -397,7 +398,7 @@
             </div>
           </div>`).join('')}
       </div>
-      <div class="despedida rev" style="--i:4">${esc(d.despedida)}</div>`
+      <div class="cierre-pie rev" style="--i:4"><div class="despedida">${esc(d.despedida)}</div>${P.eslogan ? `<div class="eslogan-cierre">${ico('pesa')}${esc(P.eslogan)}</div>` : ''}</div>`
   };
 
   // Indicador "1 · 2 · 3" de las fases en la parte de arriba de cada fase

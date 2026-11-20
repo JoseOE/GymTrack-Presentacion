@@ -1,5 +1,7 @@
 # GymTrack · Presentación del Proyecto Integrador
 
+> **Tu gimnasio. Tu visión. Otro nivel.**
+
 Presentación del proyecto **GymTrack**: comercio electrónico, aplicación móvil y control de acceso IoT para gimnasios.
 
 **Verla en línea:** https://joseoe.github.io/GymTrack-Presentacion/
