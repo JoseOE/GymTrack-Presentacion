@@ -324,22 +324,34 @@ window.PRESENTACION = {
       tipo: 'seguridad',
       tema: 'oscuro',
       seccion: 'Desarrollo · Seguridad',
-      titulo: 'Seguridad · *NMX-I-27001-NYCE-2015*',
-      subtitulo: 'Norma mexicana equivalente a ISO/IEC 27001:2013, aplicada como sistema de gestión de seguridad a la web, la app y sus servicios (API, base de datos, pagos y correo).',
-      cifras: { aplican: 95, total: 114, implementados: 82, enProceso: 13 },
-      controles: [
-        { clave: 'A.9', nombre: 'Control de acceso', texto: 'Sesiones con token Bearer; en la base solo queda su huella SHA-256. Cada dueño ve solo su gimnasio.' },
-        { clave: 'A.10', nombre: 'Criptografía', texto: 'HTTPS en toda la comunicación y contraseñas guardadas con BCrypt.' },
-        { clave: 'A.12', nombre: 'Operación', texto: 'Bitácora de inicios de sesión, accesos negados y acciones del panel (180 días).' },
-        { clave: 'A.13', nombre: 'Comunicaciones', texto: 'Cabeceras de seguridad: CSP, HSTS, X-Frame-Options y nosniff.' },
-        { clave: 'A.16', nombre: 'Incidentes', texto: 'Procedimiento documentado, con análisis de riesgos y declaración de aplicabilidad.' }
+      titulo: 'Seguridad · *Control de acceso*',
+      subtitulo: 'El control de la norma que más importa en GymTrack: cada persona entra solo a lo que le corresponde.',
+      norma: {
+        nombre: 'NMX-I-27001-NYCE-2015',
+        detalle: 'Norma mexicana equivalente a ISO/IEC 27001',
+        clave: 'A.9',
+        control: 'Control de acceso',
+        implementados: 12,
+        total: 14,
+        porque: 'Es el corazón del proyecto: si cualquiera pudiera entrar como dueño, podría regalarse membresías o ver los datos de otro gimnasio.'
+      },
+      pasos: [
+        { clave: 'A.9.2', titulo: 'Alta y baja de usuarios', texto: 'Registro con verificación del correo; el socio se une con un código y el dueño lo aprueba. La baja le quita el acceso.' },
+        { clave: 'A.9.4.3', titulo: 'Contraseñas seguras', texto: 'Se guardan con BCrypt y piden 8 o más caracteres con letra, número y símbolo.' },
+        { clave: 'A.9.4.2', titulo: 'Inicio de sesión seguro', texto: 'Token al azar por sesión (en la base solo queda su huella SHA-256), vence a los 30 días y se frena tras 10 intentos fallidos.' },
+        { clave: 'A.9.4.1', titulo: 'Cada quien solo lo suyo', texto: 'En cada petición el servidor revisa que el gimnasio, la cuenta o el pedido sean de quien la hace.' }
       ],
+      evidencia: ['Pruebas en el CI', 'Bitácora de accesos', 'INC-001 corregido'],
       duracion: '0:45',
       presenta: "Edwin",
       guion: [
-        "Todo esto lo protegemos con la norma mexicana NMX-I-27001-NYCE-2015, que es equivalente a la ISO 27001.",
-        "La aplicamos a la web, a la app y a sus servicios. De los 114 controles del Anexo A, 95 aplican a nuestro alcance: 82 ya están implementados y 13 están en proceso.",
-        "Por ejemplo: sesiones con token, de las que en la base solo queda su huella; HTTPS y contraseñas con BCrypt; una bitácora de seguridad; cabeceras de protección; y un procedimiento para atender incidentes.",
+        "Para la seguridad elegimos la norma mexicana NMX-I-27001-NYCE-2015, que es la equivalente de la ISO 27001. De ella nos enfocamos en el control que más importa para GymTrack: el A.9, Control de acceso.",
+        "¿Por qué ese? Porque es el corazón del proyecto. Si cualquiera pudiera entrar como dueño, podría regalarse membresías o ver los datos de otro gimnasio. De los 14 puntos de ese control, 12 ya están implementados.",
+        "Lo aplicamos en cuatro partes. Primero, el alta y la baja: la cuenta se verifica con el correo, el socio se une a su gimnasio con un código y el dueño lo aprueba; si lo da de baja, pierde el acceso.",
+        "Segundo, las contraseñas se guardan cifradas con BCrypt y deben tener letra, número y símbolo. Tercero, el inicio de sesión: cada sesión tiene un token al azar del que en la base solo guardamos su huella, vence a los 30 días y después de 10 intentos fallidos se bloquea.",
+        "Y cuarto, cada quien ve solo lo suyo: en cada petición el servidor revisa que el gimnasio o la cuenta sean de quien la pide.",
+        "Abajo está la evidencia: pruebas de seguridad que corren en cada cambio, una bitácora de accesos, y un incidente real que encontramos y corregimos, el INC-001, donde se podía saltar la revisión de sesión escribiendo la ruta de otra forma.",
+        "[Si preguntan por los otros controles: aplicamos la norma completa, 82 de 95 controles; esta diapositiva se enfoca en el más importante]",
         "Eduardo les presenta el plan de negocio."
       ]
     },

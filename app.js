@@ -341,22 +341,30 @@
       </div>`,
 
     // Norma mexicana de seguridad y cómo se aplica
+    // Un control de la norma: cuál es, por qué y cómo se aplica
     seguridad: d => {
-      const c = d.cifras, pct = Math.round(c.aplican / c.total * 100);
+      const n = d.norma;
       return `
       ${titulo(d.titulo)}
       <p class="subtitulo rev" style="--i:1">${rico(d.subtitulo)}</p>
       <div class="seguridad">
-        <div class="seg-cifra rev" style="--i:2">
-          ${ico('escudo')}
-          <div class="v"><span class="cuenta" data-valor="${c.aplican}">${c.aplican}</span><small>/${c.total}</small></div>
-          <div class="t">controles del Anexo A aplican (${pct}%)</div>
-          <div class="barra-seg"><i style="--w:${c.implementados / c.aplican * 100}%"></i></div>
-          <div class="leyenda-seg"><span><i></i>${c.implementados} implementados</span><span><i class="p"></i>${c.enProceso} en proceso</span></div>
+        <div class="seg-norma rev" style="--i:2">
+          <div class="seg-sello">${ico('escudo')}<div><b>${esc(n.nombre)}</b><span>${esc(n.detalle)}</span></div></div>
+          <div class="seg-control"><span class="clave">${esc(n.clave)}</span><h3>${esc(n.control)}</h3></div>
+          <div class="seg-avance">
+            <div class="v"><span class="cuenta" data-valor="${n.implementados}">${n.implementados}</span><small>/${n.total}</small></div>
+            <span>puntos del control implementados</span>
+          </div>
+          <div class="barra-seg"><i style="--w:${n.implementados / n.total * 100}%"></i></div>
+          <p class="porque"><b>Por qué este control</b>${rico(n.porque)}</p>
         </div>
-        <ul class="controles">
-          ${d.controles.map((x, i) => `<li class="rev" style="--i:${i + 3}"><b>${esc(x.clave)}</b><div><h5>${esc(x.nombre)}</h5><p>${rico(x.texto)}</p></div></li>`).join('')}
-        </ul>
+        <div class="seg-derecha">
+          <h4 class="rev" style="--i:3">Cómo lo aplicamos</h4>
+          <ol class="seg-pasos">
+            ${d.pasos.map((p, i) => `<li class="rev" style="--i:${i + 4}"><b>${i + 1}</b><div><h5>${esc(p.titulo)} <small>${esc(p.clave)}</small></h5><p>${rico(p.texto)}</p></div></li>`).join('')}
+          </ol>
+          <div class="seg-evidencia rev" style="--i:8"><span>Evidencia</span>${d.evidencia.map(e => `<i>${ico('check')}${esc(e)}</i>`).join('')}</div>
+        </div>
       </div>`;
     },
 

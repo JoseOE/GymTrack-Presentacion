@@ -518,23 +518,36 @@ svg .num { font-family: var(--display); font-weight: 700; }
 .mapa li span { display: inline-block; margin-top: 8px; font: 600 19px/1.2 var(--body); color: var(--brand-dark); background: var(--paper-2); border-radius: 999px; padding: 7px 12px; }
 .mapa li:not(:nth-child(4n)):not(:last-child)::after { content: '→'; position: absolute; right: -19px; top: 50%; transform: translateY(-50%); font: 700 26px/1 var(--body); color: var(--brand); }
 
-/* ─── Seguridad NMX ──────────────────────────────────────────── */
-.seguridad { display: grid; grid-template-columns: 560px 1fr; gap: 60px; margin-top: 40px; flex: 1; align-items: start; }
-.seg-cifra { background: var(--ink-2); border-radius: 26px; padding: 38px 40px 40px; }
-.seg-cifra > svg { width: 64px; height: 64px; color: var(--brand); }
-.seg-cifra .v { font: 800 170px/.9 var(--display); color: var(--brand); margin-top: 16px; }
-.seg-cifra .v small { font-size: 80px; color: var(--muted-dark); }
-.seg-cifra .t { font: 700 29px/1.25 var(--body); margin-top: 10px; }
-.barra-seg { margin-top: 30px; height: 18px; border-radius: 999px; background: #8a6a2a; overflow: hidden; }
+/* ─── Seguridad: un control de la norma ──────────────────────── */
+.seguridad { display: grid; grid-template-columns: 600px 1fr; gap: 56px; margin-top: 36px; flex: 1; align-items: stretch; }
+.seg-norma { background: var(--ink-2); border-radius: 26px; padding: 34px 38px 36px; display: flex; flex-direction: column; justify-content: center; }
+.seg-sello { display: flex; gap: 16px; align-items: center; }
+.seg-sello svg { width: 54px; height: 54px; color: var(--brand); flex: none; }
+.seg-sello b { display: block; font: 800 34px/1 var(--display); letter-spacing: .01em; }
+.seg-sello span { font: 500 20px/1.3 var(--body); color: var(--muted-dark); }
+.seg-control { margin-top: 28px; display: flex; gap: 20px; align-items: baseline; }
+.seg-control .clave { font: 800 96px/.9 var(--display); color: var(--brand); }
+.seg-control h3 { font: 800 50px/1 var(--display); text-transform: uppercase; }
+.seg-avance { margin-top: 22px; display: flex; gap: 16px; align-items: baseline; }
+.seg-avance .v { font: 800 76px/1 var(--display); color: var(--paper); }
+.seg-avance .v small { font-size: 40px; color: var(--muted-dark); }
+.seg-avance > span { font: 600 23px/1.3 var(--body); color: #e4e2da; }
+.barra-seg { margin-top: 14px; height: 14px; border-radius: 999px; background: #8a6a2a; overflow: hidden; }
 .barra-seg i { display: block; height: 100%; width: var(--w); background: var(--ok); border-radius: 999px; }
-.leyenda-seg { display: flex; gap: 24px; margin-top: 14px; font: 600 22px/1 var(--body); color: #e4e2da; }
-.leyenda-seg i { display: inline-block; width: 14px; height: 14px; border-radius: 4px; background: var(--ok); margin-right: 8px; vertical-align: -1px; }
-.leyenda-seg i.p { background: #8a6a2a; }
-.controles { list-style: none; display: grid; gap: 14px; }
-.controles li { display: grid; grid-template-columns: 96px 1fr; gap: 22px; align-items: center; background: var(--ink-2); border-radius: 18px; padding: 18px 24px; }
-.controles b { font: 800 40px/1 var(--display); color: var(--brand); }
-.controles h5 { font: 700 27px/1.1 var(--body); }
-.controles p { font: 500 22px/1.35 var(--body); color: #d9d7cf; margin-top: 4px; }
+.porque { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--ink-3); font: 500 23px/1.45 var(--body); color: #e4e2da; }
+.porque b { display: block; font: 700 18px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--brand); margin-bottom: 10px; }
+.seg-derecha { display: flex; flex-direction: column; }
+.seg-derecha > h4 { font: 700 22px/1 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--brand); margin-bottom: 18px; }
+.seg-pasos { list-style: none; display: grid; gap: 14px; }
+.seg-pasos li { display: grid; grid-template-columns: 54px 1fr; gap: 20px; align-items: center; background: var(--ink-2); border-radius: 18px; padding: 18px 24px; }
+.seg-pasos li > b { width: 54px; height: 54px; border-radius: 50%; background: var(--brand); color: var(--ink); font: 800 30px/54px var(--display); text-align: center; }
+.seg-pasos h5 { font: 700 27px/1.15 var(--body); }
+.seg-pasos h5 small { font: 700 18px/1 var(--body); color: var(--brand); margin-left: 8px; letter-spacing: .04em; }
+.seg-pasos p { font: 500 21px/1.4 var(--body); color: #d9d7cf; margin-top: 4px; }
+.seg-evidencia { margin-top: auto; padding-top: 20px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.seg-evidencia > span { font: 700 18px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--muted-dark); margin-right: 4px; }
+.seg-evidencia i { font-style: normal; display: inline-flex; gap: 8px; align-items: center; font: 600 18px/1 var(--body); background: var(--ink-3); border-radius: 999px; padding: 9px 12px; }
+.seg-evidencia svg { width: 20px; height: 20px; color: var(--ok); }
 
 /* ─── Demostración técnica ───────────────────────────────────── */
 .demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px; }

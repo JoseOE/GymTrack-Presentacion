@@ -39,7 +39,7 @@ Sigue el hilo que pide la rúbrica: introducción, desarrollo, demostración té
 | 7 | Arquitectura · App móvil | Desarrollo de Aplicaciones Móviles | Valeria |
 | 8 | Recorrido principal del usuario en la app | Desarrollo de Aplicaciones Móviles | Valeria |
 | 9 | Arquitectura · IoT (sensores y parámetros monitoreados) | Internet de las Cosas | Edwin |
-| 10 | Seguridad · NMX-I-27001-NYCE-2015 | Administración y Seguridad de Redes | Edwin |
+| 10 | Seguridad · Control de acceso (A.9 de la NMX-I-27001-NYCE-2015) | Administración y Seguridad de Redes | Edwin |
 | 11 | Plan de negocio electrónico (eShop + MVP con carrito y monitoreo) | Negocios Electrónicos | Eduardo |
 | 12 | Demostración técnica en vivo (5 min) | Funcionamiento del proyecto | Edwin (web y app) · Valeria (IoT) |
 | 13 | Conclusiones | Conclusiones | Eduardo |
