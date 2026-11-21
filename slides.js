@@ -284,7 +284,7 @@ window.PRESENTACION = {
         "Gracias, Valeria. Este es el recorrido principal del socio dentro de la app, en cinco pasos, y en cada uno está el objetivo de esa pantalla.",
         "Inicia sesión para entrar a su cuenta de forma segura. Se une a su gimnasio con el código que le dan en recepción, para poder comprar y ver sus rutinas. Ve su membresía, para saber si está al corriente y cuándo vence.",
         "Elige y paga su plan o producto, sin ir a recepción. Y por último entrena con su rutina y mide su avance.",
-        "Este mismo recorrido lo van a ver en vivo en la demostración. Edwin sigue con el RFID."
+        "La renovación y el pago los van a ver en la demostración. Edwin sigue con el RFID."
       ]
     },
 
@@ -360,35 +360,45 @@ window.PRESENTACION = {
         "Y cuarto, cada quien ve solo lo suyo: en cada petición el servidor revisa que el gimnasio o la cuenta sean de quien la pide.",
         "Abajo está la evidencia: pruebas de seguridad que corren en cada cambio, una bitácora de accesos, y un incidente real que encontramos y corregimos, el INC-001, donde se podía saltar la revisión de sesión escribiendo la ruta de otra forma.",
         "[Si preguntan por los otros controles: aplicamos la norma completa, 82 de 95 controles; esta diapositiva se enfoca en el más importante]",
-        "Ahora, la demostración en vivo. Edwin empieza."
+        "Ahora, la demostración. Valeria empieza con el lector."
       ]
     },
 
-    // 11 · Demostración técnica en vivo ────────────────────────────
+    // 11 · Demostración técnica ─────────────────────────────────
     {
       id: 'demo',
       tipo: 'demo',
       tema: 'oscuro',
       seccion: 'Demostración técnica',
-      titulo: 'Demostración *en vivo*',
-      subtitulo: '5 minutos · lo que vamos a mostrar',
-      bloques: [
-        { icono: 'laptop', titulo: 'Comercio electrónico', presenta: 'Edwin', donde: 'gtweb.onrender.com', pasos: ['El socio compra un plan en la tienda', 'Paga con tarjeta de prueba', 'Recibe su recibo PDF y su membresía se activa', 'El dueño ve la venta en su panel'] },
-        { icono: 'phone', titulo: 'App móvil', presenta: 'Edwin', donde: 'En el celular (APK)', pasos: ['Inicia sesión', 'Revisa su membresía en Inicio', 'Compra en la Tienda', 'Registra un entrenamiento'] },
-        { icono: 'chip', titulo: 'Adquisición de datos (RFID)', presenta: 'Valeria', donde: 'Lector RFID + panel', pasos: ['Pasa la credencial por el lector', 'La API la recibe y la guarda en MongoDB', 'El panel "Accesos RFID" la muestra al instante', 'Con un tag vencido: LED rojo y alerta'] }
+      titulo: '*Demostración*',
+      subtitulo: 'Un socio con la membresía vencida intenta entrar al gimnasio',
+      lugares: {
+        rfid: { icono: 'chip', nombre: 'Adquisición de datos' },
+        web: { icono: 'laptop', nombre: 'Web' },
+        app: { icono: 'phone', nombre: 'App móvil' }
+      },
+      pasos: [
+        { donde: 'rfid', icono: 'card', titulo: 'Pasa su tarjeta', texto: 'Su membresía está vencida: LED rojo y la puerta no se abre', presenta: 'Valeria' },
+        { donde: 'web', icono: 'ledno', titulo: 'Acceso negado', texto: 'El panel del dueño muestra el intento al instante', presenta: 'Edwin' },
+        { donde: 'app', icono: 'campana', titulo: 'Le llega el aviso', texto: 'Una notificación le pide renovar su membresía', presenta: 'Edwin' },
+        { donde: 'app', icono: 'recibo', titulo: 'Paga desde la app', texto: 'Renueva su mensualidad con tarjeta o PayPal', presenta: 'Edwin' },
+        { donde: 'rfid', icono: 'servo', titulo: 'La puerta se abre', texto: 'Sola, sin volver a pasar la tarjeta: servo, LED verde y buzzer', presenta: 'Valeria' },
+        { donde: 'web', icono: 'grafica', titulo: 'Todo queda registrado', texto: 'El dueño ve el pago y la entrada del socio', presenta: 'Edwin' }
       ],
       duracion: '5:00',
       presenta: ["Edwin","Valeria"],
       guion: [
-        { quien: "Todo el equipo", texto: "[Edwin y Valeria explican; los demás apoyan: uno maneja la laptop, otro el celular y otro acerca la credencial al lector]" },
-        { quien: "Edwin", texto: "[Antes: la web abierta con sesión de socio y de dueño, y la app abierta en el celular]" },
-        { quien: "Edwin", texto: "Les vamos a mostrar el sistema en vivo. Primero la web: el socio compra un plan en la tienda y paga con una tarjeta de prueba, la 4242 4242 4242 4242." },
-        { quien: "Edwin", texto: "Le llega su recibo en PDF, su membresía se activa sola y el dueño ve la venta en su panel." },
-        { quien: "Edwin", texto: "Ahora en el celular: inicio sesión, en Inicio reviso mi membresía, compro algo en la Tienda y registro un entrenamiento." },
-        { quien: "Valeria", texto: "[El lector conectado y el panel \"Accesos RFID\" a la vista]" },
-        { quien: "Valeria", texto: "Por último, la adquisición de datos. Paso la credencial por el lector: la API la recibe, la guarda en MongoDB y aparece al instante en el panel, con la hora de entrada." },
-        { quien: "Valeria", texto: "Si pasamos una credencial vencida: LED rojo, buzzer y una alerta para el dueño." },
-        { quien: "Valeria", texto: "[Si algo falla, explicar el flujo con esta diapositiva y seguir]" }
+        { quien: "Todo el equipo", texto: "[Antes de empezar: la web abierta en la laptop con la sesión del dueño, en Accesos RFID; el celular con la app y la sesión del socio vencido, con las notificaciones permitidas; el lector encendido y en línea en el panel]" },
+        { quien: "Todo el equipo", texto: "[Si ensayan antes: al pagar, la membresía de ese socio queda activa, así que para la demo necesitan otro socio vencido]" },
+        { quien: "Valeria", texto: "Les vamos a mostrar todo el sistema en un solo flujo: la adquisición de datos con el RFID, la web y la app." },
+        { quien: "Valeria", texto: "Este socio tiene su membresía vencida e intenta entrar. [Acercar la tarjeta al lector] El lector manda la lectura a la API, que revisa su membresía: LED rojo y la puerta no se abre." },
+        { quien: "Edwin", texto: "En la web, el dueño ve al instante el intento: acceso negado por membresía vencida, con la hora." },
+        { quien: "Edwin", texto: "[Pasarles el celular a los evaluadores] Al mismo tiempo, al socio le llega esta notificación para renovar." },
+        { quien: "Edwin", texto: "Desde la app paga su mensualidad. [Pagar con la tarjeta de prueba; hay 10 minutos desde el acceso negado para que la puerta se abra sola]" },
+        { quien: "Valeria", texto: "En cuanto el pago se confirma, la puerta se abre sola, sin volver a pasar la tarjeta: el servo gira, se prende el LED verde y suena el buzzer." },
+        { quien: "Edwin", texto: "Y en la web el dueño ve las dos cosas: el pago de la mensualidad y la entrada del socio." },
+        { quien: "Valeria", texto: "Así, con un solo socio, vieron la web, la app y la adquisición de datos trabajando juntas sobre la misma API." },
+        { quien: "Todo el equipo", texto: "[Si algo falla, explicar el flujo con esta diapositiva y seguir]" }
       ]
     },
 

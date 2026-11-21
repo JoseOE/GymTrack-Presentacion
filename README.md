@@ -40,7 +40,7 @@ Sigue el hilo que pide la rúbrica: introducción, desarrollo, demostración té
 | 8 | Recorrido principal del usuario en la app | Eduardo |
 | 9 | RFID | Edwin |
 | 10 | Seguridad · Control de acceso (A.9 de la NMX-I-27001-NYCE-2015) | Edwin |
-| 11 | Demostración en vivo (5 min) | Edwin (web y app) · Valeria (RFID) · todos apoyan |
+| 11 | Demostración (5 min): socio vencido → acceso negado → aviso en la app → paga → la puerta se abre | Edwin (web y app) · Valeria (RFID) · todos apoyan |
 | 12 | Conclusiones (**opcional**: si no alcanza el tiempo, se pasa rápido) | Yael |
 | 13 | Repositorios y cierre | Eduardo |
 

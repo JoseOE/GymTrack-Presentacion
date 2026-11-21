@@ -367,21 +367,21 @@
       </div>`;
     },
 
-    // Guion de la demostración técnica en vivo
+    // Demostración técnica: un solo flujo que pasa por el lector, la web y la app
     demo: d => `
       ${titulo(d.titulo)}
       <p class="subtitulo rev" style="--i:1">${rico(d.subtitulo)}</p>
-      <div class="demo">
-        ${d.bloques.map((b, i) => `
-          <div class="demo-col rev" style="--i:${i + 2}">
-            <div class="demo-cab"><div class="ic">${ico(b.icono)}</div><div><h4>${esc(b.titulo)}</h4><span>${esc(b.donde)}</span></div></div>${b.presenta ? `<div class="demo-quien">${ico('usuario')}Presenta ${esc(b.presenta)}</div>` : ''}
-            <ol>${b.pasos.map(p => `<li>${rico(p)}</li>`).join('')}</ol>
-          </div>`).join('')}
-      </div>
-      <div class="demo-pie rev" style="--i:6">
-        <div class="qr"><img src="${esc(P.sitio.qr)}" alt="Código QR a ${esc(P.sitio.texto)}"></div>
-        <span>Síguela en tu celular: <b>${esc(P.sitio.texto)}</b></span>
-      </div>`,
+      <div class="demo-lugares rev" style="--i:2"><span class="etq">Se ve en</span>${Object.entries(d.lugares).map(([k, l]) => `<span class="lugar en-${k}">${ico(l.icono)}${esc(l.nombre)}</span>`).join('')}</div>
+      <ol class="demo-flujo">
+        ${d.pasos.map((p, i) => { const l = d.lugares[p.donde]; return `
+          <li class="demo-paso en-${p.donde} rev" style="--i:${i + 3}">
+            <div class="dp-cab"><b>${i + 1}</b><span class="dp-donde">${ico(l.icono)}${esc(l.nombre)}</span></div>
+            <div class="ic">${ico(p.icono)}</div>
+            <h5>${esc(p.titulo)}</h5>
+            <p>${rico(p.texto)}</p>
+            <div class="demo-quien">${ico('usuario')}${esc(p.presenta)}</div>
+          </li>`; }).join('')}
+      </ol>`,
 
     conclusiones: d => `
       ${titulo(d.titulo)}
