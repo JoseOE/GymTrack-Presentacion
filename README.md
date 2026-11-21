@@ -35,13 +35,13 @@ Sigue el hilo que pide la rúbrica: introducción, desarrollo, demostración té
 | 3 | Área de oportunidad | Yael |
 | 4 | Solución | Yael |
 | 5 | Fases del proyecto | Eduardo |
-| 6 | Comercio electrónico | Edwin |
-| 7 | App móvil | Edwin |
-| 8 | Recorrido principal del usuario en la app | Edwin |
-| 9 | RFID | Valeria |
-| 10 | Seguridad · Control de acceso (A.9 de la NMX-I-27001-NYCE-2015) | Valeria |
+| 6 | Comercio electrónico | Valeria |
+| 7 | App móvil | Valeria |
+| 8 | Recorrido principal del usuario en la app | Eduardo |
+| 9 | RFID | Edwin |
+| 10 | Seguridad · Control de acceso (A.9 de la NMX-I-27001-NYCE-2015) | Edwin |
 | 11 | Demostración en vivo (5 min) | Edwin (web y app) · Valeria (RFID) · todos apoyan |
-| 12 | Conclusiones (**opcional**: si no alcanza el tiempo, se pasa rápido) | Eduardo |
+| 12 | Conclusiones (**opcional**: si no alcanza el tiempo, se pasa rápido) | Yael |
 | 13 | Repositorios y cierre | Eduardo |
 
 ## Cómo editarla

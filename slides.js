@@ -187,7 +187,7 @@ window.PRESENTACION = {
         "[→ entra la Fase 3]",
         "La tercera es el control de acceso con RFID, que ya terminamos: el lector registra las entradas y salidas de cada socio.",
         "[→ aparecen las cifras]",
-        "Abajo ven 6 gimnasios, 42 socios y 196 ventas en 90 días. Son datos de demostración que cargamos en producción para probar el sistema completo; no son clientes reales. Edwin les explica cada fase."
+        "Abajo ven 6 gimnasios, 42 socios y 196 ventas en 90 días. Son datos de demostración que cargamos en producción para probar el sistema completo; no son clientes reales. Valeria les explica cada fase."
       ]
     },
 
@@ -209,7 +209,7 @@ window.PRESENTACION = {
       imagen: { src: 'img/web-servicios.png', alt: 'Catálogo de soluciones en gtweb.onrender.com', ruta: 'gtweb.onrender.com/#servicios' },
       acceso: { texto: 'Escanea o entra a la plataforma', boton: 'Entrar a la web' },
       duracion: '1:00',
-      presenta: "Edwin",
+      presenta: "Valeria",
       guion: [
         "[→ zoom a la Fase 1]",
         "Gracias, Eduardo. Este es el comercio electrónico, por capas.",
@@ -245,7 +245,7 @@ window.PRESENTACION = {
         { valor: 3, texto: 'pasarelas de pago', detalle: 'Tarjeta · PayPal · pago en tienda' }
       ],
       duracion: '0:45',
-      presenta: "Edwin",
+      presenta: "Valeria",
       guion: [
         "[→ entra deslizándose]",
         "La app móvil la hicimos con React Native, Expo y TypeScript, y se instala como APK de Android.",
@@ -253,7 +253,8 @@ window.PRESENTACION = {
         "Para asegurar la calidad tenemos 553 pruebas automatizadas que corren en GitHub Actions, nuestro CI, cada vez que alguien sube un cambio. Son pruebas de punta a punta: un programa hace lo mismo que haría un usuario contra la API real, como registrarse, unirse a un gimnasio, comprar con tarjeta, PayPal o en tienda, recibir su recibo, entrar con el lector o intentar ver datos de otro gimnasio, y revisa que el resultado sea el correcto.",
         "Si una sola de esas pruebas falla, el cambio no se publica. Así la web y la app, que usan la misma API, no se rompen sin que nos demos cuenta.",
         "[Si preguntan: están en GTWeb/pruebas; cada una imprime ✔ o ✘ por comprobación]",
-        "Las tres pasarelas son pago con tarjeta, PayPal y pago en tienda, y se abren en un navegador seguro, así la app nunca toca los datos de la tarjeta."
+        "Las tres pasarelas son pago con tarjeta, PayPal y pago en tienda, y se abren en un navegador seguro, así la app nunca toca los datos de la tarjeta.",
+        "Eduardo les muestra el recorrido del usuario en la app."
       ]
     },
 
@@ -277,13 +278,13 @@ window.PRESENTACION = {
         { icono: 'play', titulo: 'Entrena y mide su avance', objetivo: 'Seguir su rutina y ver cómo progresa.' }
       ],
       duracion: '0:40',
-      presenta: "Edwin",
+      presenta: "Eduardo",
       guion: [
         "[→]",
-        "Este es el recorrido principal del socio dentro de la app, en cinco pasos, y en cada uno está el objetivo de esa pantalla.",
+        "Gracias, Valeria. Este es el recorrido principal del socio dentro de la app, en cinco pasos, y en cada uno está el objetivo de esa pantalla.",
         "Inicia sesión para entrar a su cuenta de forma segura. Se une a su gimnasio con el código que le dan en recepción, para poder comprar y ver sus rutinas. Ve su membresía, para saber si está al corriente y cuándo vence.",
         "Elige y paga su plan o producto, sin ir a recepción. Y por último entrena con su rutina y mide su avance.",
-        "Este mismo recorrido lo van a ver en vivo en la demostración. Valeria sigue con el RFID."
+        "Este mismo recorrido lo van a ver en vivo en la demostración. Edwin sigue con el RFID."
       ]
     },
 
@@ -314,10 +315,10 @@ window.PRESENTACION = {
       ],
       offline: { titulo: 'Modo sin conexión', texto: 'Si se cae la red, el lector decide con la lista de credenciales que guarda en su memoria.' },
       duracion: '0:55',
-      presenta: "Valeria",
+      presenta: "Edwin",
       guion: [
         "[→]",
-        "Gracias, Edwin. La tercera fase es el control de acceso con RFID, una arquitectura de sensores que se lee de izquierda a derecha, igual que viaja el dato.",
+        "Gracias, Eduardo. La tercera fase es el control de acceso con RFID, una arquitectura de sensores que se lee de izquierda a derecha, igual que viaja el dato.",
         "El socio acerca su credencial UHF; el lector YRM1004 la lee y la pasa por UART a la placa LILYGO, un ESP32 con módem, que le pregunta por HTTPS a nuestra API, por WiFi, LTE-M o 2G. Cada acceso se guarda en MongoDB.",
         "Monitoreamos en tiempo real las entradas: LED verde y el servo abre la puerta 3 segundos; las salidas, con LED azul; quién entra y a qué hora; y los accesos denegados, con LED rojo, buzzer y una alerta en el panel.",
         "Y si se cae la red, el lector decide con la lista de credenciales que guarda en su memoria.",
@@ -350,7 +351,7 @@ window.PRESENTACION = {
       ],
       evidencia: ['Pruebas en el CI', 'Bitácora de accesos', 'INC-001 corregido'],
       duracion: '0:45',
-      presenta: "Valeria",
+      presenta: "Edwin",
       guion: [
         "Para la seguridad elegimos la norma mexicana NMX-I-27001-NYCE-2015, que es la equivalente de la ISO 27001. De ella nos enfocamos en el control que más importa para GymTrack: el A.9, Control de acceso.",
         "¿Por qué ese? Porque es el corazón del proyecto. Si cualquiera pudiera entrar como dueño, podría regalarse membresías o ver los datos de otro gimnasio. De los 14 puntos de ese control, 12 ya están implementados.",
@@ -407,13 +408,14 @@ window.PRESENTACION = {
       ],
       siguientes: ['Piloto con un gimnasio local', 'Publicar la app en Google Play', 'Sumar el RFID al alcance de la NMX-I-27001'],
       duracion: '0:30',
-      presenta: "Eduardo",
+      presenta: "Yael",
       guion: [
         "[OPCIONAL: si el tiempo ya está justo, solo di la primera y la última frase y pasa al cierre]",
+        "Gracias, Valeria.",
         "Para cerrar, cuatro conclusiones.",
         "Integración: la web, la app y el RFID comparten la misma API, así que lo que el socio compra se refleja en todas partes. Tiempo: los registros, los cobros y la validación de pagos ya no dependen del Excel.",
         "Control: cada entrada y salida queda registrada sin depender de quien vigila la puerta. Seguridad: la aplicamos desde el diseño con la NMX-I-27001.",
-        "Lo que sigue: un piloto con un gimnasio local, publicar la app en Google Play y sumar el RFID al alcance de la norma de seguridad."
+        "Lo que sigue: un piloto con un gimnasio local, publicar la app en Google Play y sumar el RFID al alcance de la norma de seguridad. Eduardo cierra."
       ]
     },
 
