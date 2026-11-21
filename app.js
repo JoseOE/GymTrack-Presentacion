@@ -295,7 +295,7 @@
             <h4>${esc(d.back.tecnologia)}</h4>
             <ul>${d.back.items.map(x => `<li>${ico('check')}${esc(x)}</li>`).join('')}</ul>
           </div>
-          <div class="api-barra rev" style="--i:4"><b>${esc(d.compartida)}</b><span>Spring Boot · Render · MongoDB Atlas</span></div>
+          <div class="api-barra rev" style="--i:4"><b>${esc(d.compartida)}</b><span>Render · MongoDB Atlas</span></div>
         </div>
         <div class="kpis">
           ${d.kpis.map((k, i) => `<div class="kpi rev" style="--i:${i + 5}"><div class="v"><span class="cuenta" data-valor="${k.valor}">${k.valor}</span></div><div class="t">${esc(k.texto)}</div>${k.detalle ? `<div class="d">${esc(k.detalle)}</div>` : ''}</div>`).join('')}
@@ -335,7 +335,7 @@
       <div class="recorrido-grid">
         <div class="telefono-mapa rev" style="--i:2"><img src="${esc(d.imagen.src)}" alt="${esc(d.imagen.alt)}"></div>
         <ol class="mapa">
-          ${d.pasos.map((p, i) => `<li class="rev" style="--i:${i + 3}"><b>${i + 1}</b><div class="ic">${ico(p.icono)}</div><div><h5>${esc(p.titulo)}</h5><span>${esc(p.pantalla)}</span></div></li>`).join('')}
+          ${d.pasos.map((p, i) => `<li class="rev" style="--i:${i + 3}"><b>${i + 1}</b><div class="ic">${ico(p.icono)}</div><div><h5>${esc(p.titulo)}</h5><p class="objetivo"><b>Objetivo</b>${esc(p.objetivo || p.pantalla || '')}</p></div></li>`).join('')}
         </ol>
       </div>`,
 
@@ -602,7 +602,7 @@
   function pintarNotas() {
     const d = diapositivas[actual];
     notas.querySelector('#nota-titulo').textContent = `${actual + 1} / ${total} · ${d.seccion}`;
-    notas.querySelector('#nota-presenta').textContent = nombres(d.presenta) || '—';
+    notas.querySelector('#nota-presenta').textContent = (nombres(d.presenta) || '—') + (d.opcional ? ' · opcional' : '');
     notas.querySelector('#nota-tiempo').textContent = d.duracion;
     // Guion: párrafos; en la demo, cada bloque dice quién habla
     let previo = null;
@@ -636,7 +636,7 @@
 
   // ─── Vista general ──────────────────────────────────────────────
   const general = document.getElementById('general');
-  general.innerHTML = slides.map((s, i) => `<button type="button" data-n="${i}"><div class="mini"><div>${s.outerHTML.replace('slide ', 'slide activa completa ')}</div><b class="mini-num">${i + 1}</b></div><span>${i + 1}. ${esc(diapositivas[i].seccion)}${diapositivas[i].presenta ? ` · ${esc(nombres(diapositivas[i].presenta))}` : ''}</span></button>`).join('');
+  general.innerHTML = slides.map((s, i) => `<button type="button" data-n="${i}"><div class="mini"><div>${s.outerHTML.replace('slide ', 'slide activa completa ')}</div><b class="mini-num">${i + 1}</b></div><span>${i + 1}. ${esc(diapositivas[i].seccion)}${diapositivas[i].opcional ? ' (opcional)' : ''}${diapositivas[i].presenta ? ` · ${esc(nombres(diapositivas[i].presenta))}` : ''}</span></button>`).join('');
   // Escala cada miniatura al ancho de su tarjeta (también al cambiar el tamaño de la ventana)
   const escalarMinis = () => general.querySelectorAll('.mini').forEach(m => { m.firstElementChild.style.transform = `scale(${m.clientWidth / 1920})`; });
   function alternarGeneral(forzar) {

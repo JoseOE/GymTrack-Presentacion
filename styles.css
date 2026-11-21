@@ -509,14 +509,15 @@ svg .num { font-family: var(--display); font-weight: 700; }
 .recorrido-grid { display: grid; grid-template-columns: 300px 1fr; gap: 70px; margin-top: 36px; flex: 1; align-items: center; }
 .telefono-mapa { background: #121311; border-radius: 40px; padding: 11px; box-shadow: 0 24px 60px rgba(32,34,31,.3); }
 .telefono-mapa img { display: block; width: 100%; border-radius: 30px; }
-.mapa { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px 22px; position: relative; }
+.mapa { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px 22px; position: relative; }
 .mapa li { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 14px; min-height: 230px; }
 .mapa li > b { position: absolute; top: -16px; left: 20px; width: 40px; height: 40px; border-radius: 50%; background: var(--brand); color: var(--ink); font: 800 24px/40px var(--display); text-align: center; }
 .mapa li .ic { width: 60px; height: 60px; border-radius: 16px; background: var(--ink); color: var(--brand); display: grid; place-items: center; margin-top: 8px; }
 .mapa li .ic svg { width: 32px; height: 32px; }
 .mapa li h5 { font: 700 27px/1.15 var(--body); }
-.mapa li span { display: inline-block; margin-top: 8px; font: 600 19px/1.2 var(--body); color: var(--brand-dark); background: var(--paper-2); border-radius: 999px; padding: 7px 12px; }
-.mapa li:not(:nth-child(4n)):not(:last-child)::after { content: '→'; position: absolute; right: -19px; top: 50%; transform: translateY(-50%); font: 700 26px/1 var(--body); color: var(--brand); }
+.mapa li .objetivo { margin-top: 10px; font: 500 21px/1.4 var(--body); color: var(--muted); }
+.mapa li .objetivo b { display: block; font: 700 15px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--brand-dark); margin-bottom: 6px; }
+.mapa li:not(:nth-child(3n)):not(:last-child)::after { content: '→'; position: absolute; right: -19px; top: 50%; transform: translateY(-50%); font: 700 26px/1 var(--body); color: var(--brand); }
 
 /* ─── Seguridad: un control de la norma ──────────────────────── */
 .seguridad { display: grid; grid-template-columns: 600px 1fr; gap: 56px; margin-top: 36px; flex: 1; align-items: stretch; }

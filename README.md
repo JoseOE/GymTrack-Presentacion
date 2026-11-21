@@ -24,26 +24,25 @@ Algunas diapositivas tienen pasos internos antes de pasar a la siguiente:
 - **Portada (1):** empieza con la web y la app en grande; con `→` se acomodan y aparece la información.
 - **Fases (5):** cada fase entra en grande y con `→` se acomoda; son 3 pasos. El siguiente `→` hace zoom a la arquitectura del comercio electrónico.
 
-## Orden (15 minutos: 10 de exposición + 5 de demostración)
+## Orden (15 minutos: unos 9 de exposición + 5 de demostración)
 
 Sigue el hilo que pide la rúbrica: introducción, desarrollo, demostración técnica y conclusiones.
 
-| # | Diapositiva | Tema de la rúbrica | Presenta |
-|---|---|---|---|
-| 1 | Portada | Introducción | José María |
-| 2 | El dato ($30,000 al año) | Introducción | José María |
-| 3 | Problema | Introducción | José María |
-| 4 | Solución | Introducción | Yael |
-| 5 | Fases del proyecto | Desarrollo | Yael |
-| 6 | Arquitectura · Comercio electrónico | Negocios Electrónicos (MVP) | Valeria |
-| 7 | Arquitectura · App móvil | Desarrollo de Aplicaciones Móviles | Valeria |
-| 8 | Recorrido principal del usuario en la app | Desarrollo de Aplicaciones Móviles | Valeria |
-| 9 | Arquitectura · IoT (sensores y parámetros monitoreados) | Internet de las Cosas | Edwin |
-| 10 | Seguridad · Control de acceso (A.9 de la NMX-I-27001-NYCE-2015) | Administración y Seguridad de Redes | Edwin |
-| 11 | Plan de negocio electrónico (eShop + MVP con carrito y monitoreo) | Negocios Electrónicos | Eduardo |
-| 12 | Demostración técnica en vivo (5 min) | Funcionamiento del proyecto | Edwin (web y app) · Valeria (IoT) |
-| 13 | Conclusiones | Conclusiones | Eduardo |
-| 14 | Repositorios | Cierre | Eduardo |
+| # | Diapositiva | Presenta |
+|---|---|---|
+| 1 | Portada | José María |
+| 2 | El dato ($30,000 al año) | José María |
+| 3 | Área de oportunidad | Yael |
+| 4 | Solución | Yael |
+| 5 | Fases del proyecto | Eduardo |
+| 6 | Comercio electrónico | Edwin |
+| 7 | App móvil | Edwin |
+| 8 | Recorrido principal del usuario en la app | Edwin |
+| 9 | RFID | Valeria |
+| 10 | Seguridad · Control de acceso (A.9 de la NMX-I-27001-NYCE-2015) | Valeria |
+| 11 | Demostración en vivo (5 min) | Edwin (web y app) · Valeria (RFID) · todos apoyan |
+| 12 | Conclusiones (**opcional**: si no alcanza el tiempo, se pasa rápido) | Eduardo |
+| 13 | Repositorios y cierre | Eduardo |
 
 ## Cómo editarla
 

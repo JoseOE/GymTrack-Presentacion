@@ -12,6 +12,8 @@
  *   - "guion" es lo que puede decir, párrafo por párrafo (tecla N abre el panel).
  *     Entre [corchetes] van indicaciones de escena que no se dicen en voz alta.
  *   - "duracion" es el tiempo sugerido para esa diapositiva (mm:ss).
+ *   - "opcional: true" marca una diapositiva que se puede pasar rápido si no
+ *     alcanza el tiempo (solo se avisa en el guion y en la vista general).
  *   - El orden del arreglo "diapositivas" es el orden en que se presentan.
  */
 
@@ -29,7 +31,7 @@ const FASES = {
   fases: [
     { numero: 1, nombre: 'Comercio electrónico', estado: 'En producción', avance: 100 },
     { numero: 2, nombre: 'Aplicación móvil', estado: 'En producción (APK Android)', avance: 100 },
-    { numero: 3, nombre: 'IoT', estado: 'Terminado: lector RFID con puerta (servo)', avance: 100 }
+    { numero: 3, nombre: 'RFID', estado: 'Terminado: lector RFID que registra entradas y salidas', avance: 100 }
   ],
   metricas: [
     { valor: 6, texto: 'gimnasios' },
@@ -56,8 +58,8 @@ window.PRESENTACION = {
       intro: true,
       titulo: 'Ecosistema digital para la gestión, venta y *control de acceso* de gimnasios.',
       puntos: [
-        { etiqueta: 'Qué', texto: 'Plataforma de comercio electrónico + app móvil + control de acceso IoT' },
-        { etiqueta: 'Para quién', texto: 'Dueños de gimnasios locales y medianos (de 30 a 60 socios) y las personas que entrenan en ellos' },
+        { etiqueta: 'Qué', texto: 'Plataforma de comercio electrónico + app móvil + control de acceso RFID' },
+        { etiqueta: 'Para quién', texto: 'Dueños de gimnasios locales y las personas que entrenan en ellos' },
         { etiqueta: 'Propósito', texto: 'Que solo entre quien pagó y que el gimnasio *venda más*' }
       ],
       integrantes: [
@@ -76,8 +78,8 @@ window.PRESENTACION = {
         "[Al iniciar se ven la web y la app en grande]",
         "Buenos días. Somos el equipo GymTrack: Eduardo, Edwin, Valeria, Yael y yo, José María.",
         "[→ se acomoda la portada]",
-        "GymTrack es un ecosistema digital para gimnasios: une una plataforma de comercio electrónico, una aplicación móvil y un control de acceso IoT.",
-        "Está pensado para dueños de gimnasios locales y medianos, de 30 a 60 socios, y para las personas que entrenan en ellos. Nuestro propósito es simple: que solo entre quien pagó y que el gimnasio venda más. Por eso nuestro eslogan es: Tu gimnasio. Tu visión. Otro nivel."
+        "GymTrack es un ecosistema digital para gimnasios: une una plataforma de comercio electrónico, una aplicación móvil y un control de acceso con RFID.",
+        "Está pensado para dueños de gimnasios locales y para las personas que entrenan en ellos. Nuestro propósito es simple: que solo entre quien pagó y que el gimnasio venda más. Por eso nuestro eslogan es: Tu gimnasio. Tu visión. Otro nivel."
       ]
     },
 
@@ -107,17 +109,18 @@ window.PRESENTACION = {
         "Empecemos con un número: treinta mil pesos al año.",
         "Imaginen un gimnasio de 50 socios. Si solo el 10% tiene la membresía vencida y sigue entrando porque nadie revisa en la puerta, son 5 personas. A 500 pesos al mes son 2,500 pesos que no se cobran cada mes; en un año, 30,000.",
         "Y si pensamos en una cadena de 10 sucursales de 40 a 60 socios, esa misma fuga llega a entre 240 y 360 mil pesos al año.",
-        "[Si preguntan: es una estimación con cifras típicas de un gimnasio local]"
+        "[Si preguntan: es una estimación con cifras típicas de un gimnasio local]",
+        "Le paso la palabra a Yael para explicarles de dónde viene esto."
       ]
     },
 
-    // 3 · Problema ───────────────────────────────────────────────────
+    // 3 · Área de oportunidad ────────────────────────────────────────
     {
       id: 'problema',
       tipo: 'problema',
       tema: 'claro',
-      seccion: 'Introducción · Problema',
-      titulo: 'Definición del *problema*',
+      seccion: 'Introducción · Área de oportunidad',
+      titulo: 'Área de *oportunidad*',
       dona: {
         alCorriente: 90,
         vencidos: 10,
@@ -126,17 +129,17 @@ window.PRESENTACION = {
         detalle: '5 de 50'
       },
       causas: [
-        { titulo: 'Acceso sin validar', texto: 'Entran socios con membresía vencida porque nadie revisa en la puerta.' },
-        { titulo: 'Registros en papel o Excel', texto: 'El estado real de cada socio no está a la vista de nadie.' },
-        { titulo: 'Cobros sin verificación', texto: 'Los pagos no se confirman en tiempo real.' },
-        { titulo: 'Apps genéricas', texto: 'No conocen las máquinas que de verdad tiene el gimnasio.' }
+        { titulo: 'Vigilancia de la puerta', texto: 'Depende de personas que cambian o no siempre están; es difícil de mantener.' },
+        { titulo: 'Registros manuales', texto: 'Sin un sistema, todo se anota en Excel o en bitácoras; digitalizarlo ahorra tiempo.' },
+        { titulo: 'Validación de pagos', texto: 'Confirmar que un socio pagó lleva tiempo y se hace a mano.' },
+        { titulo: 'Manuales de uso de máquinas', texto: 'El socio no tiene a la mano cómo usar las máquinas de su gimnasio.' }
       ],
       duracion: '0:45',
-      presenta: "José María",
+      presenta: "Yael",
       guion: [
-        "¿Por qué pasa esto? En ese gimnasio, 9 de cada 10 socios están al corriente, pero 1 de cada 10 entra con la membresía vencida.",
-        "Encontramos cuatro causas: el acceso no se valida; los registros están en papel o en Excel; los cobros no se verifican en tiempo real; y las apps genéricas no conocen las máquinas del gimnasio.",
-        "El resultado es dinero perdido y una mala experiencia para el socio. Le paso la palabra a Yael para mostrarles nuestra solución."
+        "Gracias, José María. En ese gimnasio, 9 de cada 10 socios están al corriente, pero 1 de cada 10 entra con la membresía vencida. Ahí vemos cuatro áreas de oportunidad.",
+        "Primero, la vigilancia de la puerta: depende de personas que cambian o que no siempre están, y eso es difícil de mantener. Segundo, los registros: los gimnasios no tienen un sistema y anotan todo en Excel o en bitácoras, así que digitalizarlo les ahorra tiempo.",
+        "Tercero, la validación de pagos: confirmar que un socio pagó lleva tiempo. Y cuarto, los manuales de uso: el socio no tiene a la mano cómo usar las máquinas de su gimnasio."
       ]
     },
 
@@ -150,20 +153,21 @@ window.PRESENTACION = {
       pilares: [
         { icono: 'laptop', titulo: 'Plataforma de comercio electrónico', items: ['Panel del dueño', 'Tienda', 'Mostrador', 'Pagos reales'] },
         { icono: 'phone', titulo: 'Aplicación móvil', items: ['Membresía', 'Rutinas', 'Progreso', 'Compras'] },
-        { icono: 'chip', titulo: 'Control de acceso IoT', items: ['Lector RFID UHF', 'Valida el pago y abre la puerta', 'Registra entrada y salida'] }
+        { icono: 'chip', titulo: 'Control de acceso RFID', items: ['Lector RFID UHF', 'Registra entrada y salida'] }
       ],
       centro: 'Ecosistema GymTrack',
       flujo: [
-        { titulo: 'Pago', texto: 'se procesa de forma segura' },
-        { titulo: 'Membresía activa', texto: 'se activa automáticamente' },
-        { titulo: 'Acceso autorizado', texto: 'entrada y salida sin intervención manual' }
+        { titulo: 'Pago', texto: 'solo puede comprar en un gimnasio quien es miembro de él' },
+        { titulo: 'Membresía activa', texto: 'se activa automáticamente al pagar' },
+        { titulo: 'Entrada y salida', texto: 'el lector RFID las registra sin hacerlo a mano' }
       ],
       duracion: '0:45',
       presenta: "Yael",
       guion: [
-        "Gracias, José María. Nuestra solución son tres piezas conectadas a una sola nube.",
-        "Una plataforma de comercio electrónico para el dueño: panel, tienda, mostrador y pagos reales. Una aplicación móvil para el socio: su membresía, rutinas, progreso y compras. Y un control de acceso IoT: un lector RFID que valida el pago, abre la puerta y registra entradas y salidas.",
-        "Abajo ven cómo resuelve el problema: el socio paga, su membresía se activa sola y el lector le abre la puerta. Sin papel y sin que nadie revise a mano."
+        "Nuestra solución son tres piezas conectadas a una sola nube.",
+        "Una plataforma de comercio electrónico para el dueño: panel, tienda, mostrador y pagos reales. Una aplicación móvil para el socio: su membresía, rutinas, progreso y compras. Y un control de acceso RFID: un lector que registra las entradas y salidas.",
+        "Abajo ven el flujo: el socio paga, y solo puede comprar en un gimnasio si es miembro de él; su membresía se activa sola; y el lector registra su entrada y su salida, sin que nadie lo anote a mano.",
+        "Eduardo les cuenta cómo lo construimos."
       ]
     },
 
@@ -173,21 +177,21 @@ window.PRESENTACION = {
       id: 'fases',
       foco: 1,
       duracion: '1:10',
-      presenta: "Yael",
+      presenta: "Eduardo",
       guion: [
-        "El proyecto lo construimos en tres fases.",
+        "Gracias, Yael. El proyecto lo construimos en tres fases.",
         "[Aparece la Fase 1 en grande]",
-        "La primera es el comercio electrónico: la tienda de cada gimnasio, con pagos en sandbox con Stripe, PayPal y Paynet, recibos en PDF y panel de ventas. Ya está en producción.",
+        "La primera es el comercio electrónico: la tienda de cada gimnasio, con pago con tarjeta, PayPal y pago en tienda, recibos en PDF y panel de ventas. Ya está en producción.",
         "[→ entra la Fase 2]",
         "La segunda es la aplicación móvil para el socio, también en producción como APK de Android.",
         "[→ entra la Fase 3]",
-        "La tercera es el control de acceso IoT, que ya terminamos: el lector RFID valida al socio y abre la puerta con un servo.",
+        "La tercera es el control de acceso con RFID, que ya terminamos: el lector registra las entradas y salidas de cada socio.",
         "[→ aparecen las cifras]",
-        "Abajo ven 6 gimnasios, 42 socios y 196 ventas en 90 días. Son datos de demostración que cargamos en producción para probar el sistema completo; no son clientes reales. Valeria les explica cómo está construida la primera fase."
+        "Abajo ven 6 gimnasios, 42 socios y 196 ventas en 90 días. Son datos de demostración que cargamos en producción para probar el sistema completo; no son clientes reales. Edwin les explica cada fase."
       ]
     },
 
-    // 6 · Fase 1: arquitectura del comercio electrónico ─────────────
+    // 6 · Fase 1: comercio electrónico ───────────────────────────────
     {
       id: 'web',
       tipo: 'capas',
@@ -195,27 +199,27 @@ window.PRESENTACION = {
       transicion: 'zoom',      // entra con zoom desde la tarjeta de la fase 1
       tema: 'claro',
       seccion: 'Desarrollo · Fase 1',
-      titulo: 'Arquitectura vertical · *Comercio electrónico*',
+      titulo: '*Comercio electrónico*',
       capas: [
         { nombre: 'Front', items: ['HTML, CSS, JavaScript, Bootstrap', 'Tienda · checkout · panel del dueño · mostrador · ventas'] },
-        { nombre: 'Back', items: ['API REST en Java 17 + Spring Boot', 'Desplegada en Render, la misma que usa la app'] },
-        { nombre: 'Servicios', items: ['Stripe · PayPal · Openpay Paynet', 'Recibos PDF (iText) · correo (Brevo) · Google Analytics 4'] },
+        { nombre: 'Back', items: ['API REST en Java', 'Desplegada en Render, la misma que usa la app'] },
+        { nombre: 'Servicios', items: ['Pago con tarjeta · PayPal · pago en tienda', 'Recibos PDF · correos · Google Analytics 4'] },
         { nombre: 'Datos', items: ['MongoDB Atlas multi-gimnasio', 'Seguridad NMX-I-27001: sesiones con hash, bitácora y cabeceras'] }
       ],
       imagen: { src: 'img/web-servicios.png', alt: 'Catálogo de soluciones en gtweb.onrender.com', ruta: 'gtweb.onrender.com/#servicios' },
       acceso: { texto: 'Escanea o entra a la plataforma', boton: 'Entrar a la web' },
       duracion: '1:00',
-      presenta: "Valeria",
+      presenta: "Edwin",
       guion: [
         "[→ zoom a la Fase 1]",
-        "Gracias, Yael. Esta es la arquitectura vertical del comercio electrónico, por capas.",
-        "En el front está el sitio en HTML, CSS, JavaScript y Bootstrap: la tienda, el checkout, el panel del dueño, el mostrador y las ventas. En el back, una API REST en Java 17 con Spring Boot, desplegada en Render; es la misma que usa la app.",
-        "Como servicios usamos Stripe, PayPal y Openpay para los pagos, iText para los recibos PDF, Brevo para los correos y Google Analytics 4. Los datos viven en MongoDB Atlas, separados por gimnasio y con los controles de seguridad de la norma.",
+        "Gracias, Eduardo. Este es el comercio electrónico, por capas.",
+        "En el front está el sitio en HTML, CSS, JavaScript y Bootstrap: la tienda, el checkout, el panel del dueño, el mostrador y las ventas. En el back, una API REST en Java desplegada en Render; es la misma que usa la app.",
+        "Como servicios ofrecemos tres formas de pago: con tarjeta, con PayPal y en efectivo en tiendas. Además, recibos en PDF, correos y analítica con Google Analytics 4. Los datos viven en MongoDB Atlas, separados por gimnasio y con los controles de seguridad de la norma.",
         "Pueden escanear el código o entrar con el botón para verla en vivo."
       ]
     },
 
-    // 7 · Fase 2: arquitectura de la app móvil ──────────────────────
+    // 7 · Fase 2: app móvil ──────────────────────────────────────────
     {
       id: 'app',
       tipo: 'app',
@@ -223,7 +227,7 @@ window.PRESENTACION = {
       transicion: 'deslizar',  // entra deslizándose desde la derecha
       tema: 'claro',
       seccion: 'Desarrollo · Fase 2',
-      titulo: 'Arquitectura vertical · *App móvil*',
+      titulo: '*App móvil*',
       front: {
         nombre: 'Front (móvil)',
         tecnologia: 'React Native + Expo + TypeScript',
@@ -232,21 +236,24 @@ window.PRESENTACION = {
       },
       back: {
         nombre: 'Back (servicios)',
-        tecnologia: 'La misma API Spring Boot',
+        tecnologia: 'La misma API de la web',
         items: ['Autenticación con token Bearer', 'Notificaciones push']
       },
       compartida: 'API compartida con la web',
       kpis: [
         { valor: 553, texto: 'pruebas automatizadas en CI', detalle: 'revisan compras, pagos, permisos y el lector en cada cambio' },
-        { valor: 3, texto: 'pasarelas de pago', detalle: 'Stripe · PayPal · Paynet' }
+        { valor: 3, texto: 'pasarelas de pago', detalle: 'Tarjeta · PayPal · pago en tienda' }
       ],
       duracion: '0:45',
-      presenta: "Valeria",
+      presenta: "Edwin",
       guion: [
         "[→ entra deslizándose]",
         "La app móvil la hicimos con React Native, Expo y TypeScript, y se instala como APK de Android.",
-        "No duplicamos servidor: usa la misma API de Spring Boot que la web, con autenticación por token y notificaciones push.",
-        "Para asegurar la calidad tenemos 553 pruebas automatizadas que corren en GitHub Actions, nuestro CI, cada vez que alguien sube un cambio. Son pruebas de punta a punta: un programa hace lo mismo que haría un usuario contra la API real, como registrarse, unirse a un gimnasio, comprar con tarjeta, PayPal o Paynet, recibir su recibo, entrar con el lector o intentar ver datos de otro gimnasio, y revisa que el resultado sea el correcto.", "Si una sola de esas pruebas falla, el cambio no se publica. Así la web y la app, que usan la misma API, no se rompen sin que nos demos cuenta.", "[Si preguntan: están en GTWeb/pruebas; cada una imprime ✔ o ✘ por comprobación]", "Además, los pagos se abren en un navegador seguro, así la app nunca toca los datos de la tarjeta."
+        "No duplicamos servidor: usa la misma API que la web, con autenticación por token y notificaciones push.",
+        "Para asegurar la calidad tenemos 553 pruebas automatizadas que corren en GitHub Actions, nuestro CI, cada vez que alguien sube un cambio. Son pruebas de punta a punta: un programa hace lo mismo que haría un usuario contra la API real, como registrarse, unirse a un gimnasio, comprar con tarjeta, PayPal o en tienda, recibir su recibo, entrar con el lector o intentar ver datos de otro gimnasio, y revisa que el resultado sea el correcto.",
+        "Si una sola de esas pruebas falla, el cambio no se publica. Así la web y la app, que usan la misma API, no se rompen sin que nos demos cuenta.",
+        "[Si preguntan: están en GTWeb/pruebas; cada una imprime ✔ o ✘ por comprobación]",
+        "Las tres pasarelas son pago con tarjeta, PayPal y pago en tienda, y se abren en un navegador seguro, así la app nunca toca los datos de la tarjeta."
       ]
     },
 
@@ -261,26 +268,26 @@ window.PRESENTACION = {
       titulo: 'Recorrido principal del *usuario en la app*',
       subtitulo: 'De abrir la app a su primer entrenamiento',
       imagen: { src: 'img/app-login.png', alt: 'Pantalla de inicio de sesión de la app GymTrack' },
+      // "objetivo": qué logra el usuario en esa pantalla
       pasos: [
-        { icono: 'usuario', titulo: 'Inicia sesión', pantalla: 'Login / Registro' },
-        { icono: 'codigo', titulo: 'Se une a su gimnasio', pantalla: 'Código de recepción' },
-        { icono: 'casa', titulo: 'Ve su membresía', pantalla: 'Inicio' },
-        { icono: 'bolsa', titulo: 'Elige plan o producto', pantalla: 'Tienda → Carrito' },
-        { icono: 'card', titulo: 'Paga', pantalla: 'Stripe · PayPal · Paynet' },
-        { icono: 'play', titulo: 'Entrena', pantalla: 'Rutinas → Entrenar' },
-        { icono: 'grafica', titulo: 'Mide su avance', pantalla: 'Progreso' }
+        { icono: 'usuario', titulo: 'Inicia sesión', objetivo: 'Entrar a su cuenta de forma segura.' },
+        { icono: 'codigo', titulo: 'Se une a su gimnasio', objetivo: 'Quedar ligado a su gimnasio para comprar y ver sus rutinas.' },
+        { icono: 'casa', titulo: 'Ve su membresía', objetivo: 'Saber si está al corriente y cuándo vence.' },
+        { icono: 'bolsa', titulo: 'Elige y paga su plan o producto', objetivo: 'Comprar o renovar sin ir a recepción.' },
+        { icono: 'play', titulo: 'Entrena y mide su avance', objetivo: 'Seguir su rutina y ver cómo progresa.' }
       ],
       duracion: '0:40',
-      presenta: "Valeria",
+      presenta: "Edwin",
       guion: [
         "[→]",
-        "Este es el recorrido principal del socio dentro de la app.",
-        "Inicia sesión, se une a su gimnasio con el código que le dan en recepción, ve su membresía en Inicio, elige un plan o producto en la Tienda, paga, entrena con sus rutinas y revisa su avance en Progreso.",
-        "Este mismo recorrido lo van a ver en vivo en la demostración. Edwin sigue con la parte de IoT."
+        "Este es el recorrido principal del socio dentro de la app, en cinco pasos, y en cada uno está el objetivo de esa pantalla.",
+        "Inicia sesión para entrar a su cuenta de forma segura. Se une a su gimnasio con el código que le dan en recepción, para poder comprar y ver sus rutinas. Ve su membresía, para saber si está al corriente y cuándo vence.",
+        "Elige y paga su plan o producto, sin ir a recepción. Y por último entrena con su rutina y mide su avance.",
+        "Este mismo recorrido lo van a ver en vivo en la demostración. Valeria sigue con el RFID."
       ]
     },
 
-    // 9 · Fase 3: arquitectura IoT─────────────────────────────────────────
+    // 9 · Fase 3: RFID ───────────────────────────────────────────────
     {
       id: 'hardware',
       tipo: 'hardware',
@@ -288,7 +295,7 @@ window.PRESENTACION = {
       transicion: 'deslizar',
       tema: 'claro',
       seccion: 'Desarrollo · Fase 3',
-      titulo: 'Arquitectura horizontal · *IoT*',
+      titulo: '*RFID*',
       subtitulo: 'Arquitectura de sensores: del tag a la nube y al panel "Accesos RFID"',
       nodos: [
         { icono: 'card', titulo: 'Credencial', texto: 'RFID UHF' },
@@ -307,10 +314,10 @@ window.PRESENTACION = {
       ],
       offline: { titulo: 'Modo sin conexión', texto: 'Si se cae la red, el lector decide con la lista de credenciales que guarda en su memoria.' },
       duracion: '0:55',
-      presenta: "Edwin",
+      presenta: "Valeria",
       guion: [
         "[→]",
-        "Gracias, Valeria. La tercera fase es una arquitectura de sensores para controlar el acceso, y se lee de izquierda a derecha, igual que viaja el dato.",
+        "Gracias, Edwin. La tercera fase es el control de acceso con RFID, una arquitectura de sensores que se lee de izquierda a derecha, igual que viaja el dato.",
         "El socio acerca su credencial UHF; el lector YRM1004 la lee y la pasa por UART a la placa LILYGO, un ESP32 con módem, que le pregunta por HTTPS a nuestra API, por WiFi, LTE-M o 2G. Cada acceso se guarda en MongoDB.",
         "Monitoreamos en tiempo real las entradas: LED verde y el servo abre la puerta 3 segundos; las salidas, con LED azul; quién entra y a qué hora; y los accesos denegados, con LED rojo, buzzer y una alerta en el panel.",
         "Y si se cae la red, el lector decide con la lista de credenciales que guarda en su memoria.",
@@ -343,7 +350,7 @@ window.PRESENTACION = {
       ],
       evidencia: ['Pruebas en el CI', 'Bitácora de accesos', 'INC-001 corregido'],
       duracion: '0:45',
-      presenta: "Edwin",
+      presenta: "Valeria",
       guion: [
         "Para la seguridad elegimos la norma mexicana NMX-I-27001-NYCE-2015, que es la equivalente de la ISO 27001. De ella nos enfocamos en el control que más importa para GymTrack: el A.9, Control de acceso.",
         "¿Por qué ese? Porque es el corazón del proyecto. Si cualquiera pudiera entrar como dueño, podría regalarse membresías o ver los datos de otro gimnasio. De los 14 puntos de ese control, 12 ya están implementados.",
@@ -352,51 +359,11 @@ window.PRESENTACION = {
         "Y cuarto, cada quien ve solo lo suyo: en cada petición el servidor revisa que el gimnasio o la cuenta sean de quien la pide.",
         "Abajo está la evidencia: pruebas de seguridad que corren en cada cambio, una bitácora de accesos, y un incidente real que encontramos y corregimos, el INC-001, donde se podía saltar la revisión de sesión escribiendo la ruta de otra forma.",
         "[Si preguntan por los otros controles: aplicamos la norma completa, 82 de 95 controles; esta diapositiva se enfoca en el más importante]",
-        "Eduardo les presenta el plan de negocio."
+        "Ahora, la demostración en vivo. Edwin empieza."
       ]
     },
 
-    // 11 · Plan de negocio electrónico ─────────────────────────────────────────
-    {
-      id: 'negocio',
-      tipo: 'negocio',
-      tema: 'claro',
-      seccion: 'Desarrollo · Negocio',
-      titulo: 'Plan de negocio electrónico · *eShop*',
-      cadena: [
-        { titulo: 'GymTrack', texto: 'Plataforma SaaS de $899 al mes que le da la tienda en línea a cada gimnasio' },
-        { titulo: 'Gimnasio', texto: 'Su eShop: vende planes y productos de su propio inventario', destacado: true },
-        { titulo: 'Socio', texto: 'Compra en la web, en la app o en el mostrador' }
-      ],
-      ingresos: [
-        { valor: '$899', unidad: 'al mes', texto: 'Suscripción con los 9 módulos; el mercado cobra de $500 a $2,000' },
-        { valor: '$3,500', unidad: 'pago único', texto: 'Lector de acceso IoT' },
-        { valor: '$50', unidad: 'por pieza', texto: 'Credencial RFID, con 10%, 20% y 30% de descuento por volumen' }
-      ],
-      recurrente: '10 gimnasios = *$8,990 al mes*, casi $108,000 al año',
-      costos: ['Render y MongoDB Atlas', 'Comisiones de pago', 'Hardware'],
-      mvp: 'MVP funcional: *carrito de compras* + monitoreo con *Google Analytics 4* y panel de ventas',
-      grafica: {
-        titulo: 'Precio por credencial RFID',
-        subtitulo: 'según volumen de compra',
-        datos: [
-          { etiqueta: '1 a 4', valor: 50 },
-          { etiqueta: '5 a 9', valor: 45 },
-          { etiqueta: '10 a 19', valor: 40 },
-          { etiqueta: '20 o más', valor: 35, nota: '50 socios' }
-        ]
-      },
-      duracion: '0:55',
-      presenta: "Eduardo",
-      guion: [
-        "Gracias, Edwin. Nuestro plan de negocio electrónico sigue el modelo eShop: cada gimnasio tiene su propia tienda en línea y vende sus planes y productos de su propio inventario.",
-        "GymTrack cobra una suscripción de 899 pesos al mes por gimnasio, que es nuestro ingreso recurrente: con 10 gimnasios son casi 108 mil pesos al año. Es un precio justificado: el software para gimnasios en México cuesta de 500 a 2,000 pesos al mes, nosotros incluimos 9 módulos en un solo plan, y un gimnasio de 50 socios recupera unos 2,500 pesos al mes que antes perdía, así que la suscripción se paga sola. Además vendemos el hardware: el lector a 3,500 pesos y la credencial a 50, que baja hasta 35 por volumen.",
-        "El socio puede comprar en la web, en la app o en el mostrador, donde le vende el encargado desde el panel. El MVP ya funciona con carrito de compras y monitoreo con Google Analytics 4. Ahora, la demostración.",
-        "[Si preguntan: no es dropshipping porque el gimnasio tiene inventario propio, y no es marketplace porque el socio solo le compra a su gimnasio]"
-      ]
-    },
-
-    // 12 · Demostración técnica en vivo ────────────────────────────
+    // 11 · Demostración técnica en vivo ────────────────────────────
     {
       id: 'demo',
       tipo: 'demo',
@@ -405,49 +372,52 @@ window.PRESENTACION = {
       titulo: 'Demostración *en vivo*',
       subtitulo: '5 minutos · lo que vamos a mostrar',
       bloques: [
-        { icono: 'laptop', titulo: 'Comercio electrónico', presenta: 'Edwin', donde: 'gtweb.onrender.com', pasos: ['El socio compra un plan en la tienda', 'Paga con tarjeta de prueba (Stripe)', 'Recibe su recibo PDF y su membresía se activa', 'El dueño ve la venta en su panel'] },
+        { icono: 'laptop', titulo: 'Comercio electrónico', presenta: 'Edwin', donde: 'gtweb.onrender.com', pasos: ['El socio compra un plan en la tienda', 'Paga con tarjeta de prueba', 'Recibe su recibo PDF y su membresía se activa', 'El dueño ve la venta en su panel'] },
         { icono: 'phone', titulo: 'App móvil', presenta: 'Edwin', donde: 'En el celular (APK)', pasos: ['Inicia sesión', 'Revisa su membresía en Inicio', 'Compra en la Tienda', 'Registra un entrenamiento'] },
-        { icono: 'chip', titulo: 'Adquisición de datos (IoT)', presenta: 'Valeria', donde: 'Lector RFID + panel', pasos: ['Pasa la credencial por el lector', 'La API la valida y la guarda en MongoDB', 'El panel "Accesos RFID" la muestra al instante', 'Con un tag vencido: LED rojo y alerta'] }
+        { icono: 'chip', titulo: 'Adquisición de datos (RFID)', presenta: 'Valeria', donde: 'Lector RFID + panel', pasos: ['Pasa la credencial por el lector', 'La API la recibe y la guarda en MongoDB', 'El panel "Accesos RFID" la muestra al instante', 'Con un tag vencido: LED rojo y alerta'] }
       ],
       duracion: '5:00',
       presenta: ["Edwin","Valeria"],
       guion: [
+        { quien: "Todo el equipo", texto: "[Edwin y Valeria explican; los demás apoyan: uno maneja la laptop, otro el celular y otro acerca la credencial al lector]" },
         { quien: "Edwin", texto: "[Antes: la web abierta con sesión de socio y de dueño, y la app abierta en el celular]" },
-        { quien: "Edwin", texto: "Les vamos a mostrar el sistema en vivo. Primero la web: el socio compra un plan en la tienda y paga con la tarjeta de prueba de Stripe, la 4242 4242 4242 4242." },
+        { quien: "Edwin", texto: "Les vamos a mostrar el sistema en vivo. Primero la web: el socio compra un plan en la tienda y paga con una tarjeta de prueba, la 4242 4242 4242 4242." },
         { quien: "Edwin", texto: "Le llega su recibo en PDF, su membresía se activa sola y el dueño ve la venta en su panel." },
         { quien: "Edwin", texto: "Ahora en el celular: inicio sesión, en Inicio reviso mi membresía, compro algo en la Tienda y registro un entrenamiento." },
         { quien: "Valeria", texto: "[El lector conectado y el panel \"Accesos RFID\" a la vista]" },
-        { quien: "Valeria", texto: "Por último, la adquisición de datos. Paso la credencial por el lector: la API la valida, la guarda en MongoDB y aparece al instante en el panel." },
+        { quien: "Valeria", texto: "Por último, la adquisición de datos. Paso la credencial por el lector: la API la recibe, la guarda en MongoDB y aparece al instante en el panel, con la hora de entrada." },
         { quien: "Valeria", texto: "Si pasamos una credencial vencida: LED rojo, buzzer y una alerta para el dueño." },
         { quien: "Valeria", texto: "[Si algo falla, explicar el flujo con esta diapositiva y seguir]" }
       ]
     },
 
-    // 13 · Conclusiones ────────────────────────────────────────────
+    // 12 · Conclusiones (opcional) ──────────────────────────────────
     {
       id: 'conclusiones',
       tipo: 'conclusiones',
       tema: 'claro',
       seccion: 'Conclusiones',
+      opcional: true,
       titulo: '*Conclusiones*',
       puntos: [
-        { valor: 'Integración', texto: 'Web, app e IoT trabajan sobre la misma API: lo que el socio paga en una se refleja en las otras y en la puerta.' },
-        { valor: 'Procesos', texto: 'Cobrar, renovar y controlar el acceso ya no dependen del papel ni de que alguien revise a mano.' },
-        { valor: 'Negocio', texto: 'El modelo eShop con suscripción es viable para un gimnasio local y crece con las cadenas.' },
+        { valor: 'Integración', texto: 'Web, app y RFID trabajan sobre la misma API: lo que el socio compra se refleja en todas partes.' },
+        { valor: 'Tiempo', texto: 'Registros, cobros y validación de pagos ya no dependen del Excel ni de las bitácoras.' },
+        { valor: 'Control', texto: 'Cada entrada y salida queda registrada, sin depender de quien vigila la puerta.' },
         { valor: 'Seguridad', texto: 'La protegimos desde el diseño con la NMX-I-27001, no como un parche al final.' }
       ],
-      siguientes: ['Piloto con un gimnasio local', 'Publicar la app en Google Play', 'Sumar el IoT al alcance de la NMX-I-27001'],
+      siguientes: ['Piloto con un gimnasio local', 'Publicar la app en Google Play', 'Sumar el RFID al alcance de la NMX-I-27001'],
       duracion: '0:30',
       presenta: "Eduardo",
       guion: [
+        "[OPCIONAL: si el tiempo ya está justo, solo di la primera y la última frase y pasa al cierre]",
         "Para cerrar, cuatro conclusiones.",
-        "Integración: la web, la app y el IoT comparten la misma API, así que lo que el socio paga se refleja en todas partes, hasta en la puerta. Procesos: cobrar, renovar y controlar el acceso ya no depende del papel.",
-        "Negocio: el modelo es viable para un gimnasio local y crece con las cadenas. Seguridad: la aplicamos desde el diseño con la NMX-I-27001.",
-        "Lo que sigue: un piloto con un gimnasio local, publicar la app en Google Play y sumar el IoT al alcance de la norma de seguridad."
+        "Integración: la web, la app y el RFID comparten la misma API, así que lo que el socio compra se refleja en todas partes. Tiempo: los registros, los cobros y la validación de pagos ya no dependen del Excel.",
+        "Control: cada entrada y salida queda registrada sin depender de quien vigila la puerta. Seguridad: la aplicamos desde el diseño con la NMX-I-27001.",
+        "Lo que sigue: un piloto con un gimnasio local, publicar la app en Google Play y sumar el RFID al alcance de la norma de seguridad."
       ]
     },
 
-    // 14 · Repositorios ──────────────────────────────────────────────
+    // 13 · Repositorios ──────────────────────────────────────────────
     {
       id: 'repositorios',
       tipo: 'repos',
@@ -458,7 +428,7 @@ window.PRESENTACION = {
         {
           nombre: 'GTWeb',
           texto: 'Plataforma de comercio electrónico y API REST',
-          tecnologias: 'Java 17 · Spring Boot · MongoDB Atlas',
+          tecnologias: 'Java · MongoDB Atlas',
           url: 'https://github.com/JoseOE/GTWeb',
           ruta: 'github.com/JoseOE/GTWeb',
           qr: 'img/qr-gtweb-repo.svg'
