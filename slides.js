@@ -268,23 +268,36 @@ window.PRESENTACION = {
       seccion: 'Desarrollo · Fase 2',
       titulo: 'Recorrido principal del *usuario en la app*',
       subtitulo: 'De abrir la app a su primer entrenamiento',
-      imagen: { src: 'img/app-login.png', alt: 'Pantalla de inicio de sesión de la app GymTrack' },
-      // "pantallas": el nombre de la pantalla de la app donde se hace cada paso
-      pasos: [
-        { icono: 'usuario', titulo: 'Inicia sesión', pantallas: ['Iniciar sesión', 'Crear cuenta'] },
-        { icono: 'codigo', titulo: 'Se une a su gimnasio', pantallas: ['Vincular gimnasio'] },
-        { icono: 'casa', titulo: 'Ve su membresía', pantallas: ['Inicio'] },
-        { icono: 'bolsa', titulo: 'Elige y paga su plan o producto', pantallas: ['Tienda', 'Pagar'] },
-        { icono: 'play', titulo: 'Entrena y mide su avance', pantallas: ['Entrenar', 'Progreso'] }
+      // Recorrido guiado: cada → abre las pantallas de un paso en grande y,
+      // con el siguiente, se acomodan en su tarjeta (como en Fases).
+      pasos: 6,
+      etapas: [
+        { titulo: 'Inicia sesión', texto: 'Entra con su correo y contraseña. Si es nuevo, crea su cuenta en un minuto.',
+          pantallas: ['Iniciar sesión', 'Crear cuenta'],
+          capturas: [{ src: 'img/app-login.png', alt: 'Pantalla Iniciar sesión' }, { src: 'img/app-registro.png', alt: 'Pantalla Crear cuenta' }] },
+        { titulo: 'Se une a su gimnasio', texto: 'Escribe el código que le dan en recepción y el dueño aprueba su solicitud.',
+          pantallas: ['Vincular gimnasio'],
+          capturas: [{ src: 'img/app-vincular.png', alt: 'Pantalla Vincular gimnasio' }] },
+        { titulo: 'Ve su membresía', texto: 'Ve su gimnasio, si su membresía está activa y hasta cuándo, y la rutina del día.',
+          pantallas: ['Inicio'],
+          capturas: [{ src: 'img/app-inicio.png', alt: 'Pantalla Inicio' }] },
+        { titulo: 'Elige y paga su plan o producto', texto: 'Elige en la tienda de su gimnasio y paga con tarjeta, PayPal o en tienda, sin ir a recepción.',
+          pantallas: ['Tienda', 'Pagar'],
+          capturas: [{ src: 'img/app-tienda.png', alt: 'Pantalla Tienda' }, { src: 'img/app-pagar.png', alt: 'Pantalla Pagar' }] },
+        { titulo: 'Entrena y mide su avance', texto: 'Anota sus series y su peso, y ve su racha y su volumen por grupo muscular.',
+          pantallas: ['Entrenar', 'Progreso'],
+          capturas: [{ src: 'img/app-entrenar.png', alt: 'Pantalla Entrenar' }, { src: 'img/app-progreso.png', alt: 'Pantalla Progreso' }] }
       ],
-      duracion: '0:40',
+      duracion: '1:00',
       presenta: "Eduardo",
       guion: [
-        "[→]",
-        "Gracias, Valeria. Este es el recorrido principal del socio dentro de la app, en cinco pasos, y en cada uno está la pantalla donde lo hace.",
-        "Primero inicia sesión en la pantalla Iniciar sesión, o crea su cuenta en Crear cuenta si es nuevo. Luego, en Vincular gimnasio, se une a su gimnasio con el código que le dan en recepción. En Inicio ve su membresía: si está al corriente y cuándo vence.",
-        "En la Tienda elige su plan o un producto y lo paga en Pagar, sin ir a recepción. Y por último, en Entrenar sigue su rutina y en Progreso mide su avance.",
-        "La renovación y el pago los van a ver en la demostración. Edwin sigue con el RFID."
+        "Gracias, Valeria. Este es el recorrido principal del socio dentro de la app, en cinco pasos. En cada uno les muestro la pantalla donde lo hace.",
+        "[→] Primero inicia sesión en Iniciar sesión, o crea su cuenta en Crear cuenta si es nuevo.",
+        "[→] Luego, en Vincular gimnasio, se une a su gimnasio con el código que le dan en recepción, y el dueño aprueba su solicitud.",
+        "[→] En Inicio ve su gimnasio, si su membresía está activa y hasta cuándo, y la rutina del día.",
+        "[→] En la Tienda elige su plan o un producto y lo paga en Pagar, con tarjeta, PayPal o en tienda, sin ir a recepción.",
+        "[→] Y por último, en Entrenar anota sus series y su peso, y en Progreso ve su racha y cuánto avanza.",
+        "[→] Así queda el recorrido completo. La renovación y el pago los van a ver en la demostración. Edwin sigue con el RFID."
       ]
     },
 

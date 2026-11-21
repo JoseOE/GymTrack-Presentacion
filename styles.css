@@ -506,20 +506,73 @@ svg .num { font-family: var(--display); font-weight: 700; }
 .mvp em { color: var(--brand-dark); }
 
 /* ─── Recorrido del usuario en la app ────────────────────────── */
-.recorrido-grid { display: grid; grid-template-columns: 300px 1fr; gap: 70px; margin-top: 36px; flex: 1; align-items: center; }
-.telefono-mapa { background: #121311; border-radius: 40px; padding: 11px; box-shadow: 0 24px 60px rgba(32,34,31,.3); }
-.telefono-mapa img { display: block; width: 100%; border-radius: 30px; }
-.mapa { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px 22px; position: relative; }
-.mapa li { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 22px; padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 14px; min-height: 230px; }
-.mapa li > b { position: absolute; top: -16px; left: 20px; width: 40px; height: 40px; border-radius: 50%; background: var(--brand); color: var(--ink); font: 800 24px/40px var(--display); text-align: center; }
-.mapa li .ic { width: 60px; height: 60px; border-radius: 16px; background: var(--ink); color: var(--brand); display: grid; place-items: center; margin-top: 8px; }
-.mapa li .ic svg { width: 32px; height: 32px; }
-.mapa li h5 { font: 700 27px/1.15 var(--body); }
-.mapa li .pantalla { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
-.mapa li .pantalla b { flex-basis: 100%; font: 700 15px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--brand-dark); margin-bottom: 2px; }
-.mapa li .pantalla span { display: inline-flex; gap: 6px; align-items: center; padding: 7px 14px; border-radius: 999px; background: var(--paper-2); border: 1px solid var(--line); font: 700 21px/1 var(--body); color: var(--ink); }
-.mapa li .pantalla svg { width: 18px; height: 18px; color: var(--brand); }
-.mapa li:not(:nth-child(3n)):not(:last-child)::after { content: '→'; position: absolute; right: -19px; top: 50%; transform: translateY(-50%); font: 700 26px/1 var(--body); color: var(--brand); }
+/* ─── Recorrido del usuario en la app (guiado) ────────────────
+   Paso 0: solo las 5 tarjetas vacías · paso k: las pantallas del paso k en
+   grande · paso k+1: se encogen hasta su tarjeta y entra el siguiente. */
+.app-tour { position: relative; flex: 1; display: flex; align-items: center; margin-top: 20px; }
+.mapa-app { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 34px; width: 100%; }
+.mapa-app li { position: relative; border: 2px dashed var(--paper-3); border-radius: 24px; padding: 40px 18px 26px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 16px; min-height: 520px; transition: background-color .4s ease .7s, border-color .4s ease .7s; }
+.mapa-app li > b { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); width: 44px; height: 44px; border-radius: 50%; background: var(--paper-3); color: var(--muted); font: 800 26px/44px var(--display); text-align: center; transition: background-color .4s ease .7s, color .4s ease .7s; }
+.mapa-app li > :not(b) { opacity: 0; transform: translateY(10px); transition: opacity .45s ease .75s, transform .45s ease .75s; }
+.mapa-app li:not(:last-child)::after { content: '→'; position: absolute; right: -28px; top: 50%; transform: translateY(-50%); font: 700 28px/1 var(--body); color: var(--paper-3); transition: color .4s ease .7s; }
+.slide.paso-2 .mapa-app li[data-n="1"],
+.slide.paso-3 .mapa-app li[data-n="2"],
+.slide.paso-4 .mapa-app li[data-n="3"],
+.slide.paso-5 .mapa-app li[data-n="4"],
+.slide.paso-6 .mapa-app li[data-n="5"],
+.slide.completa .mapa-app li { background: #fff; border-style: solid; border-color: var(--line); }
+.slide.paso-2 .mapa-app li[data-n="1"] > b,
+.slide.paso-3 .mapa-app li[data-n="2"] > b,
+.slide.paso-4 .mapa-app li[data-n="3"] > b,
+.slide.paso-5 .mapa-app li[data-n="4"] > b,
+.slide.paso-6 .mapa-app li[data-n="5"] > b,
+.slide.completa .mapa-app li > b { background: var(--brand); color: var(--ink); }
+.slide.paso-2 .mapa-app li[data-n="1"] > :not(b),
+.slide.paso-3 .mapa-app li[data-n="2"] > :not(b),
+.slide.paso-4 .mapa-app li[data-n="3"] > :not(b),
+.slide.paso-5 .mapa-app li[data-n="4"] > :not(b),
+.slide.paso-6 .mapa-app li[data-n="5"] > :not(b),
+.slide.completa .mapa-app li > :not(b) { opacity: 1; transform: none; }
+.slide.paso-2 .mapa-app li[data-n="1"]::after,
+.slide.paso-3 .mapa-app li[data-n="2"]::after,
+.slide.paso-4 .mapa-app li[data-n="3"]::after,
+.slide.paso-5 .mapa-app li[data-n="4"]::after,
+.slide.paso-6 .mapa-app li[data-n="5"]::after,
+.slide.completa .mapa-app li::after { color: var(--brand); }
+.mapa-app .minis { display: flex; gap: 10px; justify-content: center; height: 250px; }
+.mini-tel { height: 100%; aspect-ratio: 419 / 908; background: #121311; border-radius: 18px; padding: 5px; }
+.mini-tel img, .tel-app img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.mini-tel img { border-radius: 13px; }
+.mapa-app h5 { font: 700 25px/1.15 var(--body); }
+.pantalla { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: center; }
+.pantalla b { flex-basis: 100%; font: 700 15px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--brand-dark); margin-bottom: 2px; }
+.pantalla span { display: inline-flex; gap: 6px; align-items: center; padding: 7px 14px; border-radius: 999px; background: var(--paper-2); border: 1px solid var(--line); font: 700 20px/1 var(--body); color: var(--ink); }
+.pantalla svg { width: 18px; height: 18px; color: var(--brand); }
+.app-escena { position: absolute; inset: 6px -20px -20px; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 90px; background: var(--paper); border-radius: 30px; opacity: 0; pointer-events: none; transform-origin: var(--ox, 50%) var(--oy, 50%); transform: translateY(46px) scale(.97); transition: transform .5s ease, opacity .35s ease; }
+.telefonos { display: flex; gap: 34px; }
+.tel-app { height: 650px; aspect-ratio: 419 / 908; background: #121311; border-radius: 46px; padding: 12px; box-shadow: 0 30px 70px rgba(32,34,31,.28); }
+.tel-app img { border-radius: 34px; }
+.escena-texto { width: 560px; display: flex; flex-direction: column; gap: 22px; transition: opacity .4s ease; }
+.escena-texto .pantalla { justify-content: flex-start; }
+.escena-paso { font: 700 22px/1 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--brand-dark); }
+.escena-texto h4 { font: 800 76px/1 var(--display); text-transform: uppercase; }
+.escena-texto > p:not(.pantalla) { font: 500 32px/1.4 var(--body); color: var(--muted); }
+.escena-texto .pantalla span { font-size: 24px; padding: 10px 18px; }
+.slide.paso-1:not(.paso-2) .app-escena[data-n="1"] { opacity: 1; transform: none; pointer-events: auto; transition: transform .8s var(--ease) .1s, opacity .5s ease .1s, background-color 0s; }
+.slide.paso-2 .app-escena[data-n="1"] { opacity: 0; background-color: transparent; transform: translate(var(--dx), var(--dy)) scale(var(--s)); transition: transform 1s cubic-bezier(.65,0,.35,1), opacity .3s ease .75s, background-color .25s ease; }
+.slide.paso-2 .app-escena[data-n="1"] .escena-texto { opacity: 0; transition: opacity .25s ease; }
+.slide.paso-2:not(.paso-3) .app-escena[data-n="2"] { opacity: 1; transform: none; pointer-events: auto; transition: transform .8s var(--ease) 1.05s, opacity .5s ease 1.05s, background-color 0s; }
+.slide.paso-3 .app-escena[data-n="2"] { opacity: 0; background-color: transparent; transform: translate(var(--dx), var(--dy)) scale(var(--s)); transition: transform 1s cubic-bezier(.65,0,.35,1), opacity .3s ease .75s, background-color .25s ease; }
+.slide.paso-3 .app-escena[data-n="2"] .escena-texto { opacity: 0; transition: opacity .25s ease; }
+.slide.paso-3:not(.paso-4) .app-escena[data-n="3"] { opacity: 1; transform: none; pointer-events: auto; transition: transform .8s var(--ease) 1.05s, opacity .5s ease 1.05s, background-color 0s; }
+.slide.paso-4 .app-escena[data-n="3"] { opacity: 0; background-color: transparent; transform: translate(var(--dx), var(--dy)) scale(var(--s)); transition: transform 1s cubic-bezier(.65,0,.35,1), opacity .3s ease .75s, background-color .25s ease; }
+.slide.paso-4 .app-escena[data-n="3"] .escena-texto { opacity: 0; transition: opacity .25s ease; }
+.slide.paso-4:not(.paso-5) .app-escena[data-n="4"] { opacity: 1; transform: none; pointer-events: auto; transition: transform .8s var(--ease) 1.05s, opacity .5s ease 1.05s, background-color 0s; }
+.slide.paso-5 .app-escena[data-n="4"] { opacity: 0; background-color: transparent; transform: translate(var(--dx), var(--dy)) scale(var(--s)); transition: transform 1s cubic-bezier(.65,0,.35,1), opacity .3s ease .75s, background-color .25s ease; }
+.slide.paso-5 .app-escena[data-n="4"] .escena-texto { opacity: 0; transition: opacity .25s ease; }
+.slide.paso-5:not(.paso-6) .app-escena[data-n="5"] { opacity: 1; transform: none; pointer-events: auto; transition: transform .8s var(--ease) 1.05s, opacity .5s ease 1.05s, background-color 0s; }
+.slide.paso-6 .app-escena[data-n="5"] { opacity: 0; background-color: transparent; transform: translate(var(--dx), var(--dy)) scale(var(--s)); transition: transform 1s cubic-bezier(.65,0,.35,1), opacity .3s ease .75s, background-color .25s ease; }
+.slide.paso-6 .app-escena[data-n="5"] .escena-texto { opacity: 0; transition: opacity .25s ease; }
 
 /* ─── Seguridad: un control de la norma ──────────────────────── */
 .seguridad { display: grid; grid-template-columns: 600px 1fr; gap: 56px; margin-top: 36px; flex: 1; align-items: stretch; }

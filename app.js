@@ -328,16 +328,31 @@
         </div>
       </div>`,
 
-    // Mapa del recorrido principal del usuario en la app
-    recorrido: d => `
+    // Recorrido principal del usuario en la app: cada paso abre sus pantallas
+    // en grande y, con el siguiente →, se encogen hasta su tarjeta
+    recorrido: d => {
+      const chips = p => `<b>${p.pantallas.length > 1 ? 'Pantallas' : 'Pantalla'}</b>${p.pantallas.map(x => `<span>${ico('phone')}${esc(x)}</span>`).join('')}`;
+      return `
       ${titulo(d.titulo)}
       <p class="subtitulo rev" style="--i:1">${rico(d.subtitulo)}</p>
-      <div class="recorrido-grid">
-        <div class="telefono-mapa rev" style="--i:2"><img src="${esc(d.imagen.src)}" alt="${esc(d.imagen.alt)}"></div>
-        <ol class="mapa">
-          ${d.pasos.map((p, i) => `<li class="rev" style="--i:${i + 3}"><b>${i + 1}</b><div class="ic">${ico(p.icono)}</div><div><h5>${esc(p.titulo)}</h5><p class="pantalla"><b>${(p.pantallas || []).length > 1 ? 'Pantallas' : 'Pantalla'}</b>${(p.pantallas || []).map(x => `<span>${ico('phone')}${esc(x)}</span>`).join('')}</p></div></li>`).join('')}
+      <div class="app-tour rev" style="--i:2">
+        <ol class="mapa-app">
+          ${d.etapas.map((p, i) => `<li data-n="${i + 1}"><b>${i + 1}</b>
+            <div class="minis">${p.capturas.map(c => `<div class="mini-tel"><img src="${esc(c.src)}" alt=""></div>`).join('')}</div>
+            <h5>${esc(p.titulo)}</h5><p class="pantalla">${chips(p)}</p></li>`).join('')}
         </ol>
-      </div>`,
+        ${d.etapas.map((p, i) => `
+        <div class="app-escena" data-n="${i + 1}">
+          <div class="telefonos">${p.capturas.map(c => `<div class="tel-app"><img src="${esc(c.src)}" alt="${esc(c.alt)}"></div>`).join('')}</div>
+          <div class="escena-texto">
+            <span class="escena-paso">Paso ${i + 1} de ${d.etapas.length}</span>
+            <h4>${esc(p.titulo)}</h4>
+            <p>${rico(p.texto)}</p>
+            <p class="pantalla">${chips(p)}</p>
+          </div>
+        </div>`).join('')}
+      </div>`;
+    },
 
     // Norma mexicana de seguridad y cómo se aplica
     // Un control de la norma: cuál es, por qué y cómo se aplica
@@ -587,8 +602,28 @@
       el.style.transform = ''; void el.offsetWidth; el.style.transition = '';
     });
   }
+  // Recorrido de la app: cuánto mover y encoger cada escena para que sus
+  // pantallas caigan sobre las miniaturas de su tarjeta
+  function medirEscenas() {
+    const k = escenario.getBoundingClientRect().width / 1920;
+    escenario.querySelectorAll('.app-escena').forEach(e => {
+      const li = e.parentElement.querySelector(`.mapa-app li[data-n="${e.dataset.n}"]`);
+      const minis = li.querySelector('.minis'), tels = e.querySelector('.telefonos');
+      e.style.transition = li.style.transition = 'none'; e.style.transform = li.style.transform = 'none';
+      const re = e.getBoundingClientRect(), rt = tels.getBoundingClientRect(), rc = minis.getBoundingClientRect();
+      if (rt.height) {
+        e.style.setProperty('--ox', ((rt.left + rt.width / 2 - re.left) / k).toFixed(1) + 'px');
+        e.style.setProperty('--oy', ((rt.top + rt.height / 2 - re.top) / k).toFixed(1) + 'px');
+        e.style.setProperty('--dx', ((rc.left + rc.width / 2 - rt.left - rt.width / 2) / k).toFixed(1) + 'px');
+        e.style.setProperty('--dy', ((rc.top + rc.height / 2 - rt.top - rt.height / 2) / k).toFixed(1) + 'px');
+        e.style.setProperty('--s', (rc.height / rt.height).toFixed(4));
+      }
+      e.style.transform = li.style.transform = ''; void e.offsetWidth; e.style.transition = li.style.transition = '';
+    });
+  }
   medirIntros();
-  document.fonts && document.fonts.ready.then(medirIntros);
+  medirEscenas();
+  document.fonts && document.fonts.ready.then(() => { medirIntros(); medirEscenas(); });
 
   // ─── Notas del orador y cronómetro ──────────────────────────────
   const notas = document.getElementById('notas');

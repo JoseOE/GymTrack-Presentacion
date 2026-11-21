@@ -23,6 +23,7 @@ Algunas diapositivas tienen pasos internos antes de pasar a la siguiente:
 
 - **Portada (1):** empieza con la web y la app en grande; con `→` se acomodan y aparece la información.
 - **Fases (5):** cada fase entra en grande y con `→` se acomoda; son 3 pasos. El siguiente `→` hace zoom a la arquitectura del comercio electrónico.
+- **Recorrido en la app (8):** cada `→` abre en grande las pantallas de un paso (capturas reales de la app) y, con el siguiente, se encogen hasta su tarjeta; son 6 pasos.
 
 ## Orden (15 minutos: unos 9 de exposición + 5 de demostración)
 
