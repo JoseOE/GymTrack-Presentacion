@@ -269,21 +269,21 @@ window.PRESENTACION = {
       titulo: 'Recorrido principal del *usuario en la app*',
       subtitulo: 'De abrir la app a su primer entrenamiento',
       imagen: { src: 'img/app-login.png', alt: 'Pantalla de inicio de sesión de la app GymTrack' },
-      // "objetivo": qué logra el usuario en esa pantalla
+      // "pantallas": el nombre de la pantalla de la app donde se hace cada paso
       pasos: [
-        { icono: 'usuario', titulo: 'Inicia sesión', objetivo: 'Entrar a su cuenta de forma segura.' },
-        { icono: 'codigo', titulo: 'Se une a su gimnasio', objetivo: 'Quedar ligado a su gimnasio para comprar y ver sus rutinas.' },
-        { icono: 'casa', titulo: 'Ve su membresía', objetivo: 'Saber si está al corriente y cuándo vence.' },
-        { icono: 'bolsa', titulo: 'Elige y paga su plan o producto', objetivo: 'Comprar o renovar sin ir a recepción.' },
-        { icono: 'play', titulo: 'Entrena y mide su avance', objetivo: 'Seguir su rutina y ver cómo progresa.' }
+        { icono: 'usuario', titulo: 'Inicia sesión', pantallas: ['Iniciar sesión', 'Crear cuenta'] },
+        { icono: 'codigo', titulo: 'Se une a su gimnasio', pantallas: ['Vincular gimnasio'] },
+        { icono: 'casa', titulo: 'Ve su membresía', pantallas: ['Inicio'] },
+        { icono: 'bolsa', titulo: 'Elige y paga su plan o producto', pantallas: ['Tienda', 'Pagar'] },
+        { icono: 'play', titulo: 'Entrena y mide su avance', pantallas: ['Entrenar', 'Progreso'] }
       ],
       duracion: '0:40',
       presenta: "Eduardo",
       guion: [
         "[→]",
-        "Gracias, Valeria. Este es el recorrido principal del socio dentro de la app, en cinco pasos, y en cada uno está el objetivo de esa pantalla.",
-        "Inicia sesión para entrar a su cuenta de forma segura. Se une a su gimnasio con el código que le dan en recepción, para poder comprar y ver sus rutinas. Ve su membresía, para saber si está al corriente y cuándo vence.",
-        "Elige y paga su plan o producto, sin ir a recepción. Y por último entrena con su rutina y mide su avance.",
+        "Gracias, Valeria. Este es el recorrido principal del socio dentro de la app, en cinco pasos, y en cada uno está la pantalla donde lo hace.",
+        "Primero inicia sesión en la pantalla Iniciar sesión, o crea su cuenta en Crear cuenta si es nuevo. Luego, en Vincular gimnasio, se une a su gimnasio con el código que le dan en recepción. En Inicio ve su membresía: si está al corriente y cuándo vence.",
+        "En la Tienda elige su plan o un producto y lo paga en Pagar, sin ir a recepción. Y por último, en Entrenar sigue su rutina y en Progreso mide su avance.",
         "La renovación y el pago los van a ver en la demostración. Edwin sigue con el RFID."
       ]
     },

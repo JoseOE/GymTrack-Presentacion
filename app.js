@@ -335,7 +335,7 @@
       <div class="recorrido-grid">
         <div class="telefono-mapa rev" style="--i:2"><img src="${esc(d.imagen.src)}" alt="${esc(d.imagen.alt)}"></div>
         <ol class="mapa">
-          ${d.pasos.map((p, i) => `<li class="rev" style="--i:${i + 3}"><b>${i + 1}</b><div class="ic">${ico(p.icono)}</div><div><h5>${esc(p.titulo)}</h5><p class="objetivo"><b>Objetivo</b>${esc(p.objetivo || p.pantalla || '')}</p></div></li>`).join('')}
+          ${d.pasos.map((p, i) => `<li class="rev" style="--i:${i + 3}"><b>${i + 1}</b><div class="ic">${ico(p.icono)}</div><div><h5>${esc(p.titulo)}</h5><p class="pantalla"><b>${(p.pantallas || []).length > 1 ? 'Pantallas' : 'Pantalla'}</b>${(p.pantallas || []).map(x => `<span>${ico('phone')}${esc(x)}</span>`).join('')}</p></div></li>`).join('')}
         </ol>
       </div>`,
 

@@ -515,8 +515,10 @@ svg .num { font-family: var(--display); font-weight: 700; }
 .mapa li .ic { width: 60px; height: 60px; border-radius: 16px; background: var(--ink); color: var(--brand); display: grid; place-items: center; margin-top: 8px; }
 .mapa li .ic svg { width: 32px; height: 32px; }
 .mapa li h5 { font: 700 27px/1.15 var(--body); }
-.mapa li .objetivo { margin-top: 10px; font: 500 21px/1.4 var(--body); color: var(--muted); }
-.mapa li .objetivo b { display: block; font: 700 15px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--brand-dark); margin-bottom: 6px; }
+.mapa li .pantalla { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.mapa li .pantalla b { flex-basis: 100%; font: 700 15px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--brand-dark); margin-bottom: 2px; }
+.mapa li .pantalla span { display: inline-flex; gap: 6px; align-items: center; padding: 7px 14px; border-radius: 999px; background: var(--paper-2); border: 1px solid var(--line); font: 700 21px/1 var(--body); color: var(--ink); }
+.mapa li .pantalla svg { width: 18px; height: 18px; color: var(--brand); }
 .mapa li:not(:nth-child(3n)):not(:last-child)::after { content: '→'; position: absolute; right: -19px; top: 50%; transform: translateY(-50%); font: 700 26px/1 var(--body); color: var(--brand); }
 
 /* ─── Seguridad: un control de la norma ──────────────────────── */
