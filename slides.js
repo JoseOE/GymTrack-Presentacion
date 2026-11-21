@@ -153,20 +153,20 @@ window.PRESENTACION = {
       pilares: [
         { icono: 'laptop', titulo: 'Plataforma de comercio electrónico', items: ['Panel del dueño', 'Tienda', 'Mostrador', 'Pagos reales'] },
         { icono: 'phone', titulo: 'Aplicación móvil', items: ['Membresía', 'Rutinas', 'Progreso', 'Compras'] },
-        { icono: 'chip', titulo: 'Control de acceso RFID', items: ['Lector RFID UHF', 'Registra entrada y salida'] }
+        { icono: 'chip', titulo: 'Control de acceso RFID', items: ['Lector RFID UHF', 'Registra entradas y salidas en el panel del dueño'] }
       ],
       centro: 'Ecosistema GymTrack',
       flujo: [
         { titulo: 'Pago', texto: 'solo puede comprar en un gimnasio quien es miembro de él' },
         { titulo: 'Membresía activa', texto: 'se activa automáticamente al pagar' },
-        { titulo: 'Entrada y salida', texto: 'el lector RFID las registra sin hacerlo a mano' }
+        { titulo: 'Entrada y salida', texto: 'quedan registradas en el panel del dueño del gimnasio' }
       ],
       duracion: '0:45',
       presenta: "Yael",
       guion: [
         "Nuestra solución son tres piezas conectadas a una sola nube.",
-        "Una plataforma de comercio electrónico para el dueño: panel, tienda, mostrador y pagos reales. Una aplicación móvil para el socio: su membresía, rutinas, progreso y compras. Y un control de acceso RFID: un lector que registra las entradas y salidas.",
-        "Abajo ven el flujo: el socio paga, y solo puede comprar en un gimnasio si es miembro de él; su membresía se activa sola; y el lector registra su entrada y su salida, sin que nadie lo anote a mano.",
+        "Una plataforma de comercio electrónico para el dueño: panel, tienda, mostrador y pagos reales. Una aplicación móvil para el socio: su membresía, rutinas, progreso y compras. Y un control de acceso RFID: un lector que registra las entradas y salidas en el panel del dueño del gimnasio.",
+        "Abajo ven el flujo: el socio paga, y solo puede comprar en un gimnasio si es miembro de él; su membresía se activa sola; y su entrada y su salida quedan registradas en el panel del dueño de ese gimnasio, sin que nadie las anote a mano.",
         "Eduardo les cuenta cómo lo construimos."
       ]
     },
