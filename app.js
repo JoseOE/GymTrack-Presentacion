@@ -356,31 +356,21 @@
 
     // Norma mexicana de seguridad y cómo se aplica
     // Un control de la norma: cuál es, por qué y cómo se aplica
-    seguridad: d => {
-      const n = d.norma;
-      return `
+    seguridad: d => `
       ${titulo(d.titulo)}
       <p class="subtitulo rev" style="--i:1">${rico(d.subtitulo)}</p>
-      <div class="seguridad">
-        <div class="seg-norma rev" style="--i:2">
-          <div class="seg-sello">${ico('escudo')}<div><b>${esc(n.nombre)}</b><span>${esc(n.detalle)}</span></div></div>
-          <div class="seg-control"><span class="clave">${esc(n.clave)}</span><h3>${esc(n.control)}</h3></div>
-          <div class="seg-avance">
-            <div class="v"><span class="cuenta" data-valor="${n.implementados}">${n.implementados}</span><small>/${n.total}</small></div>
-            <span>puntos del control implementados</span>
-          </div>
-          <div class="barra-seg"><i style="--w:${n.implementados / n.total * 100}%"></i></div>
-          <p class="porque"><b>Por qué este control</b>${rico(n.porque)}</p>
-        </div>
-        <div class="seg-derecha">
-          <h4 class="rev" style="--i:3">Cómo lo aplicamos</h4>
-          <ol class="seg-pasos">
-            ${d.pasos.map((p, i) => `<li class="rev" style="--i:${i + 4}"><b>${i + 1}</b><div><h5>${esc(p.titulo)} <small>${esc(p.clave)}</small></h5><p>${rico(p.texto)}</p></div></li>`).join('')}
-          </ol>
-          <div class="seg-evidencia rev" style="--i:8"><span>Evidencia</span>${d.evidencia.map(e => `<i>${ico('check')}${esc(e)}</i>`).join('')}</div>
-        </div>
-      </div>`;
-    },
+      <div class="seg-marco rev" style="--i:2">
+        ${d.marco.map(m => `<div class="seg-dato"><span>${esc(m.etiqueta)}</span><b>${esc(m.valor)}</b><p>${rico(m.texto)}</p></div>`).join('')}
+      </div>
+      <div class="seg-controles">
+        ${d.controles.map((c, i) => `
+        <div class="seg-ctrl rev" style="--i:${i + 3}">
+          <div class="seg-cab"><span class="clave">${esc(c.clave)}</span><div><small>${esc(c.dominio)}</small><h3>${esc(c.nombre)}</h3></div></div>
+          <p class="seg-pide"><b>Qué pide</b>${rico(c.pide)}</p>
+          <div class="seg-como"><b>Cómo funciona en la página</b><ul>${c.como.map(x => `<li>${ico('check')}<span>${rico(x)}</span></li>`).join('')}</ul></div>
+          <div class="seg-donde">${ico('laptop')}<span>Dónde se ve</span><b>${esc(c.donde)}</b></div>
+        </div>`).join('')}
+      </div>`,
 
     // Demostración técnica: un solo flujo que pasa por el lector, la web y la app
     demo: d => `

@@ -345,34 +345,46 @@ window.PRESENTACION = {
       tipo: 'seguridad',
       tema: 'oscuro',
       seccion: 'Desarrollo · Seguridad',
-      titulo: 'Seguridad · *Control de acceso*',
-      subtitulo: 'El control de la norma que más importa en GymTrack: cada persona entra solo a lo que le corresponde.',
-      norma: {
-        nombre: 'NMX-I-27001-NYCE-2015',
-        detalle: 'Norma mexicana equivalente a ISO/IEC 27001',
-        clave: 'A.9',
-        control: 'Control de acceso',
-        implementados: 12,
-        total: 14,
-        porque: 'Es el corazón del proyecto: si cualquiera pudiera entrar como dueño, podría regalarse membresías o ver los datos de otro gimnasio.'
-      },
-      pasos: [
-        { clave: 'A.9.2', titulo: 'Alta y baja de usuarios', texto: 'Registro con verificación del correo; el socio se une con un código y el dueño lo aprueba. La baja le quita el acceso.' },
-        { clave: 'A.9.4.3', titulo: 'Contraseñas seguras', texto: 'Se guardan con BCrypt y piden 8 o más caracteres con letra, número y símbolo.' },
-        { clave: 'A.9.4.2', titulo: 'Inicio de sesión seguro', texto: 'Token al azar por sesión (en la base solo queda su huella SHA-256), vence a los 30 días y se frena tras 10 intentos fallidos.' },
-        { clave: 'A.9.4.1', titulo: 'Cada quien solo lo suyo', texto: 'En cada petición el servidor revisa que el gimnasio, la cuenta o el pedido sean de quien la hace.' }
+      titulo: 'Seguridad · *NMX-I-27001*',
+      subtitulo: 'Dos controles de la norma y cómo funcionan en GymTrack',
+      // Asociación que la publica, la norma y a qué se refiere
+      marco: [
+        { etiqueta: 'Asociación', valor: 'NYCE', texto: 'Normalización y Certificación: el organismo mexicano que publica la norma' },
+        { etiqueta: 'Norma', valor: 'NMX-I-27001-NYCE-2015', texto: 'Versión mexicana de la *ISO/IEC 27001:2013*' },
+        { etiqueta: 'A qué se refiere', valor: 'Seguridad de la información', texto: 'Proteger los datos para que solo los vea quien debe, no se alteren y estén disponibles' }
       ],
-      evidencia: ['Pruebas en el CI', 'Bitácora de accesos', 'INC-001 corregido'],
-      duracion: '0:45',
+      controles: [
+        {
+          clave: 'A.9.4.3', dominio: 'A.9 · Control de acceso', nombre: 'Gestión de contraseñas',
+          pide: 'Que las contraseñas sean seguras y que el sistema las guarde protegidas.',
+          como: [
+            'Al crear la cuenta, la página marca en vivo los requisitos: *8 caracteres, letra, número y símbolo*',
+            'Se guarda cifrada con *BCrypt*: ni nosotros podemos leerla',
+            'Si la olvida, la cambia con un *código* que le llega a su correo'
+          ],
+          donde: 'Página Crear cuenta'
+        },
+        {
+          clave: 'A.12.4.1', dominio: 'A.12 · Seguridad de las operaciones', nombre: 'Registro de eventos',
+          pide: 'Guardar un registro de lo que pasa en el sistema: quién hizo qué y cuándo.',
+          como: [
+            'Cada inicio de sesión, contraseña incorrecta y acceso negado queda anotado con *fecha, IP y dispositivo*',
+            'También los cambios del dueño: *precios, reembolsos, altas y bajas* de miembros',
+            'Nadie la puede editar ni borrar; se borra sola a los *180 días*'
+          ],
+          donde: 'Panel del dueño → Bitácora'
+        }
+      ],
+      duracion: '1:00',
       presenta: "Edwin",
       guion: [
-        "Para la seguridad elegimos la norma mexicana NMX-I-27001-NYCE-2015, que es la equivalente de la ISO 27001. De ella nos enfocamos en el control que más importa para GymTrack: el A.9, Control de acceso.",
-        "¿Por qué ese? Porque es el corazón del proyecto. Si cualquiera pudiera entrar como dueño, podría regalarse membresías o ver los datos de otro gimnasio. De los 14 puntos de ese control, 12 ya están implementados.",
-        "Lo aplicamos en cuatro partes. Primero, el alta y la baja: la cuenta se verifica con el correo, el socio se une a su gimnasio con un código y el dueño lo aprueba; si lo da de baja, pierde el acceso.",
-        "Segundo, las contraseñas se guardan cifradas con BCrypt y deben tener letra, número y símbolo. Tercero, el inicio de sesión: cada sesión tiene un token al azar del que en la base solo guardamos su huella, vence a los 30 días y después de 10 intentos fallidos se bloquea.",
-        "Y cuarto, cada quien ve solo lo suyo: en cada petición el servidor revisa que el gimnasio o la cuenta sean de quien la pide.",
-        "Abajo está la evidencia: pruebas de seguridad que corren en cada cambio, una bitácora de accesos, y un incidente real que encontramos y corregimos, el INC-001, donde se podía saltar la revisión de sesión escribiendo la ruta de otra forma.",
-        "[Si preguntan por los otros controles: aplicamos la norma completa, 82 de 95 controles; esta diapositiva se enfoca en el más importante]",
+        "Para la seguridad usamos la norma mexicana NMX-I-27001-NYCE-2015. La publica NYCE, Normalización y Certificación, el organismo mexicano de normalización; es la versión mexicana de la norma internacional ISO/IEC 27001.",
+        "¿A qué se refiere? A la seguridad de la información: proteger los datos para que solo los vea quien debe, que nadie los altere y que estén disponibles cuando se necesitan. Para eso la norma trae 114 controles; les vamos a explicar dos.",
+        "El primero es el A.9.4.3, gestión de contraseñas, que es parte del control de acceso. Pide que las contraseñas sean seguras y que el sistema las guarde protegidas.",
+        "En la página funciona así: al crear la cuenta, mientras la persona escribe su contraseña se van marcando los requisitos: ocho caracteres, una letra, un número y un símbolo. Al guardarla la ciframos con BCrypt, así que ni nosotros podemos leerla. Y si la olvida, la cambia con un código de un solo uso que le llega a su correo.",
+        "El segundo es el A.12.4.1, registro de eventos. Pide guardar un registro de lo que pasa en el sistema, para saber quién hizo qué y cuándo.",
+        "En GymTrack es la bitácora de seguridad que el dueño ve en su panel: cada inicio de sesión, cada contraseña incorrecta y cada acceso negado, con la fecha, la IP y el dispositivo. También quedan los cambios importantes del dueño, como precios, reembolsos y altas o bajas de miembros. Nadie la puede editar ni borrar, y se borra sola a los 180 días.",
+        "[Si preguntan por los demás controles: de los 114, aplican 95 a GymTrack y 82 ya están implementados; los otros 13 están en proceso]",
         "Ahora, la demostración. Valeria empieza con el lector."
       ]
     },
