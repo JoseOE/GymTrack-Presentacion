@@ -152,7 +152,7 @@ window.PRESENTACION = {
       titulo: 'Solución *tecnológica*',
       pilares: [
         { icono: 'laptop', titulo: 'Plataforma de comercio electrónico', items: ['Panel del dueño', 'Tienda', 'Mostrador', 'Pagos reales'] },
-        { icono: 'phone', titulo: 'Aplicación móvil', items: ['Membresía', 'Rutinas', 'Progreso', 'Compras'] },
+        { icono: 'phone', titulo: 'Aplicación móvil', items: ['Membresía', 'Rutinas con fotos de cada ejercicio', 'Progreso', 'Compras'] },
         { icono: 'chip', titulo: 'Control de acceso RFID', items: ['Lector RFID UHF', 'Registra entradas y salidas en el panel del dueño'] }
       ],
       centro: 'Ecosistema GymTrack',
@@ -165,7 +165,7 @@ window.PRESENTACION = {
       presenta: "Yael",
       guion: [
         "Nuestra solución son tres piezas conectadas a una sola nube.",
-        "Una plataforma de comercio electrónico para el dueño: panel, tienda, mostrador y pagos reales. Una aplicación móvil para el socio: su membresía, rutinas, progreso y compras. Y un control de acceso RFID: un lector que registra las entradas y salidas en el panel del dueño del gimnasio.",
+        "Una plataforma de comercio electrónico para el dueño: panel, tienda, mostrador y pagos reales. Una aplicación móvil para el socio: su membresía, sus rutinas con fotos de cómo se hace cada ejercicio, su progreso y sus compras. Y un control de acceso RFID: un lector que registra las entradas y salidas en el panel del dueño del gimnasio.",
         "Abajo ven el flujo: el socio paga, y solo puede comprar en un gimnasio si es miembro de él; su membresía se activa sola; y su entrada y su salida quedan registradas en el panel del dueño de ese gimnasio, sin que nadie las anote a mano.",
         "Eduardo les cuenta cómo lo construimos."
       ]
@@ -201,7 +201,7 @@ window.PRESENTACION = {
       seccion: 'Desarrollo · Fase 1',
       titulo: '*Comercio electrónico*',
       capas: [
-        { nombre: 'Front', items: ['HTML, CSS, JavaScript, Bootstrap', 'Tienda · checkout · panel del dueño · mostrador · ventas'] },
+        { nombre: 'Front', items: ['HTML, CSS, JavaScript, Bootstrap · tema claro y oscuro', 'Tienda · checkout · panel del dueño · mostrador · ventas · catálogo de máquinas'] },
         { nombre: 'Back', items: ['API REST en Java', 'Desplegada en Render, la misma que usa la app'] },
         { nombre: 'Servicios', items: ['Pago con tarjeta · PayPal · pago en tienda', 'Recibos PDF · correos · Google Analytics 4'] },
         { nombre: 'Datos', items: ['MongoDB Atlas multi-gimnasio', 'Seguridad NMX-I-27001: sesiones con hash, bitácora y cabeceras'] }
@@ -213,7 +213,7 @@ window.PRESENTACION = {
       guion: [
         "[→ zoom a la Fase 1]",
         "Gracias, Eduardo. Este es el comercio electrónico, por capas.",
-        "En el front está el sitio en HTML, CSS, JavaScript y Bootstrap: la tienda, el checkout, el panel del dueño, el mostrador y las ventas. En el back, una API REST en Java desplegada en Render; es la misma que usa la app.",
+        "En el front está el sitio en HTML, CSS, JavaScript y Bootstrap: la tienda, el checkout, el panel del dueño, el mostrador, las ventas y un catálogo de 42 máquinas con fotos de cada ejercicio, en tema claro u oscuro. En el back, una API REST en Java desplegada en Render; es la misma que usa la app.",
         "Como servicios ofrecemos tres formas de pago: con tarjeta, con PayPal y en efectivo en tiendas. Además, recibos en PDF, correos y analítica con Google Analytics 4. Los datos viven en MongoDB Atlas, separados por gimnasio y con los controles de seguridad de la norma.",
         "Pueden escanear el código o entrar con el botón para verla en vivo."
       ]
@@ -241,7 +241,7 @@ window.PRESENTACION = {
       },
       compartida: 'API compartida con la web',
       kpis: [
-        { valor: 553, texto: 'pruebas automatizadas en CI', detalle: 'revisan compras, pagos, permisos y el lector en cada cambio' },
+        { valor: 591, texto: 'pruebas automatizadas en CI', detalle: 'revisan compras, pagos, permisos y el lector en cada cambio' },
         { valor: 3, texto: 'pasarelas de pago', detalle: 'Tarjeta · PayPal · pago en tienda' }
       ],
       duracion: '0:45',
@@ -250,7 +250,7 @@ window.PRESENTACION = {
         "[→ entra deslizándose]",
         "La app móvil la hicimos con React Native, Expo y TypeScript, y se instala como APK de Android.",
         "No duplicamos servidor: usa la misma API que la web, con autenticación por token y notificaciones push.",
-        "Para asegurar la calidad tenemos 553 pruebas automatizadas que corren en GitHub Actions, nuestro CI, cada vez que alguien sube un cambio. Son pruebas de punta a punta: un programa hace lo mismo que haría un usuario contra la API real, como registrarse, unirse a un gimnasio, comprar con tarjeta, PayPal o en tienda, recibir su recibo, entrar con el lector o intentar ver datos de otro gimnasio, y revisa que el resultado sea el correcto.",
+        "Para asegurar la calidad tenemos 591 pruebas automatizadas que corren en GitHub Actions, nuestro CI, cada vez que alguien sube un cambio. Son pruebas de punta a punta: un programa hace lo mismo que haría un usuario contra la API real, como registrarse, unirse a un gimnasio, comprar con tarjeta, PayPal o en tienda, recibir su recibo, entrar con el lector o intentar ver datos de otro gimnasio, y revisa que el resultado sea el correcto.",
         "Si una sola de esas pruebas falla, el cambio no se publica. Así la web y la app, que usan la misma API, no se rompen sin que nos demos cuenta.",
         "[Si preguntan: están en GTWeb/pruebas; cada una imprime ✔ o ✘ por comprobación]",
         "Las tres pasarelas son pago con tarjeta, PayPal y pago en tienda, y se abren en un navegador seguro, así la app nunca toca los datos de la tarjeta.",
@@ -284,7 +284,7 @@ window.PRESENTACION = {
         { titulo: 'Elige y paga su plan o producto', texto: 'Elige en la tienda de su gimnasio y paga con tarjeta, PayPal o en tienda, sin ir a recepción.',
           pantallas: ['Tienda', 'Pagar'],
           capturas: [{ src: 'img/app-tienda.png', alt: 'Pantalla Tienda' }, { src: 'img/app-pagar.png', alt: 'Pantalla Pagar' }] },
-        { titulo: 'Entrena y mide su avance', texto: 'Anota sus series y su peso, y ve su racha y su volumen por grupo muscular.',
+        { titulo: 'Entrena y mide su avance', texto: 'Sigue la rutina paso a paso, con fotos de cómo se hace cada ejercicio; anota series y peso, y ve su avance.',
           pantallas: ['Entrenar', 'Progreso'],
           capturas: [{ src: 'img/app-entrenar.png', alt: 'Pantalla Entrenar' }, { src: 'img/app-progreso.png', alt: 'Pantalla Progreso' }] }
       ],
@@ -296,7 +296,7 @@ window.PRESENTACION = {
         "[→] Luego, en Vincular gimnasio, se une a su gimnasio con el código que le dan en recepción, y el dueño aprueba su solicitud.",
         "[→] En Inicio ve su gimnasio, si su membresía está activa y hasta cuándo, y la rutina del día.",
         "[→] En la Tienda elige su plan o un producto y lo paga en Pagar, con tarjeta, PayPal o en tienda, sin ir a recepción.",
-        "[→] Y por último, en Entrenar anota sus series y su peso, y en Progreso ve su racha y cuánto avanza.",
+        "[→] Y por último, en Entrenar sigue la rutina de su coach paso a paso, con fotos de cómo se hace cada ejercicio, anota sus series y su peso, y en Progreso ve su racha y cuánto avanza.",
         "[→] Así queda el recorrido completo. La renovación y el pago los van a ver en la demostración. Edwin sigue con el RFID."
       ]
     },
@@ -321,7 +321,7 @@ window.PRESENTACION = {
       ],
       tituloActuadores: 'Parámetros que monitorea en tiempo real',
       actuadores: [
-        { icono: 'ledok', titulo: 'Entradas', texto: 'LED verde y el servo abre la puerta' },
+        { icono: 'ledok', titulo: 'Entradas', texto: 'LED verde y buzzer al permitir el paso' },
         { icono: 'ledazul', titulo: 'Salidas', texto: 'LED azul · cierra la visita' },
         { icono: 'usuario', titulo: 'Quién y cuándo', texto: 'socio, hora y lector de cada pase' },
         { icono: 'ledno', titulo: 'Denegados', texto: 'LED rojo, buzzer y alerta' }
@@ -333,7 +333,7 @@ window.PRESENTACION = {
         "[→]",
         "Gracias, Eduardo. La tercera fase es el control de acceso con RFID, una arquitectura de sensores que se lee de izquierda a derecha, igual que viaja el dato.",
         "El socio acerca su credencial UHF; el lector YRM1004 la lee y la pasa por UART a la placa LILYGO, un ESP32 con módem, que le pregunta por HTTPS a nuestra API, por WiFi, LTE-M o 2G. Cada acceso se guarda en MongoDB.",
-        "Monitoreamos en tiempo real las entradas: LED verde y el servo abre la puerta 3 segundos; las salidas, con LED azul; quién entra y a qué hora; y los accesos denegados, con LED rojo, buzzer y una alerta en el panel.",
+        "Monitoreamos en tiempo real las entradas, con LED verde y un pitido del buzzer; las salidas, con LED azul; quién entra y a qué hora; y los accesos denegados, con LED rojo, buzzer y una alerta en el panel.",
         "Y si se cae la red, el lector decide con la lista de credenciales que guarda en su memoria.",
         "[Si preguntan por qué HTTPS y no MQTT: el lector siempre pregunta, así que basta HTTPS con una llave por lector]"
       ]
@@ -403,11 +403,11 @@ window.PRESENTACION = {
         app: { icono: 'phone', nombre: 'App móvil' }
       },
       pasos: [
-        { donde: 'rfid', icono: 'card', titulo: 'Pasa su tarjeta', texto: 'Su membresía está vencida: LED rojo y la puerta no se abre', presenta: 'Valeria' },
+        { donde: 'rfid', icono: 'card', titulo: 'Pasa su tarjeta', texto: 'Su membresía está vencida: LED rojo y buzzer, acceso negado', presenta: 'Valeria' },
         { donde: 'web', icono: 'ledno', titulo: 'Acceso negado', texto: 'El panel del dueño muestra el intento al instante', presenta: 'Edwin' },
         { donde: 'app', icono: 'campana', titulo: 'Le llega el aviso', texto: 'Una notificación le pide renovar su membresía', presenta: 'Edwin' },
         { donde: 'app', icono: 'recibo', titulo: 'Paga desde la app', texto: 'Renueva su mensualidad con tarjeta o PayPal', presenta: 'Edwin' },
-        { donde: 'rfid', icono: 'servo', titulo: 'La puerta se abre', texto: 'Sola, sin volver a pasar la tarjeta: servo, LED verde y buzzer', presenta: 'Valeria' },
+        { donde: 'rfid', icono: 'card', titulo: 'Vuelve a pasar su tarjeta', texto: 'Ya renovada: LED verde, buzzer y su entrada queda registrada', presenta: 'Valeria' },
         { donde: 'web', icono: 'grafica', titulo: 'Todo queda registrado', texto: 'El dueño ve el pago y la entrada del socio', presenta: 'Edwin' }
       ],
       duracion: '5:00',
@@ -416,11 +416,11 @@ window.PRESENTACION = {
         { quien: "Todo el equipo", texto: "[Antes de empezar: la web abierta en la laptop con la sesión del dueño, en Accesos RFID; el celular con la app y la sesión del socio vencido, con las notificaciones permitidas; el lector encendido y en línea en el panel]" },
         { quien: "Todo el equipo", texto: "[Si ensayan antes: al pagar, la membresía de ese socio queda activa, así que para la demo necesitan otro socio vencido]" },
         { quien: "Valeria", texto: "Les vamos a mostrar todo el sistema en un solo flujo: la adquisición de datos con el RFID, la web y la app." },
-        { quien: "Valeria", texto: "Este socio tiene su membresía vencida e intenta entrar. [Acercar la tarjeta al lector] El lector manda la lectura a la API, que revisa su membresía: LED rojo y la puerta no se abre." },
+        { quien: "Valeria", texto: "Este socio tiene su membresía vencida e intenta entrar. [Acercar la tarjeta al lector] El lector manda la lectura a la API, que revisa su membresía: LED rojo, suena el buzzer y no puede pasar." },
         { quien: "Edwin", texto: "En la web, el dueño ve al instante el intento: acceso negado por membresía vencida, con la hora." },
         { quien: "Edwin", texto: "[Pasarles el celular a los evaluadores] Al mismo tiempo, al socio le llega esta notificación para renovar." },
-        { quien: "Edwin", texto: "Desde la app paga su mensualidad. [Pagar con la tarjeta de prueba; hay 10 minutos desde el acceso negado para que la puerta se abra sola]" },
-        { quien: "Valeria", texto: "En cuanto el pago se confirma, la puerta se abre sola, sin volver a pasar la tarjeta: el servo gira, se prende el LED verde y suena el buzzer." },
+        { quien: "Edwin", texto: "Desde la app paga su mensualidad. [Pagar con la tarjeta de prueba] Al terminar, la app le dice que ya puede volver a pasar su tarjeta." },
+        { quien: "Valeria", texto: "Ya con el pago confirmado, vuelve a pasar su tarjeta. [Acercar la tarjeta] Ahora el lector la acepta: LED verde, suena el buzzer y su entrada queda registrada. Le pedimos pasarla otra vez para asegurarnos de que la persona sí está en la puerta." },
         { quien: "Edwin", texto: "Y en la web el dueño ve las dos cosas: el pago de la mensualidad y la entrada del socio." },
         { quien: "Valeria", texto: "Así, con un solo socio, vieron la web, la app y la adquisición de datos trabajando juntas sobre la misma API." },
         { quien: "Todo el equipo", texto: "[Si algo falla, explicar el flujo con esta diapositiva y seguir]" }
