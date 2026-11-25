@@ -31,7 +31,7 @@ const FASES = {
   fases: [
     { numero: 1, nombre: 'Comercio electrónico', estado: 'En producción', avance: 100 },
     { numero: 2, nombre: 'Aplicación móvil', estado: 'En producción (APK Android)', avance: 100 },
-    { numero: 3, nombre: 'RFID', estado: 'Terminado: lector RFID que registra entradas y salidas', avance: 100 }
+    { numero: 3, nombre: 'RFID', estado: 'Terminado: lector RFID que registra entradas y salidas y un servo que abre la puerta', avance: 100 }
   ],
   metricas: [
     { valor: 6, texto: 'gimnasios' },
@@ -153,20 +153,20 @@ window.PRESENTACION = {
       pilares: [
         { icono: 'laptop', titulo: 'Plataforma de comercio electrónico', items: ['Panel del dueño', 'Tienda', 'Mostrador', 'Pagos reales'] },
         { icono: 'phone', titulo: 'Aplicación móvil', items: ['Membresía', 'Rutinas guiadas con ilustraciones', 'Progreso', 'Compras'] },
-        { icono: 'chip', titulo: 'Control de acceso RFID', items: ['Lector RFID UHF', 'Registra entradas y salidas en el panel del dueño'] }
+        { icono: 'chip', titulo: 'Control de acceso RFID', items: ['Lector RFID UHF', 'Registra entradas y salidas en el panel del dueño', 'Servo que abre la puerta'] }
       ],
       centro: 'Ecosistema GymTrack',
       flujo: [
         { titulo: 'Pago', texto: 'solo puede comprar en un gimnasio quien es miembro de él' },
         { titulo: 'Membresía activa', texto: 'se activa automáticamente al pagar' },
-        { titulo: 'Entrada y salida', texto: 'quedan registradas en el panel del dueño del gimnasio' }
+        { titulo: 'Entrada y salida', texto: 'el servo abre la puerta y quedan registradas en el panel del dueño' }
       ],
       duracion: '0:45',
       presenta: "Yael",
       guion: [
         "Nuestra solución son tres piezas conectadas a una sola nube.",
-        "Una plataforma de comercio electrónico para el dueño: panel, tienda, mostrador y pagos reales. Una aplicación móvil para el socio: su membresía, sus rutinas guiadas con ilustraciones de cómo se hace cada ejercicio, su progreso y sus compras. Y un control de acceso RFID: un lector que registra las entradas y salidas en el panel del dueño del gimnasio.",
-        "Abajo ven el flujo: el socio paga, y solo puede comprar en un gimnasio si es miembro de él; su membresía se activa sola; y su entrada y su salida quedan registradas en el panel del dueño de ese gimnasio, sin que nadie las anote a mano.",
+        "Una plataforma de comercio electrónico para el dueño: panel, tienda, mostrador y pagos reales. Una aplicación móvil para el socio: su membresía, sus rutinas guiadas con ilustraciones de cómo se hace cada ejercicio, su progreso y sus compras. Y un control de acceso RFID: un lector que registra las entradas y salidas en el panel del dueño del gimnasio, con un servo que abre la puerta.",
+        "Abajo ven el flujo: el socio paga, y solo puede comprar en un gimnasio si es miembro de él; su membresía se activa sola; y al pasar su tarjeta el servo le abre la puerta, y su entrada y su salida quedan registradas en el panel del dueño de ese gimnasio, sin que nadie las anote a mano.",
         "Eduardo les cuenta cómo lo construimos."
       ]
     },
@@ -185,7 +185,7 @@ window.PRESENTACION = {
         "[→ entra la Fase 2]",
         "La segunda es la aplicación móvil para el socio, también en producción como APK de Android.",
         "[→ entra la Fase 3]",
-        "La tercera es el control de acceso con RFID, que ya terminamos: el lector registra las entradas y salidas de cada socio.",
+        "La tercera es el control de acceso con RFID, que ya terminamos: el lector registra las entradas y salidas de cada socio, y un servo le abre la puerta solo a quien tiene su membresía al día.",
         "[→ aparecen las cifras]",
         "Abajo ven 6 gimnasios, 42 socios y 196 ventas en 90 días. Son datos de demostración que cargamos en producción para probar el sistema completo; no son clientes reales. Valeria les explica cada fase."
       ]
@@ -310,7 +310,7 @@ window.PRESENTACION = {
       tema: 'claro',
       seccion: 'Desarrollo · Fase 3',
       titulo: '*RFID*',
-      subtitulo: 'Arquitectura de sensores: del tag a la nube y al panel "Accesos RFID"',
+      subtitulo: 'Sensores y actuadores: del tag a la nube, al panel "Accesos RFID" y a la puerta',
       nodos: [
         { icono: 'card', titulo: 'Credencial', texto: 'RFID UHF' },
         { icono: 'reader', titulo: 'Lector UHF', texto: 'YRM1004', enlace: 'UHF' },
@@ -324,17 +324,18 @@ window.PRESENTACION = {
         { icono: 'ledok', titulo: 'Entradas', texto: 'LED verde, buzzer y el servo abre la puerta' },
         { icono: 'ledazul', titulo: 'Salidas', texto: 'LED azul y la puerta se abre para salir' },
         { icono: 'usuario', titulo: 'Quién y cuándo', texto: 'socio, hora y lector de cada pase' },
-        { icono: 'ledno', titulo: 'Denegados', texto: 'LED rojo, buzzer y alerta' }
+        { icono: 'ledno', titulo: 'Denegados', texto: 'LED rojo, buzzer y alerta; la puerta no abre' }
       ],
       offline: { titulo: 'Modo sin conexión', texto: 'Si se cae la red, el lector decide con la lista de credenciales que guarda en su memoria.' },
       duracion: '0:55',
       presenta: "Edwin",
       guion: [
         "[→]",
-        "Gracias, Eduardo. La tercera fase es el control de acceso con RFID, una arquitectura de sensores que se lee de izquierda a derecha, igual que viaja el dato.",
-        "El socio acerca su credencial UHF; el lector YRM1004 la lee y la pasa por UART a la placa LILYGO, un ESP32 con módem, que le pregunta por HTTPS a nuestra API, por WiFi, LTE-M o 2G. Cada acceso se guarda en MongoDB.",
+        "Gracias, Eduardo. La tercera fase es el control de acceso con RFID, una arquitectura de sensores y actuadores que se lee de izquierda a derecha, igual que viaja el dato.",
+        "El socio acerca su credencial UHF; el lector YRM1004 la lee y la pasa por UART a la placa LILYGO, un ESP32 con módem, que le pregunta por HTTPS a nuestra API, por WiFi, LTE-M o 2G. Cada acceso se guarda en MongoDB y la respuesta regresa al lector, que mueve la puerta.",
         "Monitoreamos en tiempo real las entradas, con LED verde, un pitido del buzzer y un servo que abre la puerta 3 segundos; las salidas, con LED azul, y también se abre; quién entra y a qué hora; y los accesos denegados, con LED rojo, buzzer y una alerta en el panel, desde donde el dueño puede abrirle la puerta si lo decide.",
-        "Y si se cae la red, el lector decide con la lista de credenciales que guarda en su memoria. La misma tarjeta también sirve para entregar los pedidos de la tienda en el mostrador.",
+        "La puerta la mueve un servo SG90 conectado al GPIO 23 de la LILYGO: gira 90 grados para abrir y a los 3 segundos se cierra sola, sin dejar de leer tarjetas.",
+        "Y si se cae la red, el lector decide con la lista de credenciales que guarda en su memoria, así que la puerta sigue funcionando. La misma tarjeta también sirve para entregar los pedidos de la tienda en el mostrador.",
         "[Si preguntan por qué HTTPS y no MQTT: el lector siempre pregunta, así que basta HTTPS con una llave por lector]"
       ]
     },
@@ -403,7 +404,7 @@ window.PRESENTACION = {
         app: { icono: 'phone', nombre: 'App móvil' }
       },
       pasos: [
-        { donde: 'rfid', icono: 'card', titulo: 'Pasa su tarjeta', texto: 'Su membresía está vencida: LED rojo y buzzer, acceso negado', presenta: 'Valeria' },
+        { donde: 'rfid', icono: 'card', titulo: 'Pasa su tarjeta', texto: 'Su membresía está vencida: LED rojo, buzzer y la puerta no se abre', presenta: 'Valeria' },
         { donde: 'web', icono: 'ledno', titulo: 'Acceso negado', texto: 'El panel del dueño muestra el intento al instante', presenta: 'Edwin' },
         { donde: 'app', icono: 'campana', titulo: 'Le llega el aviso', texto: 'Una notificación le pide renovar su membresía', presenta: 'Edwin' },
         { donde: 'app', icono: 'recibo', titulo: 'Paga desde la app', texto: 'Renueva su mensualidad con tarjeta o PayPal', presenta: 'Edwin' },
@@ -413,10 +414,10 @@ window.PRESENTACION = {
       duracion: '5:00',
       presenta: ["Edwin","Valeria"],
       guion: [
-        { quien: "Todo el equipo", texto: "[Antes de empezar: la web abierta en la laptop con la sesión del dueño, en Accesos RFID; el celular con la app y la sesión del socio vencido, con las notificaciones permitidas; el lector encendido y en línea en el panel]" },
+        { quien: "Todo el equipo", texto: "[Antes de empezar: la web abierta en la laptop con la sesión del dueño, en Accesos RFID; el celular con la app y la sesión del socio vencido, con las notificaciones permitidas; el lector encendido, en línea en el panel y con el servo conectado a la puerta]" },
         { quien: "Todo el equipo", texto: "[Si ensayan antes: al pagar, la membresía de ese socio queda activa, así que para la demo necesitan otro socio vencido]" },
         { quien: "Valeria", texto: "Les vamos a mostrar todo el sistema en un solo flujo: la adquisición de datos con el RFID, la web y la app." },
-        { quien: "Valeria", texto: "Este socio tiene su membresía vencida e intenta entrar. [Acercar la tarjeta al lector] El lector manda la lectura a la API, que revisa su membresía: LED rojo, suena el buzzer y no puede pasar." },
+        { quien: "Valeria", texto: "Este socio tiene su membresía vencida e intenta entrar. [Acercar la tarjeta al lector] El lector manda la lectura a la API, que revisa su membresía: LED rojo, suena el buzzer y la puerta no se abre." },
         { quien: "Edwin", texto: "En la web, el dueño ve al instante el intento: acceso negado por membresía vencida, con la hora." },
         { quien: "Edwin", texto: "[Pasarles el celular a los evaluadores] Al mismo tiempo, al socio le llega esta notificación para renovar." },
         { quien: "Edwin", texto: "Desde la app paga su mensualidad. [Pagar con la tarjeta de prueba] Al terminar, la app le dice que ya puede volver a pasar su tarjeta." },
@@ -438,7 +439,7 @@ window.PRESENTACION = {
       puntos: [
         { valor: 'Integración', texto: 'Web, app y RFID trabajan sobre la misma API: lo que el socio compra se refleja en todas partes.' },
         { valor: 'Tiempo', texto: 'Registros, cobros y validación de pagos ya no dependen del Excel ni de las bitácoras.' },
-        { valor: 'Control', texto: 'Cada entrada y salida queda registrada, sin depender de quien vigila la puerta.' },
+        { valor: 'Control', texto: 'El servo solo abre a quien pagó, y cada entrada y salida queda registrada sin depender de quien vigile.' },
         { valor: 'Seguridad', texto: 'La protegimos desde el diseño con la NMX-I-27001, no como un parche al final.' }
       ],
       siguientes: ['Piloto con un gimnasio local', 'Publicar la app en Google Play', 'Sumar el RFID al alcance de la NMX-I-27001'],
@@ -449,7 +450,7 @@ window.PRESENTACION = {
         "Gracias, Valeria.",
         "Para cerrar, cuatro conclusiones.",
         "Integración: la web, la app y el RFID comparten la misma API, así que lo que el socio compra se refleja en todas partes. Tiempo: los registros, los cobros y la validación de pagos ya no dependen del Excel.",
-        "Control: cada entrada y salida queda registrada sin depender de quien vigila la puerta. Seguridad: la aplicamos desde el diseño con la NMX-I-27001.",
+        "Control: la puerta solo se abre a quien pagó, y cada entrada y salida queda registrada sin depender de quien vigile. Seguridad: la aplicamos desde el diseño con la NMX-I-27001.",
         "Lo que sigue: un piloto con un gimnasio local, publicar la app en Google Play y sumar el RFID al alcance de la norma de seguridad. Eduardo cierra."
       ]
     },
