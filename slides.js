@@ -76,10 +76,10 @@ window.PRESENTACION = {
       presenta: "José María",
       guion: [
         "[Al iniciar se ven la web y la app en grande]",
-        "Buenos días. Somos el equipo GymTrack: Eduardo, Edwin, Valeria, Yael y yo, José María.",
+        "Buenos días. Somos GymTrack: Eduardo, Edwin, Valeria, Yael y yo, José María.",
         "[→ se acomoda la portada]",
-        "GymTrack es un ecosistema digital para gimnasios: une una plataforma de comercio electrónico, una aplicación móvil y un control de acceso con RFID.",
-        "Está pensado para dueños de gimnasios locales y para las personas que entrenan en ellos. Nuestro propósito es simple: que solo entre quien pagó y que el gimnasio venda más. Por eso nuestro eslogan es: Tu gimnasio. Tu visión. Otro nivel."
+        "Imaginen un gimnasio donde solo entra quien pagó, donde los socios compran desde su celular y donde el dueño ve todo su negocio en una sola pantalla. Eso es GymTrack.",
+        "Es una plataforma para dueños de gimnasios locales y para la gente que entrena con ellos: una tienda en línea, una app para el socio y un lector en la puerta que trabajan juntos. Tu gimnasio. Tu visión. Otro nivel."
       ]
     },
 
@@ -106,11 +106,11 @@ window.PRESENTACION = {
       duracion: '0:45',
       presenta: "José María",
       guion: [
-        "Empecemos con un número: treinta mil pesos al año.",
-        "Imaginen un gimnasio de 50 socios. Si solo el 10% tiene la membresía vencida y sigue entrando porque nadie revisa en la puerta, son 5 personas. A 500 pesos al mes son 2,500 pesos que no se cobran cada mes; en un año, 30,000.",
-        "Y si pensamos en una cadena de 10 sucursales de 40 a 60 socios, esa misma fuga llega a entre 240 y 360 mil pesos al año.",
+        "¿Cuánto dinero pierde un gimnasio por la puerta? Hicimos la cuenta.",
+        "En un gimnasio de 50 socios, si solo 5 siguen entrando con la membresía vencida, a 500 pesos al mes son 2,500 pesos que no se cobran cada mes: 30 mil pesos al año. Es dinero que el dueño ya ganó y nunca ve.",
+        "En una cadena de 10 sucursales, esa fuga llega a entre 240 y 360 mil pesos al año.",
         "[Si preguntan: es una estimación con cifras típicas de un gimnasio local]",
-        "Le paso la palabra a Yael para explicarles de dónde viene esto."
+        "Yael les cuenta por qué pasa esto."
       ]
     },
 
@@ -137,9 +137,9 @@ window.PRESENTACION = {
       duracion: '0:45',
       presenta: "Yael",
       guion: [
-        "Gracias, José María. En ese gimnasio, 9 de cada 10 socios están al corriente, pero 1 de cada 10 entra con la membresía vencida. Ahí vemos cuatro áreas de oportunidad.",
-        "Primero, la vigilancia de la puerta: depende de personas que cambian o que no siempre están, y eso es difícil de mantener. Segundo, los registros: los gimnasios no tienen un sistema y anotan todo en Excel o en bitácoras, así que digitalizarlo les ahorra tiempo.",
-        "Tercero, la validación de pagos: confirmar que un socio pagó lleva tiempo. Y cuarto, los manuales de uso: el socio no tiene a la mano cómo usar las máquinas de su gimnasio."
+        "Gracias, José María. Esto no pasa porque los dueños se descuiden. Pasa porque hoy todo depende de personas y de papel.",
+        "La puerta depende de quien esté en recepción ese día. Los registros viven en Excel o en una libreta. Confirmar que alguien pagó le quita tiempo al personal. Y el socio llega a una máquina sin saber bien cómo usarla.",
+        "Cada una de estas cuatro cosas es una oportunidad: recuperar dinero, ahorrar tiempo y darle al socio una mejor experiencia."
       ]
     },
 
@@ -164,10 +164,10 @@ window.PRESENTACION = {
       duracion: '0:45',
       presenta: "Yael",
       guion: [
-        "Nuestra solución son tres piezas conectadas a una sola nube.",
-        "Una plataforma de comercio electrónico para el dueño: panel, tienda, mostrador y pagos reales. Una aplicación móvil para el socio: su membresía, sus rutinas guiadas con ilustraciones de cómo se hace cada ejercicio, su progreso y sus compras. Y un control de acceso RFID: un lector que registra las entradas y salidas en el panel del dueño del gimnasio, con un servo que abre la puerta.",
-        "Abajo ven el flujo: el socio paga, y solo puede comprar en un gimnasio si es miembro de él; su membresía se activa sola; y al pasar su tarjeta el servo le abre la puerta, y su entrada y su salida quedan registradas en el panel del dueño de ese gimnasio, sin que nadie las anote a mano.",
-        "Eduardo les cuenta cómo lo construimos."
+        "Por eso creamos GymTrack: tres piezas que se hablan entre sí.",
+        "Para el dueño, una tienda en línea y un panel donde ve sus ventas, sus socios y quién entra. Para el socio, una app con su membresía, sus rutinas guiadas y sus compras. Y en la puerta, un lector RFID con un servo que solo le abre a quien está al día.",
+        "El resultado es este: el socio paga desde su celular, su membresía se activa sola, pasa su tarjeta y la puerta se abre. Todo queda registrado en el panel del dueño, sin que nadie anote nada a mano.",
+        "Eduardo les explica cómo lo construimos."
       ]
     },
 
@@ -179,15 +179,15 @@ window.PRESENTACION = {
       duracion: '1:10',
       presenta: "Eduardo",
       guion: [
-        "Gracias, Yael. El proyecto lo construimos en tres fases.",
+        "Gracias, Yael. Construimos GymTrack en tres fases, y las tres ya funcionan.",
         "[Aparece la Fase 1 en grande]",
-        "La primera es el comercio electrónico: la tienda de cada gimnasio, con pago con tarjeta, PayPal y pago en tienda, recibos en PDF y panel de ventas. Ya está en producción.",
+        "Primero, el comercio electrónico: cada gimnasio tiene su propia tienda en línea y cobra con tarjeta, PayPal o en efectivo en tiendas. Ya está en producción.",
         "[→ entra la Fase 2]",
-        "La segunda es la aplicación móvil para el socio, también en producción como APK de Android.",
+        "Segundo, la app para el socio, que ya se instala en Android.",
         "[→ entra la Fase 3]",
-        "La tercera es el control de acceso con RFID, que ya terminamos: el lector registra las entradas y salidas de cada socio, y un servo le abre la puerta solo a quien tiene su membresía al día.",
+        "Y tercero, el control de acceso: un lector RFID que registra cada entrada y un servo que abre la puerta.",
         "[→ aparecen las cifras]",
-        "Abajo ven 6 gimnasios, 42 socios y 196 ventas en 90 días. Son datos de demostración que cargamos en producción para probar el sistema completo; no son clientes reales. Valeria les explica cada fase."
+        "Para probarlo todo junto cargamos 6 gimnasios de demostración, con 42 socios y 196 ventas en 90 días. No son clientes reales, pero el sistema los atiende como si lo fueran. Valeria les muestra la tienda."
       ]
     },
 
@@ -212,9 +212,10 @@ window.PRESENTACION = {
       presenta: "Valeria",
       guion: [
         "[→ zoom a la Fase 1]",
-        "Gracias, Eduardo. Este es el comercio electrónico, por capas.",
-        "En el front está el sitio en HTML, CSS, JavaScript y Bootstrap: la tienda, el checkout, el panel del dueño, el mostrador, las ventas y un catálogo de 46 máquinas con ilustraciones de cada ejercicio, en tema claro u oscuro. En el back, una API REST en Java desplegada en Render; es la misma que usa la app.",
-        "Como servicios ofrecemos tres formas de pago: con tarjeta, con PayPal y en efectivo en tiendas. Además, recibos en PDF, correos y analítica con Google Analytics 4. Los datos viven en MongoDB Atlas, separados por gimnasio y con los controles de seguridad de la norma.",
+        "Gracias, Eduardo. Esta es la plataforma de comercio electrónico, pensada para que el gimnasio venda más.",
+        "El dueño publica sus planes y productos, como membresías, proteína o accesorios, y sus socios los compran en línea. Puede cobrar con tarjeta, con PayPal o en efectivo en tiendas como OXXO, y también vender en el mostrador. Cada compra genera su recibo en PDF, que le llega por correo.",
+        "Desde su panel ve qué se vende más y cuánto vendió en el día y en el mes. También arma su gimnasio con un catálogo de 46 máquinas que trae la ilustración de cada ejercicio.",
+        "[Si preguntan por la tecnología: HTML, CSS, JavaScript y Bootstrap en el front; una API REST en Java en Render; los datos en MongoDB Atlas, separados por gimnasio]",
         "Pueden escanear el código o entrar con el botón para verla en vivo."
       ]
     },
@@ -248,13 +249,12 @@ window.PRESENTACION = {
       presenta: "Valeria",
       guion: [
         "[→ entra deslizándose]",
-        "La app móvil la hicimos con React Native, Expo y TypeScript, y se instala como APK de Android.",
-        "No duplicamos servidor: usa la misma API que la web, con autenticación por token y notificaciones push. Además, el socio entrena con la rutina de su coach paso a paso, y en Android lo acompaña una notificación con el cronómetro y el ejercicio que sigue.",
-        "Para asegurar la calidad tenemos 612 pruebas automatizadas que corren en GitHub Actions, nuestro CI, cada vez que alguien sube un cambio. Son pruebas de punta a punta: un programa hace lo mismo que haría un usuario contra la API real, como registrarse, unirse a un gimnasio, comprar con tarjeta, PayPal o en tienda, recibir su recibo, entrar con el lector o intentar ver datos de otro gimnasio, y revisa que el resultado sea el correcto.",
-        "Si una sola de esas pruebas falla, el cambio no se publica. Así la web y la app, que usan la misma API, no se rompen sin que nos demos cuenta.",
-        "[Si preguntan: están en GTWeb/pruebas; cada una imprime ✔ o ✘ por comprobación]",
-        "Las tres pasarelas son pago con tarjeta, PayPal y pago en tienda, y se abren en un navegador seguro, así la app nunca toca los datos de la tarjeta.",
-        "Eduardo les muestra el recorrido del usuario en la app."
+        "Y para el socio está la app. Con ella ve si su membresía está activa, compra en la tienda de su gimnasio y entrena con las rutinas que le prepara su coach, paso a paso, con la ilustración de cada ejercicio y el descanso cronometrado. En Android, una notificación lo acompaña mientras entrena.",
+        "La app trabaja con el mismo sistema que la web: lo que el socio compra en su celular, el dueño lo ve al instante en su panel.",
+        "¿Y cómo sabemos que todo funciona? Cada vez que cambiamos algo, 612 pruebas automáticas repiten lo que haría un usuario real: comprar, pagar o entrar por la puerta. Si una sola falla, el cambio no se publica.",
+        "[Si el tiempo está justo, salta el párrafo de las pruebas y déjalo para las preguntas]",
+        "[Si preguntan por la tecnología: React Native con Expo y TypeScript; la misma API REST, con token; las pruebas corren en GitHub Actions y están en GTWeb/pruebas]",
+        "Eduardo les muestra cómo la usa un socio."
       ]
     },
 
@@ -291,13 +291,13 @@ window.PRESENTACION = {
       duracion: '1:00',
       presenta: "Eduardo",
       guion: [
-        "Gracias, Valeria. Este es el recorrido principal del socio dentro de la app, en cinco pasos. En cada uno les muestro la pantalla donde lo hace.",
-        "[→] Primero inicia sesión en Iniciar sesión, o crea su cuenta en Crear cuenta si es nuevo.",
-        "[→] Luego, en Vincular gimnasio, se une a su gimnasio con el código que le dan en recepción, y el dueño aprueba su solicitud.",
-        "[→] En Inicio ve su gimnasio, si su membresía está activa y hasta cuándo, y la rutina del día.",
-        "[→] En la Tienda elige su plan o un producto y lo paga en Pagar, con tarjeta, PayPal o en tienda, sin ir a recepción.",
-        "[→] Y por último entrena: desde Inicio empieza la rutina del día y en Entrenando sigue cada ejercicio con su ilustración, anota sus kilos, marca cada serie y le corre el descanso. En Progreso ve su racha y su volumen por grupo muscular.",
-        "[→] Así queda el recorrido completo. La renovación y el pago los van a ver en la demostración. Edwin sigue con el RFID."
+        "Gracias, Valeria. Así es un día con GymTrack para el socio, en cinco pasos.",
+        "[→] Se registra o inicia sesión en un minuto.",
+        "[→] En Vincular gimnasio escribe el código que le dan en recepción, y el dueño lo aprueba.",
+        "[→] En Inicio ve su gimnasio, si su membresía sigue activa y hasta cuándo, la rutina del día y su progreso.",
+        "[→] Si necesita renovar, o se le antoja una proteína, lo elige en la Tienda y lo paga en Pagar, sin hacer fila en recepción.",
+        "[→] Y entrena: en Entrenando sigue su rutina con la ilustración de cada ejercicio, anota sus kilos y la app le cuenta el descanso. En Progreso ve su racha y cuánto ha avanzado.",
+        "[→] Un socio que ve su avance vuelve al gimnasio. Edwin les explica la puerta."
       ]
     },
 
@@ -331,11 +331,10 @@ window.PRESENTACION = {
       presenta: "Edwin",
       guion: [
         "[→]",
-        "Gracias, Eduardo. La tercera fase es el control de acceso con RFID, una arquitectura de sensores y actuadores que se lee de izquierda a derecha, igual que viaja el dato.",
-        "El socio acerca su credencial UHF; el lector YRM1004 la lee y la pasa por UART a la placa LILYGO, un ESP32 con módem, que le pregunta por HTTPS a nuestra API, por WiFi, LTE-M o 2G. Cada acceso se guarda en MongoDB y la respuesta regresa al lector, que mueve la puerta.",
-        "Monitoreamos en tiempo real las entradas, con LED verde, un pitido del buzzer y un servo que abre la puerta 3 segundos; las salidas, con LED azul, y también se abre; quién entra y a qué hora; y los accesos denegados, con LED rojo, buzzer y una alerta en el panel, desde donde el dueño puede abrirle la puerta si lo decide.",
-        "La puerta la mueve un servo SG90 conectado al GPIO 23 de la LILYGO: gira 90 grados para abrir y a los 3 segundos se cierra sola, sin dejar de leer tarjetas.",
-        "Y si se cae la red, el lector decide con la lista de credenciales que guarda en su memoria, así que la puerta sigue funcionando. La misma tarjeta también sirve para entregar los pedidos de la tienda en el mostrador.",
+        "Gracias, Eduardo. La tercera pieza es la que cierra la fuga de dinero: la puerta.",
+        "El socio acerca su tarjeta al lector y, en un segundo, el sistema revisa si su membresía está al día. Si lo está, se prende el LED verde, suena el buzzer y el servo abre la puerta. Si no, LED rojo y la puerta no se abre; el dueño recibe una alerta en su panel y, si quiere, le abre desde ahí.",
+        "Cada entrada y salida queda registrada con nombre y hora, sin que nadie vigile. Si se va el internet, el lector sigue funcionando con la lista de socios que guarda en su memoria. Y la misma tarjeta sirve para recoger pedidos en el mostrador.",
+        "[Si preguntan por los componentes: tarjeta RFID UHF; lector YRM1004 conectado por UART a una placa LILYGO T-SIM7070G (un ESP32 con módem); WiFi, LTE-M o 2G; HTTPS a la misma API; servo SG90 en el GPIO 23, que abre 90° por 3 segundos]",
         "[Si preguntan por qué HTTPS y no MQTT: el lector siempre pregunta, así que basta HTTPS con una llave por lector]"
       ]
     },
@@ -379,14 +378,12 @@ window.PRESENTACION = {
       duracion: '1:00',
       presenta: "Edwin",
       guion: [
-        "Para la seguridad usamos la norma mexicana NMX-I-27001-NYCE-2015. La publica NYCE, Normalización y Certificación, el organismo mexicano de normalización; es la versión mexicana de la norma internacional ISO/IEC 27001.",
-        "¿A qué se refiere? A la seguridad de la información: proteger los datos para que solo los vea quien debe, que nadie los altere y que estén disponibles cuando se necesitan. Para eso la norma trae 114 controles; les vamos a explicar dos.",
-        "El primero es el A.9.4.3, gestión de contraseñas, que es parte del control de acceso. Pide que las contraseñas sean seguras y que el sistema las guarde protegidas.",
-        "En la página funciona así: al crear la cuenta, mientras la persona escribe su contraseña se van marcando los requisitos: ocho caracteres, una letra, un número y un símbolo. Al guardarla la ciframos con BCrypt, así que ni nosotros podemos leerla. Y si la olvida, la cambia con un código de un solo uso que le llega a su correo.",
-        "El segundo es el A.12.4.1, registro de eventos. Pide guardar un registro de lo que pasa en el sistema, para saber quién hizo qué y cuándo.",
-        "En GymTrack es la bitácora de seguridad que el dueño ve en su panel: cada inicio de sesión, cada contraseña incorrecta y cada acceso negado, con la fecha, la IP y el dispositivo. También quedan los cambios importantes del dueño, como precios, reembolsos y altas o bajas de miembros. Nadie la puede editar ni borrar, y se borra sola a los 180 días.",
-        "[Si preguntan por los demás controles: de los 114, aplican 95 a GymTrack y 82 ya están implementados; los otros 13 están en proceso]",
-        "Ahora, la demostración. Valeria empieza con el lector."
+        "Un dueño solo nos va a confiar su dinero y los datos de sus socios si están protegidos. Por eso seguimos la norma mexicana NMX-I-27001-NYCE-2015. La publica NYCE, Normalización y Certificación, y es la versión mexicana de la ISO/IEC 27001.",
+        "La norma trata de la seguridad de la información: que los datos solo los vea quien debe, que nadie los altere y que siempre estén disponibles. Les mostramos dos de sus controles.",
+        "El primero es el A.9.4.3, gestión de contraseñas. Al crear su cuenta, la página le marca en vivo si su contraseña es segura: ocho caracteres, una letra, un número y un símbolo. La guardamos cifrada, así que ni nosotros podemos leerla. Y si la olvida, la cambia con un código que le llega al correo.",
+        "El segundo es el A.12.4.1, registro de eventos. El dueño tiene una bitácora donde ve quién entró a su cuenta, qué contraseñas fallaron, qué accesos se negaron y qué se cambió en su gimnasio: precios, reembolsos, altas y bajas. Nadie la puede borrar.",
+        "[Si preguntan: las contraseñas se cifran con BCrypt; la bitácora guarda fecha, IP y dispositivo, y se borra sola a los 180 días. De los 114 controles de la norma, aplican 95 y ya están implementados 82; los otros 13 están en proceso]",
+        "Ahora, lo mejor: verlo funcionar. Valeria empieza con el lector."
       ]
     },
 
@@ -416,14 +413,14 @@ window.PRESENTACION = {
       guion: [
         { quien: "Todo el equipo", texto: "[Antes de empezar: la web abierta en la laptop con la sesión del dueño, en Accesos RFID; el celular con la app y la sesión del socio vencido, con las notificaciones permitidas; el lector encendido, en línea en el panel y con el servo conectado a la puerta]" },
         { quien: "Todo el equipo", texto: "[Si ensayan antes: al pagar, la membresía de ese socio queda activa, así que para la demo necesitan otro socio vencido]" },
-        { quien: "Valeria", texto: "Les vamos a mostrar todo el sistema en un solo flujo: la adquisición de datos con el RFID, la web y la app." },
-        { quien: "Valeria", texto: "Este socio tiene su membresía vencida e intenta entrar. [Acercar la tarjeta al lector] El lector manda la lectura a la API, que revisa su membresía: LED rojo, suena el buzzer y la puerta no se abre." },
-        { quien: "Edwin", texto: "En la web, el dueño ve al instante el intento: acceso negado por membresía vencida, con la hora." },
-        { quien: "Edwin", texto: "[Pasarles el celular a los evaluadores] Al mismo tiempo, al socio le llega esta notificación para renovar." },
-        { quien: "Edwin", texto: "Desde la app paga su mensualidad. [Pagar con la tarjeta de prueba] Al terminar, la app le dice que ya puede volver a pasar su tarjeta." },
-        { quien: "Valeria", texto: "Ya con el pago confirmado, vuelve a pasar su tarjeta. [Acercar la tarjeta] Ahora el lector la acepta: LED verde, suena el buzzer, el servo abre la puerta 3 segundos y su entrada queda registrada. Le pedimos pasarla otra vez para asegurarnos de que la persona sí está en la puerta." },
-        { quien: "Edwin", texto: "Y en la web el dueño ve las dos cosas: el pago de la mensualidad y la entrada del socio." },
-        { quien: "Valeria", texto: "Así, con un solo socio, vieron la web, la app y la adquisición de datos trabajando juntas sobre la misma API." },
+        { quien: "Valeria", texto: "Les vamos a contar la historia de un socio que olvidó renovar su membresía." },
+        { quien: "Valeria", texto: "Llega al gimnasio y pasa su tarjeta. [Acercar la tarjeta al lector] LED rojo, suena el buzzer y la puerta no se abre. Nadie tuvo que detenerlo." },
+        { quien: "Edwin", texto: "En ese mismo momento, el dueño lo ve en su panel: acceso negado por membresía vencida, con el nombre y la hora." },
+        { quien: "Edwin", texto: "[Pasarles el celular a los evaluadores] Y al socio le llega esta notificación: su membresía venció y puede renovarla desde aquí." },
+        { quien: "Edwin", texto: "La paga desde la app, sin ir a recepción. [Pagar con la tarjeta de prueba] La app le avisa que ya puede volver a pasar su tarjeta." },
+        { quien: "Valeria", texto: "Vuelve a pasar su tarjeta. [Acercar la tarjeta] LED verde, suena el buzzer y el servo le abre la puerta." },
+        { quien: "Edwin", texto: "Y el dueño ve las dos cosas en su panel: el pago que acaba de entrar y la entrada del socio." },
+        { quien: "Valeria", texto: "En menos de un minuto, el gimnasio cobró una membresía que antes se habría perdido. Eso es GymTrack: la web, la app y el lector trabajando juntos." },
         { quien: "Todo el equipo", texto: "[Si algo falla, explicar el flujo con esta diapositiva y seguir]" }
       ]
     },
@@ -447,11 +444,10 @@ window.PRESENTACION = {
       presenta: "Yael",
       guion: [
         "[OPCIONAL: si el tiempo ya está justo, solo di la primera y la última frase y pasa al cierre]",
-        "Gracias, Valeria.",
-        "Para cerrar, cuatro conclusiones.",
-        "Integración: la web, la app y el RFID comparten la misma API, así que lo que el socio compra se refleja en todas partes. Tiempo: los registros, los cobros y la validación de pagos ya no dependen del Excel.",
-        "Control: la puerta solo se abre a quien pagó, y cada entrada y salida queda registrada sin depender de quien vigile. Seguridad: la aplicamos desde el diseño con la NMX-I-27001.",
-        "Lo que sigue: un piloto con un gimnasio local, publicar la app en Google Play y sumar el RFID al alcance de la norma de seguridad. Eduardo cierra."
+        "Gracias, Valeria. Para cerrar, esto es lo que GymTrack le deja a un gimnasio.",
+        "Integración: la tienda, la app y la puerta trabajan juntas, así que lo que el socio paga se refleja en todos lados. Tiempo: el personal deja de llenar bitácoras y de revisar pagos a mano.",
+        "Control: la puerta solo se abre a quien pagó, y cada entrada queda registrada. Seguridad: los datos están protegidos con la norma mexicana desde el diseño.",
+        "Lo que sigue: un piloto con un gimnasio local, la app en Google Play y sumar el lector al alcance de la norma. Eduardo cierra."
       ]
     },
 
@@ -484,8 +480,8 @@ window.PRESENTACION = {
       duracion: '0:15',
       presenta: "Eduardo",
       guion: [
-        "Aquí están nuestros dos repositorios públicos, GTWeb y GTApp; pueden escanear el código para verlos.",
-        "Muchas gracias. ¿Tienen alguna pregunta?"
+        "Todo nuestro código es público: aquí están GTWeb y GTApp, y pueden escanear el código para verlos.",
+        "Tu gimnasio. Tu visión. Otro nivel. Muchas gracias, ¿tienen alguna pregunta?"
       ]
     }
   ]
