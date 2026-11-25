@@ -278,15 +278,15 @@ window.PRESENTACION = {
         { titulo: 'Se une a su gimnasio', texto: 'Escribe el código que le dan en recepción y el dueño aprueba su solicitud.',
           pantallas: ['Vincular gimnasio'],
           capturas: [{ src: 'img/app-vincular.png', alt: 'Pantalla Vincular gimnasio' }] },
-        { titulo: 'Ve su membresía', texto: 'Ve su gimnasio, si su membresía está activa y hasta cuándo, y la rutina del día.',
+        { titulo: 'Ve su membresía', texto: 'Ve su gimnasio, si su membresía está activa y hasta cuándo, la rutina del día y su progreso.',
           pantallas: ['Inicio'],
           capturas: [{ src: 'img/app-inicio.png', alt: 'Pantalla Inicio' }] },
         { titulo: 'Elige y paga su plan o producto', texto: 'Elige en la tienda de su gimnasio y paga con tarjeta, PayPal o en tienda, sin ir a recepción.',
           pantallas: ['Tienda', 'Pagar'],
           capturas: [{ src: 'img/app-tienda.png', alt: 'Pantalla Tienda' }, { src: 'img/app-pagar.png', alt: 'Pantalla Pagar' }] },
-        { titulo: 'Entrena y mide su avance', texto: 'Sigue la rutina paso a paso, con ilustraciones de cómo se hace cada ejercicio; anota series y peso, y ve su avance.',
-          pantallas: ['Entrenar', 'Progreso'],
-          capturas: [{ src: 'img/app-entrenar.png', alt: 'Pantalla Entrenar' }, { src: 'img/app-progreso.png', alt: 'Pantalla Progreso' }] }
+        { titulo: 'Entrena y mide su avance', texto: 'Sigue la rutina de su coach con la ilustración de cada ejercicio, marca sus series con el descanso en marcha y ve su avance.',
+          pantallas: ['Entrenando', 'Progreso'],
+          capturas: [{ src: 'img/app-entrenando.png', alt: 'Pantalla Entrenando' }, { src: 'img/app-progreso.png', alt: 'Pantalla Progreso' }] }
       ],
       duracion: '1:00',
       presenta: "Eduardo",
@@ -296,7 +296,7 @@ window.PRESENTACION = {
         "[→] Luego, en Vincular gimnasio, se une a su gimnasio con el código que le dan en recepción, y el dueño aprueba su solicitud.",
         "[→] En Inicio ve su gimnasio, si su membresía está activa y hasta cuándo, y la rutina del día.",
         "[→] En la Tienda elige su plan o un producto y lo paga en Pagar, con tarjeta, PayPal o en tienda, sin ir a recepción.",
-        "[→] Y por último, en Entrenar sigue la rutina de su coach paso a paso, con ilustraciones de cómo se hace cada ejercicio, anota sus series y su peso, y en Progreso ve su racha y cuánto avanza.",
+        "[→] Y por último entrena: desde Inicio empieza la rutina del día y en Entrenando sigue cada ejercicio con su ilustración, anota sus kilos, marca cada serie y le corre el descanso. En Progreso ve su racha y su volumen por grupo muscular.",
         "[→] Así queda el recorrido completo. La renovación y el pago los van a ver en la demostración. Edwin sigue con el RFID."
       ]
     },
