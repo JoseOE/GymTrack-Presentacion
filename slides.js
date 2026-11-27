@@ -355,8 +355,8 @@ window.PRESENTACION = {
       ],
       controles: [
         {
-          clave: 'A.9.4.3', dominio: 'A.9 · Control de acceso', nombre: 'Gestión de contraseñas',
-          pide: 'Que las contraseñas sean seguras y que el sistema las guarde protegidas.',
+          clave: 'A.9.4.3', dominio: 'A.9 · Control de acceso', nombre: 'Sistema de gestión de contraseñas',
+          pide: '“Los sistemas de administración de contraseñas deben ser interactivos y deben asegurar la calidad de las contraseñas.”',
           como: [
             'Al crear la cuenta, la página marca en vivo los requisitos: *8 caracteres, letra, número y símbolo*',
             'Se guarda cifrada con *BCrypt*: ni nosotros podemos leerla',
@@ -366,7 +366,7 @@ window.PRESENTACION = {
         },
         {
           clave: 'A.12.4.1', dominio: 'A.12 · Seguridad de las operaciones', nombre: 'Registro de eventos',
-          pide: 'Guardar un registro de lo que pasa en el sistema: quién hizo qué y cuándo.',
+          pide: '“Se deben generar, mantener y revisar regularmente los registros de eventos (logs) de las actividades de usuarios, excepciones, fallas y eventos de seguridad de la información.”',
           como: [
             'Cada inicio de sesión, contraseña incorrecta y acceso negado queda anotado con *fecha, IP y dispositivo*',
             'También los cambios del dueño: *precios, reembolsos, altas y bajas* de miembros',
@@ -380,8 +380,8 @@ window.PRESENTACION = {
       guion: [
         "Un dueño solo nos va a confiar su dinero y los datos de sus socios si están protegidos. Por eso seguimos la norma mexicana NMX-I-27001-NYCE-2015. La publica NYCE, Normalización y Certificación, y es la versión mexicana de la ISO/IEC 27001.",
         "La norma trata de la seguridad de la información: que los datos solo los vea quien debe, que nadie los altere y que siempre estén disponibles. Les mostramos dos de sus controles.",
-        "El primero es el A.9.4.3, gestión de contraseñas. Al crear su cuenta, la página le marca en vivo si su contraseña es segura: ocho caracteres, una letra, un número y un símbolo. La guardamos cifrada, así que ni nosotros podemos leerla. Y si la olvida, la cambia con un código que le llega al correo.",
-        "El segundo es el A.12.4.1, registro de eventos. El dueño tiene una bitácora donde ve quién entró a su cuenta, qué contraseñas fallaron, qué accesos se negaron y qué se cambió en su gimnasio: precios, reembolsos, altas y bajas. Nadie la puede borrar.",
+        "El primero es el A.9.4.3, sistema de gestión de contraseñas. La norma dice: «Los sistemas de administración de contraseñas deben ser interactivos y deben asegurar la calidad de las contraseñas». En GymTrack, al crear su cuenta, la página le marca en vivo si su contraseña es segura: ocho caracteres, una letra, un número y un símbolo. La guardamos cifrada, así que ni nosotros podemos leerla. Y si la olvida, la cambia con un código que le llega al correo.",
+        "El segundo es el A.12.4.1, registro de eventos. La norma dice: «Se deben generar, mantener y revisar regularmente los registros de eventos (logs) de las actividades de usuarios, excepciones, fallas y eventos de seguridad de la información». En GymTrack, el dueño tiene una bitácora donde ve quién entró a su cuenta, qué contraseñas fallaron, qué accesos se negaron y qué se cambió en su gimnasio: precios, reembolsos, altas y bajas. Nadie la puede borrar.",
         "[Si preguntan: las contraseñas se cifran con BCrypt; la bitácora guarda fecha, IP y dispositivo, y se borra sola a los 180 días. De los 114 controles de la norma, aplican 95 y ya están implementados 82; los otros 13 están en proceso]",
         "Ahora, lo mejor: verlo funcionar. Valeria empieza con el lector."
       ]

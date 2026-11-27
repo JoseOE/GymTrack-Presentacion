@@ -575,26 +575,28 @@ svg .num { font-family: var(--display); font-weight: 700; }
 .slide.paso-6 .app-escena[data-n="5"] .escena-texto { opacity: 0; transition: opacity .25s ease; }
 
 /* ─── Seguridad: un control de la norma ──────────────────────── */
-.seg-marco { display: grid; grid-template-columns: 1fr 1fr 1.25fr; margin-top: 30px; background: var(--ink-2); border-radius: 24px; }
-.seg-dato { padding: 22px 30px 24px; }
+.seg-marco { display: grid; grid-template-columns: 1fr 1fr 1.25fr; margin-top: 22px; background: var(--ink-2); border-radius: 24px; }
+.seg-dato { padding: 16px 26px 18px; }
 .seg-dato + .seg-dato { border-left: 1px solid var(--ink-3); }
 .seg-dato > span { display: block; font: 700 17px/1 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--brand); }
-.seg-dato > b { display: block; margin-top: 10px; font: 800 40px/1 var(--display); letter-spacing: .01em; }
-.seg-dato > p { margin-top: 8px; font: 500 20px/1.35 var(--body); color: #d9d7cf; }
+.seg-dato > b { display: block; margin-top: 8px; font: 800 34px/1 var(--display); letter-spacing: .01em; }
+.seg-dato > p { margin-top: 5px; font: 500 18px/1.3 var(--body); color: #d9d7cf; }
 .seg-dato em { color: var(--brand-soft); font-style: normal; font-weight: 700; }
-.seg-controles { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 26px; flex: 1; }
-.seg-ctrl { background: var(--ink-2); border-radius: 24px; border-top: 6px solid var(--brand); padding: 24px 32px 26px; display: flex; flex-direction: column; gap: 16px; }
+.seg-controles { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 18px; flex: 1; }
+.seg-ctrl { background: var(--ink-2); border-radius: 24px; border-top: 6px solid var(--brand); padding: 18px 30px 20px; display: flex; flex-direction: column; gap: 13px; }
 .seg-cab { display: flex; gap: 22px; align-items: center; }
-.seg-cab .clave { font: 800 62px/1 var(--display); color: var(--brand); }
+.seg-cab .clave { font: 800 56px/1 var(--display); color: var(--brand); }
 .seg-cab small { display: block; font: 700 17px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted-dark); }
-.seg-cab h3 { margin-top: 6px; font: 800 42px/1 var(--display); text-transform: uppercase; }
-.seg-pide, .seg-como > ul { font: 500 22px/1.4 var(--body); color: #e4e2da; }
-.seg-pide b, .seg-como > b { display: block; font: 700 16px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--brand); margin-bottom: 8px; }
-.seg-como ul { list-style: none; display: grid; gap: 10px; }
+.seg-cab h3 { margin-top: 4px; font: 800 38px/1 var(--display); text-transform: uppercase; }
+.seg-pide, .seg-como > ul { font: 500 21px/1.38 var(--body); color: #e4e2da; }
+.seg-pide { border-left: 4px solid var(--brand); padding-left: 16px; font-style: italic; }
+.seg-pide b { font-style: normal; }
+.seg-pide b, .seg-como > b { display: block; font: 700 16px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--brand); margin-bottom: 6px; }
+.seg-como ul { list-style: none; display: grid; gap: 8px; }
 .seg-como li { display: flex; gap: 12px; align-items: flex-start; }
 .seg-como li svg { width: 24px; height: 24px; color: var(--ok); flex: none; margin-top: 3px; }
 .seg-ctrl em { color: var(--brand-soft); font-style: normal; font-weight: 700; }
-.seg-donde { margin-top: auto; display: flex; gap: 10px; align-items: center; background: var(--ink-3); border-radius: 999px; padding: 10px 18px; align-self: flex-start; }
+.seg-donde { margin-top: auto; display: flex; gap: 10px; align-items: center; background: var(--ink-3); border-radius: 999px; padding: 8px 16px; align-self: flex-start; }
 .seg-donde svg { width: 24px; height: 24px; color: var(--brand); }
 .seg-donde span { font: 700 16px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; color: var(--muted-dark); }
 .seg-donde b { font: 700 21px/1 var(--body); }
